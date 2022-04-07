@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel='stylesheet' type='text/css' href='/Gardenly/css/gardenly.css'>
+        <meta name="robots" content="noindex">
         <title>Gardenly Impressum</title>
     </head>
     <body>
