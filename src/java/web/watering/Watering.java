@@ -30,32 +30,54 @@ public class Watering extends HttpServlet {
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException if an I/O error occurs Allowed GET-Request-patterns:
+     * https://gardenly.garden/Watering?id=9&waterlevel=77
+     * https://gardenly.garden/Watering?id=9&watering=now
+     * https://gardenly.garden/Watering?id=9&waterlevel=70&watering=now
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            // expected pattern: https://gardenly.garden/Watering?id=9&waterlevel=70
-            if (!(request.getParameter("id").equals("") && request.getParameter("waterlevel").equals(""))) {
-                Integer id = Integer.parseInt(request.getParameter("id"));
-                Integer waterlevel = Integer.parseInt(request.getParameter("waterlevel"));
-                Date date = new Date();
 
-                UserPlant userPlant = upm.findUserPlantById(id);
-                if (userPlant != null) {
-                    upm.setErrors(false);
-                    userPlant.setWateringDate(date);
-                    userPlant.setWaterlevel(waterlevel);
-                    upm.setUserPlant(userPlant);
-                    upm.update(userPlant);
-                } else {
-                    upm.setErrors(true);
-                    upm.setStatus("Die Pflanze mit der ID '" + id + "' wurde nicht gefunden.");
+            upm.setErrors(false);
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            UserPlant userPlant = upm.findUserPlantById(id);
+
+            if (userPlant != null) {
+
+                // Watering
+                String watering = request.getParameter("watering");
+                if (watering != null) {
+                    if (watering.equals("now")) {
+                        Date date = new Date();
+                        userPlant.setWateringDate(date);
+                    } else {
+                        upm.setErrors(true);
+                        upm.setStatus("Es wurde kein gültiges Schlüsselwort für das bewässern angegben.");
+                    }
                 }
+
+                // Waterlevel
+                String waterlevel = request.getParameter("waterlevel");
+                if (waterlevel != null) {
+                    try {
+                        Integer waterlevelInt = Integer.parseInt(request.getParameter("waterlevel"));
+                        userPlant.setWaterlevel(waterlevelInt);
+                    } catch (NumberFormatException nfe) {
+                        upm.setErrors(true);
+                        upm.setStatus("Es wurde keine gültige Zahl für den Wasserstand eingegeben.");
+                        System.out.println("Es wurde keine gültige Zahl für den Wasserstand eingegeben.");
+                        nfe.printStackTrace();
+                    }
+
+                }
+
+                upm.setUserPlant(userPlant);
+                upm.update(userPlant);
             } else {
                 upm.setErrors(true);
-                upm.setStatus("Die Bewässerung konnte nicht durchgeführt werden.");
+                upm.setStatus("Die Pflanze mit der ID '" + id + "' wurde nicht gefunden.");
             }
 
             RequestDispatcher rd
@@ -70,7 +92,7 @@ public class Watering extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
