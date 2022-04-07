@@ -15,16 +15,16 @@
     <body>
         <c:choose>
             <c:when test="${!upm.errors}">
-                <h1>Watering successful</h1>
+                <h1>Wasserstandsmeldung</h1>
                 <p>
-                    UserPlant name: ${upm.userPlant.userPlantName}<br />
-                    Owner: ${upm.userPlant.userFk.firstName} ${upm.userPlant.userFk.lastName}<br />
-                    New watering date: <fmt:formatDate type = "both"  
+                    Name der Pflanze: ${upm.userPlant.userPlantName}<br />
+                    Besitzer: ${upm.userPlant.userFk.firstName} ${upm.userPlant.userFk.lastName}<br />
+                    Letztes Bewässerungsdatum: <fmt:formatDate type = "both"  
                                                        timeZone="Europe/Berlin" 
                                                        dateStyle = "long" 
                                                        timeStyle = "short" 
                                                        value="${upm.userPlant.wateringDate}" /> Uhr<br />
-                    New waterlevel: ${upm.userPlant.waterlevel}<br />
+                    Letzter gespeicherter Wasserstand: ${upm.userPlant.waterlevel}<br />
                 </p>
             </c:when>
             <c:otherwise>
