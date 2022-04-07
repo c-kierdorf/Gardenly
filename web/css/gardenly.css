@@ -1,0 +1,73 @@
+/* 
+    Created on : 06.03.2022, 18:01:29
+    Author     : CK
+*/
+h1 {
+    font-family: Verdana, Arial, Tahoma, Serif;
+    color: #67C53F;
+}
+
+h2 {
+    font-family: Verdana, Arial, Tahoma, Serif;
+    color: #67C53F;
+}
+
+h3 {
+    font-family: Verdana, Arial, Tahoma, Serif;
+}
+
+p {
+    font-family: Verdana, Arial, Tahoma, Serif;
+    font-size: 12px;
+}
+
+.p {
+    font-family: Verdana, Arial, Tahoma, Serif;
+    font-size: 12px;
+}
+
+b {
+    font-family: Verdana, Arial, Tahoma, Serif;
+    font-size: 12px;
+}
+
+a {
+    font-family: Verdana, Arial, Tahoma, Serif;
+    font-size: 12px;
+}
+
+.field {
+    font-family: Verdana, Arial, Tahoma, Serif;
+    font-size: 12px;
+}
+
+footer {
+    font-size: 9px;
+    font-family: Verdana, Arial, Tahoma, Serif;
+}
+
+.footer {
+    font-size: 9px;
+    font-family: Verdana, Arial, Tahoma, Serif;
+}
+
+.error {
+    color: red;
+}
+
+.info {
+    color: #67C53F;
+}
+
+.location {
+    height: 100px;
+    overflow-y: scroll;
+}
+
+/* Tabelle in PlantList.jsp */
+.tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}
+.tg td{background-color:#E0FFEB;border-color:#bbb;border-style:solid;border-width:1px;color:#594F4F;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#9DE0AD;border-color:#bbb;border-style:solid;border-width:1px;color:#493F3F;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
