@@ -83,7 +83,7 @@
         <p>Aggripinawerft 4</p>
         <p>50678 Köln</p>
 
-        <p>E-Mail: info.gardenly@gmail.com</p>
+        <p>E-Mail: info@gardenly.garden</p>
 
         <p>
             <b>Datenschutzbeauftragter</b>
@@ -92,7 +92,7 @@
             Christian Kierdorf
             <br/>
 
-            info.gardenly@gmail.com
+            info@gardenly.garden
         </p>
         <ul>
             <li>Cookies</li>
