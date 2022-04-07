@@ -52,12 +52,14 @@ public class UserPlantEditSuccess extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
-            // File Upload
-            String picturePath = "";
-            if (request.getParameter("picture") != null) {
-                picturePath = request.getParameter("picture");
-            }
-            
+            //Basics: identfy UserPlant
+            Integer userPlantId = Integer.parseInt(request.getParameter("up_id"));
+            UserPlant userPlant = upm.findUserPlantById(userPlantId);
+
+            // File Upload. Goal: set a picturePath
+            String picturePath = userPlant.getUserPlantPicturePath();
+
+            // Now check, if a new upload is available
             Part filePart = request.getPart("picture");
             boolean isThereAFile = filePart.getSize() > 0;
 
@@ -82,12 +84,10 @@ public class UserPlantEditSuccess extends HttpServlet {
             }
 
             // Form-Data to Database
-            Integer userPlantId = Integer.parseInt(request.getParameter("up_id"));
-            UserPlant userPlant = upm.findUserPlantById(userPlantId);
             Integer plantId = Integer.parseInt(request.getParameter("plantType"));
             Plant plant = pm.findPlantById(plantId);
             String userPlantName = request.getParameter("up_name");
-            
+
             userPlant.setUserPlantName(userPlantName);
             userPlant.setPlantsFk(plant);
             userPlant.setUserPlantPicturePath(picturePath);
