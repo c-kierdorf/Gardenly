@@ -23,16 +23,15 @@ public class SendEmailAlfa {
         boolean test = false;
 
         String toEmail = user.getEmail();
-        SendEmailCredentials sendEmailCredentials = new SendEmailCredentials();
-        String fromEmailAlfahosting = sendEmailCredentials.getFromEmailAlfahosting();
-        String usernameAlfahosting = sendEmailCredentials.getUsernameAlfahosting();
-        String passwordAlfahosting = sendEmailCredentials.getPasswordAlfahosting();
+        String fromEmailAlfahosting = SendEmailCredentials.getFromEmailAlfahosting();
+        String usernameAlfahosting = SendEmailCredentials.getUsernameAlfahosting();
+        String passwordAlfahosting = SendEmailCredentials.getPasswordAlfahosting();
 
 
         try {
             Properties pr = new Properties();
-            pr.put("mail.smtp.host", sendEmailCredentials.getHostAlfahosting());
-            pr.put("mail.smtp.port", sendEmailCredentials.getPortAlfahosting());
+            pr.put("mail.smtp.host", SendEmailCredentials.getHostAlfahosting());
+            pr.put("mail.smtp.port", SendEmailCredentials.getPortAlfahosting());
             pr.put("mail.smtp.ssl.enable", "true");
             pr.put("mail.smtp.auth", "true");
 
