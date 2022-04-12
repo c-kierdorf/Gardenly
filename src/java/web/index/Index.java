@@ -51,36 +51,39 @@ public class Index extends HttpServlet {
             // Login process when User is logged out
             if (um.getUser() == null) {
                 String email = request.getParameter("u_email");
-                if (email != null) {
+                if (email != null) { // User hat versucht, sich einzuloggen
                     email = email.toLowerCase().trim();
-                }
-                String pwdUnhashed = request.getParameter("u_pwd");
-                String pwdHashed = PwdHashing.pwdHashed(pwdUnhashed);
-                List<User> usersEmail = um.findUserByEmail(email);
-                List<User> usersPwd = um.findUserByPwd(pwdHashed);
+                    String pwdUnhashed = request.getParameter("u_pwd");
+                    String pwdHashed = PwdHashing.pwdHashed(pwdUnhashed);
+                    List<User> usersEmail = um.findUserByEmail(email);
+                    List<User> usersPwd = um.findUserByPwd(pwdHashed);
 
-                if (!usersEmail.isEmpty() && !usersPwd.isEmpty()) {
-                    um.setErrors(false);
-                    User user = usersEmail.get(0); // ganz wichtige Zeilen, damit
-                    um.setUser(user);              // der User im Scope ist, um zu checken, ob er eingeloggt ist.
-                    rd = request.getRequestDispatcher("index.jsp");
+                    if (!usersEmail.isEmpty() && !usersPwd.isEmpty()) {
+                        um.setErrors(false);
+                        User user = usersEmail.get(0); // ganz wichtige Zeilen, damit
+                        um.setUser(user);              // der User im Scope ist, um zu checken, ob er eingeloggt ist.
+                        rd = request.getRequestDispatcher("index.jsp");
 
-                    // List UserPlants process
-                    List<UserPlant> userPlants = upm.findUserPlantsByUserFk(user);
-                    if (!userPlants.isEmpty()) {
-                        upm.setErrors(false);
-                        upm.setUserPlants(userPlants);
+                        // List UserPlants process
+                        List<UserPlant> userPlants = upm.findUserPlantsByUserFk(user);
+                        if (!userPlants.isEmpty()) {
+                            upm.setErrors(false);
+                            upm.setUserPlants(userPlants);
+                        } else {
+                            upm.setErrors(true);
+                            upm.setStatus("Du hast noch keine Pflanzen hinzugefügt.");
+                        }
                     } else {
-                        upm.setErrors(true);
-                        upm.setStatus("Du hast noch keine Pflanzen hinzugefügt.");
+                        um.setErrors(true);
+                        um.setStatus("Login leider nicht erfolgreich.<br />"
+                                + "Vertippt oder <a href='#'>Passwort vergessen?</a>");
+                        rd = request.getRequestDispatcher("Login.jsp");
                     }
-
-                } else {
-                    um.setErrors(true);
-                    um.setStatus("Login leider nicht erfolgreich.<br />"
-                            + "Vertippt oder <a href='#'>Passwort vergessen?</a>");
+                } else { // User zwar nicht eingeloggt, aber auch keinen Versuch gestartet
+                    um.setErrors(false);
                     rd = request.getRequestDispatcher("Login.jsp");
                 }
+
             } else { // user already logged in
                 // List UserPlants process for already logged in users
                 User user = um.getUser();
@@ -94,7 +97,7 @@ public class Index extends HttpServlet {
 
                 rd = request.getRequestDispatcher("index.jsp");
             }
-            
+
             // Get current weather
             WeatherJsonObject weatherJsonObject = null;
             try {
@@ -108,15 +111,14 @@ public class Index extends HttpServlet {
                 wm.setErrors(true);
                 wm.setStatus("Beim Laden des Wetters ist ein unbekannter Fehler aufgetreten.");
             }
-            
+
             if (weatherJsonObject != null) {
                 wm.setErrors(false);
-                wm.setWeatherJsonObject(weatherJsonObject);    
+                wm.setWeatherJsonObject(weatherJsonObject);
             } else {
                 wm.setErrors(true);
                 wm.setStatus("Es wurde keine Instanz von weatherJsonObject angelegt.");
             }
-            
 
             // forward request
             rd.forward(request, response);
