@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.currentweatherapi.WeatherJsonObject;
+import model.currentweatherapi.WeatherManager;
 import model.user.PwdHashing;
 import model.user.UserManager;
 import model.userplant.UserPlantManager;
@@ -27,6 +29,8 @@ public class Index extends HttpServlet {
     private UserManager um;
     @Inject
     private UserPlantManager upm;
+    @Inject
+    private WeatherManager wm;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -90,6 +94,29 @@ public class Index extends HttpServlet {
 
                 rd = request.getRequestDispatcher("index.jsp");
             }
+            
+            // Get current weather
+            WeatherJsonObject weatherJsonObject = null;
+            try {
+                weatherJsonObject = wm.getCurrentWeather();
+            } catch (NullPointerException npe) {
+                npe.printStackTrace();
+                wm.setErrors(true);
+                wm.setStatus("openweathermap kann nicht geladen werden.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                wm.setErrors(true);
+                wm.setStatus("Beim Laden des Wetters ist ein unbekannter Fehler aufgetreten.");
+            }
+            
+            if (weatherJsonObject != null) {
+                wm.setErrors(false);
+                wm.setWeatherJsonObject(weatherJsonObject);    
+            } else {
+                wm.setErrors(true);
+                wm.setStatus("Es wurde keine Instanz von weatherJsonObject angelegt.");
+            }
+            
 
             // forward request
             rd.forward(request, response);
