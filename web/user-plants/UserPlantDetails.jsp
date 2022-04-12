@@ -51,7 +51,16 @@
         </p>
         <p>
             Außenbedingungen<br>
-            &#127780; sonniges Wetter &#127777; 21° C &#127811; 14 km/h
+            <c:choose>
+                <c:when test="${!wm.errors}">
+                    <img src="https://openweathermap.org/img/wn/${wm.weatherJsonObject.weather.get(0).getIcon()}.png" width="15px" alt="Openweathermap Icon" /> ${wm.weatherJsonObject.weather.get(0).getDescription()}
+                    &#127777; ${wm.weatherJsonObject.main.temp}° C 
+                    &#127811; ${wm.weatherJsonObject.wind.speed} km/h
+                </c:when>
+                <c:otherwise>
+                    ${wm.status}
+                </c:otherwise>
+            </c:choose>
         </p>
         <p>
             Letzte Bewässerung<br>
