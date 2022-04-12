@@ -2,3 +2,6 @@
 /web/WEB-INF/glassfish-resources.xml
 /src/conf/persistence.xml
 /web/WEB-INF/glassfish-web.xml
+/src/java/web/weather/WeatherApi.java
+/src/java/model/weather/WeatherCredentials.java
+/src/java/model/currentweatherapi/WeatherCredentials.java
