@@ -89,7 +89,7 @@
             <input hidden 
                    name="up_id" 
                    id="up_id"
-                   value="${upm.userPlant.userPlantsId}" >
+                   value="${upm.userPlant.plantsFk.plantsId}" >
             <input type="submit" 
                    value="Pflanze bearbeiten">
         </form>
