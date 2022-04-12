@@ -16,23 +16,21 @@
     <body>
         <a href="/Gardenly/Index" title="Zur Startseite">
             <img src="/img/GardenlyLogo1420x290.png" 
-             width="200" 
-             alt="Gardenly Logo"
-             style="margin-top: 20px; margin-bottom: 70px"/>
+                 width="200" 
+                 alt="Gardenly Logo"
+                 style="margin-top: 20px; margin-bottom: 70px"/>
         </a>
-        <c:choose>
-            <c:when test="${um.errors}">
-                <!------------- InvalidLogin ------------->
-                <div id="invalidLogin" 
-                     style="display: block;
-                     border: 1px solid #cccccc;
-                     border-radius: 5px;
-                     width: 400px;
-                     padding: 10px">
-                    <div style="color: red">${um.status}</div>
-                </div>
-            </c:when>
-        </c:choose>
+        <c:if test="${um.errors}">
+            <!------------- InvalidLogin ------------->
+            <div id="invalidLogin" 
+                 style="display: block;
+                 border: 1px solid #cccccc;
+                 border-radius: 5px;
+                 width: 400px;
+                 padding: 10px">
+                <div style="color: red">${um.status}</div>
+            </div>
+        </c:if>
 
         <!-------------------- Register -------------------->
         <div id="registerButton" style="display: block">
