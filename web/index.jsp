@@ -28,8 +28,22 @@
         <img src="/img/GardenlyStatusAllesImGruenenBereich200x40.png" 
              width="200" 
              alt="Gardenly Logo"/>
+        <!--        
+        
+                Current weather data via API 
+        
+        -->
         <p>
-            &#127780; sonniges Wetter &#127777; 21° C &#127811; 14 km/h
+            <c:choose>
+                <c:when test="${!wm.errors}">
+                    <img src="https://openweathermap.org/img/wn/${wm.weatherJsonObject.weather.get(0).getIcon()}.png" width="15px" alt="Openweathermap Icon" /> ${wm.weatherJsonObject.weather.get(0).getDescription()}
+                    &#127777; ${wm.weatherJsonObject.main.temp}° C 
+                    &#127811; ${wm.weatherJsonObject.wind.speed} km/h
+                </c:when>
+                <c:otherwise>
+                    ${wm.status}
+                </c:otherwise>
+            </c:choose>
         </p>
 
         <!--        
@@ -118,9 +132,9 @@
                 <p>Du musst deine E-Mail Adresse noch verifizieren:</p>
                 <form action="Verification" method="POST">
                     <input type="hidden"
-                               name="u_id"
-                               id="u_id"
-                               value="${um.user.userId}">
+                           name="u_id"
+                           id="u_id"
+                           value="${um.user.userId}">
                     <div class="field">
                         <label for="authcode">Email-Verifikationscode</label>
                         <input type="text" id="authcode" name="authcode" required>
