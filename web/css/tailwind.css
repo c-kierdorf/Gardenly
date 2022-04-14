@@ -1,0 +1,8 @@
+/* 
+    Created on : 14.04.2022, 16:00:08
+    Author     : MK
+*/
+/* sample component */
+.sample-component {
+  @apply .p-1;
+}
