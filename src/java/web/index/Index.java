@@ -89,6 +89,7 @@ public class Index extends HttpServlet {
                 User user = um.getUser();
                 List<UserPlant> userPlants = upm.findUserPlantsByUserFk(user);
                 if (userPlants != null) {
+                    upm.setErrors(false);
                     upm.setUserPlants(userPlants);
                 } else {
                     upm.setErrors(true);
