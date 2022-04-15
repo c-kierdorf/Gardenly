@@ -48,7 +48,6 @@ public class RegistrationSuccess extends HttpServlet {
 
 //            Ohne Email-Verifizierung
 //            User user = new User(vorname, nachname, email, pwdHashed);
-
 //            Mit Email-Verifizierung
             SendEmailAlfa sm = new SendEmailAlfa();
             String emailVerificationCode = sm.getRandom();
@@ -58,10 +57,15 @@ public class RegistrationSuccess extends HttpServlet {
 
             if (users.isEmpty()) {
                 um.setErrors(false);
-                um.setUser(user);
-                um.create(user);
                 boolean sendVerificationEmail = sm.sendEmail(user);
                 if (sendVerificationEmail) {
+                    um.create(user);
+                    /**
+                     * ACHTUNG KEINE um.setUser(user) ANWEISUNG an dieser Stelle!
+                     * Dann ist der User praktisch eingeloggt, aber es sind noch
+                     * nicht alle Attribute geladen. Das macht erst ein Login-
+                     * Prozess.
+                     */
                     rd = request.getRequestDispatcher("RegistrationSuccess.jsp");
                 } else {
                     um.setErrors(true);
