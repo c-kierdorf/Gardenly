@@ -8,7 +8,11 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <!-- MK <head> begin -->
+        <!-- 
+        
+            MK <head> begin 
+        
+        -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
@@ -21,7 +25,11 @@
         <link rel="stylesheet" href="css/regular.min.css" />
         <link rel="stylesheet" href="css/solid.min.css" />
         <link rel="stylesheet" href="css/weather-icons.css" />
-        <!-- MK </head> end -->
+        <!-- 
+        
+            MK <head> end 
+        
+        -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel='stylesheet' type='text/css' href='/Gardenly/css/gardenly.css'>
         <script type="text/javascript" src="/Gardenly/js/gardenly.js"></script>
@@ -49,9 +57,8 @@
         </section>
 
 
-
+        <!------------- InvalidLogin CK ------------->
         <c:if test="${um.errors}">
-            <!------------- InvalidLogin ------------->
             <div id="invalidLogin" 
                  style="display: block;
                  border: 1px solid #cccccc;
@@ -146,9 +153,8 @@
                 </div>
 
             </div>
-
         </section>
-        <!-- 🌷 add plant overlay end -->
+        <!-- 🌷 login overlay end -->
         <!--        
         
                 Buttons MK END 
@@ -156,11 +162,12 @@
         -->
         <!--        
                 
-                        Footer
+                        Footer CK
                 
         -->
         <div style="margin:50px"></div>
         <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+        
         <!-- footer embeds MK -->
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/include.js"></script>
@@ -169,7 +176,7 @@
         <script type="text/javascript" src="js/regular.min.js"></script>
         <script type="text/javascript" src="js/solid.min.js"></script>
         <script>
-                            includeHTML();
+            includeHTML();
         </script>
     </body>
 </html>
