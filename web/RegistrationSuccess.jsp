@@ -6,9 +6,6 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<c:if test="${um.user == null}">
-    <c:redirect url="/Login.jsp"/>
-</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,10 +22,17 @@
         </a>
         <c:choose>
             <c:when test="${!um.errors}">
-                <h1 style="color: #67C53F">Hallo ${um.user.firstName}!</h1>
-                <p>Du hast dich erfolgreich registriert.</p>
+                <p>
+                    <b>Du hast dich erfolgreich registriert.</b><br />
+                    <br />
+                    Du kannst dich nun mit deiner E-Mailadresse und Passwort 
+                    bei Gardenly anmelden.
+                </p>
                 <c:if test="${!um.user.isActive}">
-                    <p>Schau in deinem Emailpostfach nach, um deine Emailadresse zu verifizieren.</p>
+                    <p>
+                        Schau in deinem Emailpostfach nach, um deine Emailadresse zu verifizieren.<br />
+                        Diesen Schritt kannst du auch später nachholen.
+                    </p>
                     <form action="Verification" method="POST">
                         <input type="hidden"
                                name="u_id"
@@ -45,14 +49,10 @@
                                    color: white">
                         </div>
                     </form>
-                    <form action="Index" method="POST">
-                        <input type="hidden"
-                               name="u_id"
-                               id="u_id"
-                               value="${um.user.userId}">
+                    <form action="Login.jsp" method="POST">
                         <div class="field">
                             <input type="submit" 
-                                   value="Zur Startseite" 
+                                   value="Zum Login" 
                                    style="background-color:#67C53F; color: white">
                         </div>
                     </form>
