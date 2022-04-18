@@ -87,7 +87,7 @@
                     <span class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Mein Garten</span>
 
                     <div class="ml-auto">
-                        <a href="/user-plants/UserPlantAdd.jsp">
+                        <a href="/UserPlantAdd">
                             <i class="far fa-plus text-4xl px-2 pt-0 text-main-green"></i>
                         </a>
                     </div>
@@ -200,7 +200,7 @@
                     </c:choose>
 
                     <!-- card: add new plant-->
-                    <a href="/user-plants/UserPlantAdd.jsp" class="card flex-auto p-4 rounded-2xl bg-white">
+                    <a href="/UserPlantAdd" class="card flex-auto p-4 rounded-2xl bg-white">
                         <div>
                             <i class="fas fa-plus-circle text-2xl text-main-green"></i>
                         </div>
