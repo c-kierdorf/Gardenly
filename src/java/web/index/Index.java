@@ -76,7 +76,7 @@ public class Index extends HttpServlet {
                     } else {
                         um.setErrors(true);
                         um.setStatus("Login leider nicht erfolgreich.<br />"
-                                + "Vertippt oder <a href='#'>Passwort vergessen?</a>");
+                                + "Vertippt oder <a href='/passwordrecovery/ForgotPassword.jsp'>Passwort vergessen?</a>");
                         rd = request.getRequestDispatcher("Login.jsp");
                     }
                 } else { // User zwar nicht eingeloggt, aber auch keinen Versuch gestartet
