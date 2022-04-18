@@ -420,6 +420,20 @@ video {
 }
 
 /*
+CK Code
+*/
+.img-userPlants-index {
+    width: 60px !important;
+    height: 60px !important;
+}
+
+.a-userPlants-index {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
+}
+
+/*
 Ensure the default browser behavior of the `hidden` attribute.
 */
 
