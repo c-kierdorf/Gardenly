@@ -56,7 +56,7 @@
                 Meldungen
             </a>
 
-            <a href="/Gardenly/plants/PlantsDashboard.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/plants/PlantsDashboard.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa fa-book text-2xl mr-1 text-gray-400 mb-1"></i><br />
                 Wiki
             </a>
@@ -68,12 +68,12 @@
                 Mein Garten
             </a>
 
-            <a href="#" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center font-medium text-xs text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/automation/Automation.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center font-medium text-xs text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa-solid fa-sliders text-2xl mr-1 text-gray-400 mb-1"></i><br />
                 Automation
             </a>
 
-            <a href="/Gardenly/settings/Settings.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/settings/Settings.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa-solid fa-gear text-2xl mr-1 text-gray-400 mb-1"></i><br />
                 Einstellungen
             </a>
