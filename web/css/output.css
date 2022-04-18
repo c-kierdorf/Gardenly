@@ -1597,4 +1597,31 @@ a {
 
 .active\:transform:active {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-};
+}
+
+/*
+Added by CK, missing in code by MK
+*/
+
+.p-input-labels {
+    width: 120px;
+}
+
+.border-0 {
+    border-width: 0px;
+}
+
+input[type="file"]::file-selector-button {
+    border: 1px dashed #cccccc;
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.file-upload {
+    border: 1px dashed #cccccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+;
