@@ -87,7 +87,7 @@
                     <span class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Mein Garten</span>
 
                     <div class="ml-auto">
-                        <a href="/UserPlantAdd">
+                        <a href="#" class="add-plant">
                             <i class="far fa-plus text-4xl px-2 pt-0 text-main-green"></i>
                         </a>
                     </div>
@@ -200,7 +200,7 @@
                     </c:choose>
 
                     <!-- card: add new plant-->
-                    <a href="/UserPlantAdd" class="card flex-auto p-4 rounded-2xl bg-white">
+                    <a href="#" class="card add-plant flex-auto p-4 rounded-2xl bg-white">
                         <div>
                             <i class="fas fa-plus-circle text-2xl text-main-green"></i>
                         </div>
@@ -210,6 +210,55 @@
                 </div>
             </div>
         </section> 
+
+        <!-- 🌷 add plant overlay -->
+
+        <!-- title area -->
+        <section id="overlay" class="overlay hidden bg-white rounded-t-2xl z-30 w-full fixed bottom-0 inset-x-0 animate__animated">
+            <div class="container px-4 mx-auto">
+
+                <!-- title + text area -->
+                <div class="flex items-center py-6">
+                    <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanze hinzufügen</h2>
+
+                    <div class="ml-auto">
+                        <!-- close button -->
+                        <a id="close-button" href="#" class="close-button w-3 h-3 p-0">
+                            <i class="fa fa-xmark text-2xl px-2 pt-0 mt-2 text-gray-500 bg-gray-200 hover:text-white hover:bg-gray-500 rounded-full transition-all"></i>
+                        </a>
+                    </div>
+                </div>
+                <p class="text-base font-medium text-gray-500">Um eine Pflanze hinzuzufügen, benötigst du ein freies <img class="inline pl-1" src="/img/logo-small.svg">-Modul.</p>
+
+                <!-- selection buttons-->
+                <div class="py-6 w-full">
+                    <!-- button 1-->
+                    <a href="#" class="flex flex-row items-center w-full p-6 pr-2 gap-5 rounded-3xl mb-4 bg-main-green hover:bg-main-green-600 transition-all">
+                        <img class="flex-initial" src="/img/indentify-auto.svg"/>
+                        <div>
+                            <h3 class="text-white text-lg font-bold mb-1">Pflanze automatisch erkennen</h3>
+                            <p class="text-main-green-50 font-medium text-sm">Fotografiere Deine Pflanze einfach mit der Kamera.</p>
+                        </div>
+                        <i class="fa fa-angle-right text-2xl px-2 pt-0 text-white ml-auto"></i>
+                    </a>
+
+                    <!-- button 2-->
+                    <a href="/UserPlantAdd" class="flex flex-row items-center w-full p-6 pr-2 gap-5 rounded-3xl border-solid border border-gray-300 hover:bg-gray-200 transition-all">
+                        <img class="flex-initial" src="/img/indentify-manually.svg"/>
+                        <div>
+                            <h3 class="text-gray-900 text-lg font-bold mb-1">Pfanze manuell hinzufügen</h3>
+                            <p class="text-gray-500 font-medium text-sm">Gebe alle relevanten Informationen manuell an.</p>
+                        </div>
+                        <i class="fa fa-angle-right text-2xl px-2 pt-0 text-gray-900 ml-auto"></i>
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- 🌷 add plant overlay end -->
 
         <!--        
                 
