@@ -56,24 +56,19 @@
             <img class="w-full" src="/img/keyvisuals/login.png" />
         </section>
 
-
-        <!------------- InvalidLogin CK ------------->
-        <c:if test="${um.errors}">
-            <div id="invalidLogin" 
-                 style="display: block;
-                 border: 1px solid #cccccc;
-                 border-radius: 5px;
-                 width: 400px;
-                 padding: 10px">
-                <div style="color: red">${um.status}</div>
-            </div>
-        </c:if>
         <!--        
     
             Buttons MK BEGIN  
     
         -->
         <section class="container text-center px-4 mx-auto fixed bottom-5 inset-x-0 z-10 w-full">
+            <!------------- InvalidLogin CK ------------->
+            <c:if test="${um.errors}">
+                <div id="invalidLogin" 
+                     class="invalid-login container">
+                    <div class="error">${um.status}</div>
+                </div>
+            </c:if>
             <!-------------------- Register Button MK -------------------->
             <div id="registerButton" style="display: block">
                 <a href="Register.jsp" id="register" class="register">
@@ -88,6 +83,13 @@
                     Anmelden
                 </div>
             </a>
+            <!--        
+                
+                        Footer CK
+                
+            -->
+            <div style="margin:50px"></div>
+            <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
         </section>
 
         <!-- 🔑 login overlay -->
@@ -160,14 +162,7 @@
                 Buttons MK END 
         
         -->
-        <!--        
-                
-                        Footer CK
-                
-        -->
-        <div style="margin:50px"></div>
-        <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
-        
+
         <!-- footer embeds MK -->
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/include.js"></script>
