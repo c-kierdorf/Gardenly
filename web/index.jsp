@@ -9,117 +9,213 @@
     <c:redirect url="/Login.jsp"/>
 </c:if>
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
-        <title>Gardenly Home</title>
+        <!-- 
+        
+            Header MK begin 
+        
+        -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+        <link rel="stylesheet" href="/css/output.css" />
+        <link rel="stylesheet" href="/css/fonts.css" />
+        <link rel="stylesheet" href="/css/animate.min.css" />
+
+        <link rel="stylesheet" href="/css/fontawesome.min.css" />
+        <link rel="stylesheet" href="/css/brands.min.css" />
+        <link rel="stylesheet" href="/css/regular.min.css" />
+        <link rel="stylesheet" href="/css/solid.min.css" />
+        <link rel="stylesheet" href="/css/weather-icons.css" />
+        <!-- 
+        
+            Header MK end 
+        
+        -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex">
         <link rel='stylesheet' type='text/css' href='/Gardenly/css/gardenly.css'>
+
+        <title>Gardenly Home</title>
     </head>
-    <body>
-        <a href="/Gardenly/Index" title="Zur Startseite">
-            <img src="/img/GardenlyLogo1420x290.png" 
-                 width="200" 
-                 alt="Gardenly Logo"
-                 style="margin-top: 20px; margin-bottom: 70px"/>
-        </a>
-        <h1>Mein Garten</h1>
-        <img src="/img/GardenlyStatusAllesImGruenenBereich200x40.png" 
-             width="200" 
-             alt="Gardenly Logo"/>
+    <body class="antialiased h-screen body-bg font-Metropolis mb-14 transition-all">
+
+        <!-- shield-->
+        <section id="shield" class="shield hidden bg-black bg-opacity-50 z-20 w-full h-full fixed top-0 inset-x-0 animate__animated">
+            <div class=""></div>
+        </section>
+
+        <!-- fixed nav -->
+        <nav class="bottom-nav fixed bottom-0 inset-x-0 z-10 bg-white border-gray-300 flex justify-between text-sm">
+
+            <a href="/notifications/Notifications.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800 transition duration-300">
+                <i class="block fa fa-inbox text-2xl mr-1 text-gray-400 mb-1"></i><br />
+                Meldungen
+            </a>
+
+            <a href="/Gardenly/plants/PlantsDashboard.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+                <i class="block fa fa-book text-2xl mr-1 text-gray-400 mb-1"></i><br />
+                Wiki
+            </a>
+
+            <a href="/Gardenly/Index" style="position: relative" class="menu-item menu-item-main w-full basis-1/5 pt-0 px-3 text-center font-medium text-xs text-gray-900 hover:bg-blue-200 hover:text-blue-800">
+                <div class="rounded-full -mt-6 text-center mb-3 mx-auto">
+                    <img class="w-9 mb-2 text-center py-4 mx-auto" src="img/logo.svg">
+                </div>
+                Mein Garten
+            </a>
+
+            <a href="#" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center font-medium text-xs text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+                <i class="block fa-solid fa-sliders text-2xl mr-1 text-gray-400 mb-1"></i><br />
+                Automation
+            </a>
+
+            <a href="/Gardenly/settings/Settings.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+                <i class="block fa-solid fa-gear text-2xl mr-1 text-gray-400 mb-1"></i><br />
+                Einstellungen
+            </a>
+
+        </nav>
+
+        <!-- header -->
+        <section>
+            <div class="container px-4 mx-auto">
+                <nav class="flex items-center py-6">
+                    <span class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Mein Garten</span>
+
+                    <div class="ml-auto">
+                        <a href="/user-plants/UserPlantAdd.jsp">
+                            <i class="far fa-plus text-4xl px-2 pt-0 text-main-green"></i>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- status message -->
+        <section>
+            <div class="container px-4 mx-auto">
+                <!-- success-->
+                <div class="status rounded-2xl p-4 bg-gradient-to-br from-main-green to-lime-400">
+                    <i class="fa text-3xl px-2 pt-0 text-white"></i>
+                    <span class="h-6 text-lg align-text-bottom font-bold text-white">Alles im grünen Bereich.</span>
+                </div>
+
+                <!-- warning
+                <div class="rounded-2xl p-4 bg-gradient-to-br from-main-orange-500 to-main-orange-300">
+                  <i class="fa fa-triangle-exclamation text-3xl px-2 pt-0 text-white"></i>
+                  <span class="h-6 text-lg align-text-bottom font-bold text-white">{{ plant_name }} hat zu wenig Wasser.</span>
+                </div>
+                -->
+
+                <!-- critical 
+                <div class="rounded-2xl p-4 bg-gradient-to-br from-main-red-500 to-main-red-300">
+                  <i class="fa fa-triangle-exclamation text-3xl px-2 pt-0 text-white"></i>
+                  <span class="h-6 text-lg align-text-bottom font-bold text-white">{{ plant_name }} ist nicht erreichbar.</span>
+                </div>
+                -->
+
+            </div>
+        </section>
+
         <!--        
         
                 Current weather data via API 
         
         -->
-        <p>
-            <c:choose>
-                <c:when test="${!wm.errors}">
-                    <img src="https://openweathermap.org/img/wn/${wm.weatherJsonObject.weather.get(0).getIcon()}.png" width="15px" alt="Openweathermap Icon" /> ${wm.weatherJsonObject.weather.get(0).getDescription()}
-                    &#127777; ${wm.weatherJsonObject.main.temp}° C 
-                    &#127811; ${wm.weatherJsonObject.wind.speed} km/h
-                </c:when>
-                <c:otherwise>
-                    ${wm.status}
-                </c:otherwise>
-            </c:choose>
-        </p>
+        <section>
+            <div class="container px-4 mx-auto">
+                <c:choose>
+                    <c:when test="${!wm.errors}">
+                        <div class="flex items-center py-6">
+                            <div class="font-semibold align-middle"><img src="https://openweathermap.org/img/wn/${wm.weatherJsonObject.weather.get(0).getIcon()}.png" width="15px" alt="Openweathermap Icon"> ${wm.weatherJsonObject.weather.get(0).getDescription()}</div>
+                            <div class="flex ml-auto">
+                                <div class="font-semibold mr-6 align-middle"><i class="wi wi-thermometer text-lg mr-1 text-main-green"></i> ${wm.weatherJsonObject.main.temp}° C</div>
+                                <div class="font-semibold align-middle"><i class="wi wi-strong-wind text-lg mr-1 text-main-green"></i> ${wm.weatherJsonObject.wind.speed} km/h</div>
+                            </div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        ${wm.status}
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </section>
+
+        <!-- placeholder -->
+        <section>
+            <div class="h-4"></div>
+        </section>
+
+        <!-- plant tiles -->
+        <section>
+            <div class="container px-4 mx-auto">
+                <div class="flex grid flex-row flex-wrap gap-3 grid-cols-2 items-center py-6">
+                    <!-- cards-->
+                    <c:choose>
+                        <c:when test="${!upm.errors}">
+                            <c:forEach items="${upm.userPlants}" var="up">
+                                <a href="/UserPlantDetails?up_id=${up.userPlantsId}" 
+                                   title="Details der Pflanze aufrufen" 
+                                   class="a-userPlants-index">
+                                    <div class="card flex-auto p-4 rounded-2xl bg-white">
+                                        <div class="flex">
+                                            <div>
+                                                <c:choose>
+                                                    <c:when test="${up.userPlantPicturePath != ''}">
+                                                        <img src="/img/user-plants/${up.userPlantPicturePath}" 
+                                                             alt="Foto der User-Pflanze"
+                                                             class="img-userPlants-index" />
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <img src="/img/plants/${up.plantsFk.picturePath}" 
+                                                             alt="Default Foto der Pflanze"
+                                                             class="img-userPlants-index" />
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+                                            <div class="ml-auto">
+                                                <div class="text-right font-semibold font-md" style="font-size:14px !important"><i class="far fa-face-smile text-lg mr-1 text-main-green"></i> ${up.health}%</div>
+                                                <div class="text-right font-semibold font-md" style="font-size:14px !important"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${up.waterlevel}%</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm mt-3 font-semibold">${up.userPlantName}</p>
+                                            <p class="text-xs font-semibold text-gray-500">${up.plantsFk.name}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="card flex-auto p-4 rounded-2xl bg-white">
+                                <div>
+                                    <p class="text-sm mt-3 font-semibold">${upm.status}</p>
+                                </div>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <!-- card: add new plant-->
+                    <a href="/user-plants/UserPlantAdd.jsp" class="card flex-auto p-4 rounded-2xl bg-white">
+                        <div>
+                            <i class="fas fa-plus-circle text-2xl text-main-green"></i>
+                        </div>
+                        <div class="text-md mt-3 font-semibold">Pflanze<br> hinzufügen</div>
+                    </a>
+
+                </div>
+            </div>
+        </section> 
 
         <!--        
-        
-                UserPlants List 
-        
+                
+                Original Code CK 
+                
         -->
-        <h2 padding-top: 20px">Pflanzen</h2>
-        <c:choose>
-            <c:when test="${!upm.errors}">
-                <table class="tg">
-                    <thead>
-                        <tr>
-                            <th class="tg-0lax">Foto</th>
-                            <th class="tg-0lax">Name</th>
-                            <th class="tg-0lax">Pflanze</th>
-                            <th class="tg-0lax">Gesundheit</th>
-                            <th class="tg-0lax">Wasserstand</th>
-                            <th class="tg-0lax">Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${upm.userPlants}" var="up">
-                            <tr>
-                                <td class="tg-0lax">
-                                    <c:choose>
-                                        <c:when test="${up.userPlantPicturePath != ''}">
-                                            <img src="/img/user-plants/${up.userPlantPicturePath}" 
-                                                 alt="Foto der User-Pflanze"
-                                                 width="50px" />
-                                        </c:when>
-                                        <c:otherwise>
-                                            <img src="/img/plants/${up.plantsFk.picturePath}" 
-                                                 alt="Default Foto der Pflanze"
-                                                 width="50px" />
-                                        </c:otherwise>
-                                    </c:choose>
-                                </td>
-                                <td class="tg-0lax">${up.userPlantName}</td>
-                                <td class="tg-0lax">${up.plantsFk.name}</td>
-                                <td class="tg-0lax">${up.health}%</td>
-                                <td class="tg-0lax">${up.waterlevel}%</td>
-                                <td class="tg-0lax">
-                                    <form action="UserPlantDetails" method="POST">
-                                        <div class="field">
-                                            <input type="hidden" 
-                                                   name="up_id" 
-                                                   id ="up_id" 
-                                                   value="${up.userPlantsId}">
-                                            <input type="submit"
-                                                   value="Details"
-                                                   style="background-color: #67C53F;
-                                                   color: white">
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-            </c:when>
-            <c:otherwise>
-                <p>${upm.status}</p>
-            </c:otherwise>
-        </c:choose>
-
-
-        <form action="UserPlantAdd" method="POST">
-            <div class="field">
-                <input type="submit" 
-                       value="Pflanze hinzufügen" 
-                       style="
-                       background-color: #67C53F;
-                       color: white">
-            </div>
-        </form>
 
         <!--        
         
@@ -150,14 +246,21 @@
         </c:choose>
         <!--        
                 
-                        Footer
+                Footer CK
                 
         -->
         <div style="margin:50px"></div>
-        <nav>
-            <a href="#">Meldungen</a> | <a href="/Gardenly/plants/PlantsDashboard.jsp">Wiki</a> | <a href="/Gardenly/Index">Mein Garten</a> | <a href="#">Automation</a> | <a href="/Gardenly/settings/Settings.jsp">Einstellungen</a>
-        </nav>
-        <div style="margin:50px"></div>
         <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+
+        <!-- footer embeds -->
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/include.js"></script>
+
+        <script type="text/javascript" src="/js/brands.min.js"></script>
+        <script type="text/javascript" src="/js/regular.min.js"></script>
+        <script type="text/javascript" src="/js/solid.min.js"></script>
+        <script>
+            includeHTML();
+        </script>
     </body>
 </html>
