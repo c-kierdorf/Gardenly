@@ -13,8 +13,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex">
-        <link rel='stylesheet' type='text/css' href='/Gardenly/css/gardenly.css'>
-        <script type="text/javascript" src="/Gardenly/js/gardenly.js"></script>
+        <link rel='stylesheet' type='text/css' href='/css/gardenly.css'>
+        <script type="text/javascript" src="/js/gardenly.js"></script>
         <title>Gardenly Meine Pflanze hinzufügen</title>
     </head>
     <body>
@@ -130,7 +130,7 @@
         -->
         <div style="margin:50px"></div>
         <nav>
-            <a href="#">Meldungen</a> | <a href="/Gardenly/plants/PlantsDashboard.jsp">Wiki</a> | <a href="/Gardenly/Index">Mein Garten</a> | <a href="#">Automation</a> | <a href="/Gardenly/settings/Settings.jsp">Einstellungen</a>
+            <a href="#">Meldungen</a> | <a href="/plants/PlantsDashboard.jsp">Wiki</a> | <a href="/Gardenly/Index">Mein Garten</a> | <a href="#">Automation</a> | <a href="/Gardenly/settings/Settings.jsp">Einstellungen</a>
         </nav>
         <div style="margin:50px"></div>
         <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
