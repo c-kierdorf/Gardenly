@@ -56,14 +56,9 @@
 
         <!------------- InvalidRegistration CK ------------->
         <c:if test="${um.errors}">
-
-            <div id="invalidRegistration" 
-                 style="display: block;
-                 border: 1px solid #cccccc;
-                 border-radius: 5px;
-                 width: 400px;
-                 padding: 10px">
-                <div style="color: red">${um.status}</div>
+            <div id="invalidLogin" 
+                 class="invalid-login container">
+                <div class="error">${um.status}</div>
             </div>
         </c:if>
 
