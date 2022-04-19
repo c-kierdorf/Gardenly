@@ -46,9 +46,60 @@ public class Index extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            RequestDispatcher rd;
+            RequestDispatcher rd = loginProcess(request, response);
+            
+            getCurrentWeather();
+ 
+            rd.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-            // Login process when User is logged out
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+    private RequestDispatcher loginProcess(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher rd;
+        
+        // Login process when User is logged out
             if (um.getUser() == null) {
                 String email = request.getParameter("u_email");
                 if (email != null) { // User hat versucht, sich einzuloggen
@@ -98,9 +149,12 @@ public class Index extends HttpServlet {
 
                 rd = request.getRequestDispatcher("index.jsp");
             }
-
-            // Get current weather
-            WeatherJsonObject weatherJsonObject = null;
+        
+        return rd;
+    }
+    
+    private void getCurrentWeather() {
+        WeatherJsonObject weatherJsonObject = null;
             try {
                 weatherJsonObject = wm.getCurrentWeather();
             } catch (NullPointerException npe) {
@@ -120,51 +174,5 @@ public class Index extends HttpServlet {
                 wm.setErrors(true);
                 wm.setStatus("Es wurde keine Instanz von weatherJsonObject angelegt.");
             }
-
-            // forward request
-            rd.forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
