@@ -41,7 +41,7 @@
     </head>
     <body class="antialiased h-screen body-bg font-Metropolis transition-all">
         <!-- shield -->
-        <section id="shield" class="shield hidden bg-black bg-opacity-50 z-20 w-full h-full fixed top-0 inset-x-0 animate__animated">
+        <section id="shield" class="shield hidden bg-opacity-50 z-20 bg-black w-full h-full fixed top-0 inset-x-0 animate__animated">
             <div class=""></div>
         </section>
 
@@ -126,11 +126,11 @@
         <!-- ⛄️ register overlay -->
 
         <!-- title area -->
-        <section id="overlay" class="overlay hidden bg-white rounded-t-2xl z-30 w-full fixed bottom-0 inset-x-0 animate__animated">
+        <section id="overlay" class="overlay hidden bg-white rounded-t-2xl z-30 fixed w-full bottom-0 inset-x-0 animate__animated">
             <div class="container px-4 mx-auto">
 
                 <!-- title + text area -->
-                <div class="flex items-center py-6">
+                <div class="flex items-center py-2">
                     <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Registrieren</h2>
 
                     <div class="ml-auto">
@@ -140,8 +140,6 @@
                         </a>
                     </div>
                 </div>
-                <h3 class="h-10 text-xl pt-2 text-grey-900 font-Metropolis font-bold">Wie dürfen wie Dich nennen?</h3>
-
                 <!-- register form -->
                 <div class="w-full mt-6">
                     <form action="RegistrationSuccess" method="POST">
@@ -169,8 +167,6 @@
                                    placeholder="Musterfrau"
                                    required>
                         </div>
-
-                        <h3 class="h-10 text-xl pt-2 text-grey-900 font-Metropolis font-bold mt-10 mb-4">Deine Login-Daten</h3>
 
                         <div class="mb-4">
                             <label class="block text-gray-900 text-sm font-bold mb-2" 
@@ -218,11 +214,7 @@
                         </div>
 
 
-                        <div class="my-8">
-                            <label class="block text-gray-900 text-sm font-bold mb-2" 
-                                   for="agb">
-                                AGB & Datenschutz
-                            </label>
+                        <div class="py-2">
                             <div class="form-check">
                                 <label class="inline-flex items-center mt-3">
                                     <input type="checkbox" 
@@ -231,7 +223,7 @@
                                            name="u_agb" 
                                            required>
                                     <span class="ml-2 text-sm font-medium ">
-                                        Ich akzeptiere die <a href="/legal/Datenschutzerklaerung.jsp" target="_blank">Datenschutzbestimmungen und AGB</a>.
+                                        Ich akzeptiere die <a href="/legal/Datenschutzerklaerung.jsp" target="_blank">AGB</a>.
                                     </span>
                                 </label>
                             </div>
@@ -254,8 +246,7 @@
                         Footer CK
                 
         -->
-        <div style="margin:50px"></div>
-        <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+        <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
 
         <!-- footer embeds MK -->
         <script type="text/javascript" src="js/main.js"></script>
