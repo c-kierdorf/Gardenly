@@ -48,29 +48,29 @@
         <!-- fixed nav -->
         <nav class="bottom-nav fixed bottom-0 inset-x-0 z-10 bg-white border-gray-300 flex justify-between text-sm">
 
-            <a href="/notifications/Notifications.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800 transition duration-300">
+            <a href="/notifications/Notifications.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800 transition duration-300">
                 <i class="block fa fa-inbox text-2xl mr-1 text-gray-400 mb-1"></i><br />
                 Meldungen
             </a>
 
-            <a href="/plants/PlantsDashboard.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/plants/PlantsDashboard.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa fa-book text-2xl mr-1 text-gray-400 mb-1"></i><br />
                 Wiki
             </a>
 
-            <a href="/Gardenly/Index" style="position: relative" class="menu-item menu-item-main w-full basis-1/5 pt-0 px-3 text-center font-medium text-xs text-gray-900 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/Gardenly/Index" style="position: relative" class="menu-item menu-item-main w-full basis-1/5 pt-0 text-center font-medium text-xs text-gray-900 hover:bg-blue-200 hover:text-blue-800">
                 <div class="rounded-full -mt-6 text-center mb-3 mx-auto">
                     <img class="w-9 mb-2 text-center py-4 mx-auto" src="img/logo.svg">
                 </div>
-                Mein Garten
+                Mein<br />Garten
             </a>
 
-            <a href="/automation/Automation.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center font-medium text-xs text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/automation/Automation.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 text-center font-medium text-xs text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa-solid fa-sliders text-2xl mr-1 text-gray-400 mb-1"></i><br />
                 Automation
             </a>
 
-            <a href="/settings/Settings.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 px-3 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/settings/Settings.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa-solid fa-gear text-2xl mr-1 text-gray-400 mb-1"></i><br />
                 Einstellungen
             </a>
