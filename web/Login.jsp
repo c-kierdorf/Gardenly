@@ -43,7 +43,7 @@
         </section>
 
         <!-- logo area -->
-        <section class=" container text-center py-12">
+        <section class="container text-center py-12">
             <div class="container px-4 mx-auto">
                 <a href="/Gardenly/Index" title="Zur Startseite">
                     <img class="mx-auto w-9/12" src="/img/logo-main.svg" />
