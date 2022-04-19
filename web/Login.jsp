@@ -53,7 +53,7 @@
 
         <!-- keyvisual -->
         <section class="mx-auto text-center">
-            <img class="w-full" src="/img/keyvisuals/login.png" />
+                <img class="w-full" src="/img/keyvisuals/login.png" />
         </section>
 
         <!--        
