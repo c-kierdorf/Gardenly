@@ -208,13 +208,14 @@
                     </a>
 
                 </div>
+                <!--        
+                                    
+                                    Footer CK
+                                    
+                -->
+                <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+                <div class="py-12"></div>
             </div>
-            <!--        
-                
-                Footer CK
-                
-            -->
-            <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
         </section> 
 
         <!-- 🌷 add plant overlay -->
