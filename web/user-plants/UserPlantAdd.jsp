@@ -87,11 +87,11 @@
         </div>
 
         <!-- title area -->
-        <form action="UserPlantAddSuccess" 
-              method="POST" 
-              enctype="multipart/form-data" >
+        <section class="block bg-white w-full rounded-t-2xl z-30 inset-x-0">
 
-            <section class="block bg-white w-full rounded-t-2xl z-30 inset-x-0">
+            <form action="UserPlantAddSuccess" 
+                  method="POST" 
+                  enctype="multipart/form-data" >
 
                 <div class="justify-center">
 
@@ -125,7 +125,7 @@
 
                         <!-- cell right-->
                         <div class="grow p-2 bg-white">
-                            <input class="border-0 w-full py-2 px-3 font-medium text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                    type="text" 
                                    id="name" 
                                    name="up_name" 
@@ -147,7 +147,7 @@
                         <div class="grow p-2 bg-white">
                             <c:choose>
                                 <c:when test="${!pm.errors}">
-                                    <select class="border-0 w-full py-2 px-3 font-medium text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                    <select class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                             name="plantType" 
                                             id="plantType" 
                                             onchange="userPlantAdd()"
@@ -168,6 +168,7 @@
 
                     <div class="h-4 bg-gray-200"></div>
 
+                    <!-- dynamic content start -->
                     <div id="dynamicContent">
 
                         <!-- row 4-->
@@ -180,7 +181,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                        type='text' 
                                        id='orderBiology' 
                                        name='orderBiology' 
@@ -200,7 +201,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                        type='text' 
                                        id='familyBiology' 
                                        name='familyBiology' 
@@ -220,7 +221,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium font-medium text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                        type='text' 
                                        id='subfamilyBiology' 
                                        name='subfamilyBiology' 
@@ -242,7 +243,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium font-medium text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                        type='number' 
                                        id='growingHeight' 
                                        name='growingHeight' 
@@ -257,12 +258,12 @@
 
                             <!-- cell left-->
                             <div class="flex-none w-24 p-4 rounded-2xl bg-white">
-                                <p class="text-xs font-semibold text-gray-500 p-input-labels">Gießempfehlung</p>
+                                <p class="text-xs font-semibold text-gray-500 p-input-labels">Gieß-<br />empfehlung</p>
                             </div>
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium font-medium text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                        type='text' 
                                        id='watering' 
                                        name='watering' 
@@ -282,7 +283,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium font-medium text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                        type='text' 
                                        id='careRecommendations' 
                                        name='careRecommendations' 
@@ -295,24 +296,28 @@
                         <div class="h-4 bg-gray-200"></div>
 
                     </div>
-                </div>
+                    <!-- dynamic content end -->
 
-            </section>
-
-            <!-- save button-->
-            <div class="container px-4 mx-auto">
-                <div class="w-full mt-6">
-                    <div class="items-center justify-between my-6">
-                        <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                            <input type="submit"
-                                   class="register"
-                                   value="Speichern"  >
+                    <!-- save button-->
+                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+                        <div class="w-full mt-6">
+                            <div class="items-center justify-between my-6 px-4">
+                                <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                    <input type="submit"
+                                           class="register"
+                                           value="Speichern"  >
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="py-12"></div>
                 </div>
-            </div>
-        </form>
-        <!-- 🌷 add plant overlay end -->
+
+            </form>
+        </section>
+
+
+        <!-- 🌷 add plant end -->
 
         <!-- footer embeds -->
         <script type="text/javascript" src="/js/main.js"></script>
