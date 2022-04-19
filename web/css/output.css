@@ -420,20 +420,6 @@ video {
 }
 
 /*
-CK Code
-*/
-.img-userPlants-index {
-    width: 60px !important;
-    height: 60px !important;
-}
-
-.a-userPlants-index {
-    text-decoration: none;
-    font-weight: 600;
-    color: #000;
-}
-
-/*
 Ensure the default browser behavior of the `hidden` attribute.
 */
 
@@ -1600,7 +1586,7 @@ a {
 }
 
 /*
-Added by CK, missing in code by MK
+CK Code
 */
 
 .p-input-labels {
@@ -1623,5 +1609,16 @@ input[type="file"]::file-selector-button {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+.img-userPlants-index {
+    width: 50px;
+    height: 50px;
+}
+
+.a-userPlants-index {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
 }
 ;
