@@ -95,6 +95,7 @@ public class Index extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    // <editor-fold defaultstate="collapsed" desc="loginProcess method. Click on the + sign on the left to edit the code.">
     private RequestDispatcher loginProcess(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
@@ -151,8 +152,9 @@ public class Index extends HttpServlet {
             }
         
         return rd;
-    }
+    }// </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="getCurrentWeather method. Click on the + sign on the left to edit the code.">
     private void getCurrentWeather() {
         WeatherJsonObject weatherJsonObject = null;
             try {
@@ -174,5 +176,5 @@ public class Index extends HttpServlet {
                 wm.setErrors(true);
                 wm.setStatus("Es wurde keine Instanz von weatherJsonObject angelegt.");
             }
-    }
+    }// </editor-fold>
 }
