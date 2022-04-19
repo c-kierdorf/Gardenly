@@ -178,8 +178,8 @@
                                                 </c:choose>
                                             </div>
                                             <div class="ml-auto">
-                                                <div class="text-right font-semibold font-md" style="font-size:14px !important"><i class="far fa-face-smile text-lg mr-1 text-main-green"></i> ${up.health}%</div>
-                                                <div class="text-right font-semibold font-md" style="font-size:14px !important"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${up.waterlevel}%</div>
+                                                <div class="text-right font-semibold font-md"><i class="far fa-face-smile text-lg mr-1 text-main-green"></i> ${up.health}%</div>
+                                                <div class="text-right font-semibold font-md"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${up.waterlevel}%</div>
                                             </div>
                                         </div>
                                         <div>
@@ -209,6 +209,12 @@
 
                 </div>
             </div>
+            <!--        
+                
+                Footer CK
+                
+            -->
+            <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
         </section> 
 
         <!-- 🌷 add plant overlay -->
@@ -293,13 +299,6 @@
                 </form>
             </c:when>
         </c:choose>
-        <!--        
-                
-                Footer CK
-                
-        -->
-        <div style="margin:50px"></div>
-        <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
 
         <!-- footer embeds -->
         <script type="text/javascript" src="/js/main.js"></script>
