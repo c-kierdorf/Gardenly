@@ -17,15 +17,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
-        <link rel="stylesheet" href="css/output.css" />
-        <link rel="stylesheet" href="css/fonts.css" />
-        <link rel="stylesheet" href="css/animate.min.css" />
+        <link rel="stylesheet" href="/css/output.css" />
+        <link rel="stylesheet" href="/css/fonts.css" />
+        <link rel="stylesheet" href="/css/animate.min.css" />
 
-        <link rel="stylesheet" href="css/fontawesome.min.css" />
-        <link rel="stylesheet" href="css/brands.min.css" />
-        <link rel="stylesheet" href="css/regular.min.css" />
-        <link rel="stylesheet" href="css/solid.min.css" />
-        <link rel="stylesheet" href="css/weather-icons.css" />
+        <link rel="stylesheet" href="/css/fontawesome.min.css" />
+        <link rel="stylesheet" href="/css/brands.min.css" />
+        <link rel="stylesheet" href="/css/regular.min.css" />
+        <link rel="stylesheet" href="/css/solid.min.css" />
+        <link rel="stylesheet" href="/css/weather-icons.css" />
 
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
@@ -249,12 +249,12 @@
         <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
 
         <!-- footer embeds MK -->
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/include.js"></script>
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/include.js"></script>
 
-        <script type="text/javascript" src="js/brands.min.js"></script>
-        <script type="text/javascript" src="js/regular.min.js"></script>
-        <script type="text/javascript" src="js/solid.min.js"></script>
+        <script type="text/javascript" src="/js/brands.min.js"></script>
+        <script type="text/javascript" src="/js/regular.min.js"></script>
+        <script type="text/javascript" src="/js/solid.min.js"></script>
 
         <script>
             includeHTML();
