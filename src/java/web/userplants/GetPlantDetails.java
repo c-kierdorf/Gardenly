@@ -13,11 +13,11 @@ import model.plant.PlantManager;
 
 /**
  *
- * @author crill
+ * @author CK
  */
 @WebServlet(name = "GetPlantDetails", urlPatterns = {"/GetPlantDetails"})
 public class GetPlantDetails extends HttpServlet {
-    
+
     @Inject
     private PlantManager pm;
 
@@ -33,61 +33,136 @@ public class GetPlantDetails extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             Integer plantId = Integer.parseInt(request.getParameter("id"));
-            
+
             Plant plant = pm.findPlantById(plantId);
-            
-            out.println("<div class='field'>\n"+ 
-"                <img src='/img/plants/" + plant.getPicturePath() +"' width='50' alt='Foto der Pflanze'/><br />" +
-"                    <label for='orderBiology'>Ordnung</label>\n" +
-"                    <input type='text' \n" +
-"                           id='orderBiology' \n" +
-"                           name='orderBiology' \n" +
-"                           value='" + plant.getOrderBiology() + "'\n" +
-"                           readonly>\n" +
-"                </div>\n" +
-"                <div class='field'>\n" +
-"                    <label for='familyBiology'>Familie</label>\n" +
-"                    <input type='text' \n" +
-"                           id='familyBiology' \n" +
-"                           name='familyBiology' \n" +
-"                           value='" + plant.getFamilyBiology() + "'\n" +
-"                           readonly>\n" +
-"                </div>\n" +
-"                <div class='field'>\n" +
-"                    <label for='subfamilyBiology'>Unterfamilie</label>\n" +
-"                    <input type='text' \n" +
-"                           id='subfamilyBiology' \n" +
-"                           name='subfamilyBiology' \n" +
-"                           value='" + plant.getSubfamilyBiology() + "'\n" +
-"                           readonly>\n" +
-"                </div>\n" +
-"                <div class='field'>\n" +
-"                    <label for='growingHeight'>Wuchshöhe in cm</label>\n" +
-"                    <input type='text' \n" +
-"                           id='growingHeight' \n" +
-"                           name='growingHeight' \n" +
-"                           value='" + plant.getGrowingHeight() + "'\n" +
-"                           readonly>\n" +
-"                </div>\n" +
-"                <div class='field'>\n" +
-"                    <label for='watering'>Gießempfehlung</label>\n" +
-"                    <input type='text' \n" +
-"                           id='watering' \n" +
-"                           name='watering' \n" +
-"                           value='" + plant.getWatering() + "'\n" +
-"                           readonly>\n" +
-"                </div>\n" +
-"                <div class='field'>\n" +
-"                    <label for='careRecommendations'>Pflegeaufwand</label>\n" +
-"                    <input type='text' \n" +
-"                           id='careRecommendations' \n" +
-"                           name='careRecommendations' \n" +
-"                           value='" + plant.getCareRecommendations() + "'\n" +
-"                           readonly>\n" +
-"                </div>         ");
-            
+
+            out.println(""
+                    + " <div class=\"flex flex-row flex-wrap w-full gap-3 items-start items-center\"><img src='/img/plants/" + plant.getPicturePath() + "' class='image-center' width='100' alt='Foto der Pflanze'/><br /></div>"
+                    + "\n"
+                    + "<div class=\"flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300\">\n"     
+                    + "                            <!-- cell left-->\n"
+                    + "                            <div class=\"flex-none w-24 p-4 bg-white\">\n"
+                    + "                                <p class=\"text-xs font-semibold text-gray-500 p-input-labels\">Ordnung</p>\n"
+                    + "                            </div>\n"
+                    + "\n"
+                    + "                            <!-- cell right-->\n"
+                    + "                            <div class=\"grow p-2 bg-white\">\n"
+                    + "                                <input class=\"border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline\" \n"
+                    + "                                       type='text' \n"
+                    + "                                       id='orderBiology' \n"
+                    + "                                       name='orderBiology' \n"
+                    + "                                       value='" + plant.getOrderBiology() + "'\n"
+                    + "                                       readonly>\n"
+                    + "                                <p class=\"text-base font-medium text-gray-900\"></p>\n"
+                    + "                            </div>\n"
+                    + "                        </div>\n"
+                    + "\n"
+                    + "                        <!-- row 5-->\n"
+                    + "                        <div class=\"flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300\">\n"
+                    + "\n"
+                    + "                            <!-- cell left-->\n"
+                    + "                            <div class=\"flex-none w-24 p-4 bg-white\">\n"
+                    + "                                <p class=\"text-xs font-semibold text-gray-500 p-input-labels\">Familie</p>\n"
+                    + "                            </div>\n"
+                    + "\n"
+                    + "                            <!-- cell right-->\n"
+                    + "                            <div class=\"grow p-2 bg-white\">\n"
+                    + "                                <input class=\"border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline\" \n"
+                    + "                                       type='text' \n"
+                    + "                                       id='familyBiology' \n"
+                    + "                                       name='familyBiology' \n"
+                    + "                                       value='" + plant.getFamilyBiology() + "'\n"
+                    + "                                       readonly>\n"
+                    + "                                <p class=\"text-base font-medium text-gray-900\"></p>\n"
+                    + "                            </div>\n"
+                    + "                        </div>\n"
+                    + "\n"
+                    + "                        <!-- row 6-->\n"
+                    + "                        <div class=\"flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300\">\n"
+                    + "\n"
+                    + "                            <!-- cell left-->\n"
+                    + "                            <div class=\"flex-none w-24 p-4 rounded-2xl bg-white\">\n"
+                    + "                                <p class=\"text-xs font-semibold text-gray-500 p-input-labels\">Unterfamilie</p>\n"
+                    + "                            </div>\n"
+                    + "\n"
+                    + "                            <!-- cell right-->\n"
+                    + "                            <div class=\"grow p-2 bg-white\">\n"
+                    + "                                <input class=\"border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline\"\n"
+                    + "                                       type='text' \n"
+                    + "                                       id='subfamilyBiology' \n"
+                    + "                                       name='subfamilyBiology' \n"
+                    + "                                       value='" + plant.getSubfamilyBiology() + "'\n"
+                    + "                                       readonly>\n"
+                    + "                                <p class=\"text-base font-medium text-gray-900\"></p>\n"
+                    + "                            </div>\n"
+                    + "                        </div>\n"
+                    + "\n"
+                    + "                        <div class=\"h-4 bg-gray-200\"></div>\n"
+                    + "\n"
+                    + "                        <!-- row 7-->\n"
+                    + "                        <div class=\"flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300\">\n"
+                    + "\n"
+                    + "                            <!-- cell left-->\n"
+                    + "                            <div class=\"flex-none w-24 p-4 rounded-2xl bg-white\">\n"
+                    + "                                <p class=\"text-xs font-semibold text-gray-500 p-input-labels\">Wuchshöhe in cm</p>\n"
+                    + "                            </div>\n"
+                    + "\n"
+                    + "                            <!-- cell right-->\n"
+                    + "                            <div class=\"grow p-2 bg-white\">\n"
+                    + "                                <input class=\"border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline\"\n"
+                    + "                                       type='number' \n"
+                    + "                                       id='growingHeight' \n"
+                    + "                                       name='growingHeight' \n"
+                    + "                                       value='" + plant.getGrowingHeight() + "'\n"
+                    + "                                       readonly>\n"
+                    + "                                <p class=\"text-base font-medium text-gray-900\"></p>\n"
+                    + "                            </div>\n"
+                    + "                        </div>\n"
+                    + "\n"
+                    + "                        <!-- row 8-->\n"
+                    + "                        <div class=\"flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300\">\n"
+                    + "\n"
+                    + "                            <!-- cell left-->\n"
+                    + "                            <div class=\"flex-none w-24 p-4 rounded-2xl bg-white\">\n"
+                    + "                                <p class=\"text-xs font-semibold text-gray-500 p-input-labels\">Gieß-<br />empfehlung</p>\n"
+                    + "                            </div>\n"
+                    + "\n"
+                    + "                            <!-- cell right-->\n"
+                    + "                            <div class=\"grow p-2 bg-white\">\n"
+                    + "                                <input class=\"border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline\"\n"
+                    + "                                       type='text' \n"
+                    + "                                       id='watering' \n"
+                    + "                                       name='watering' \n"
+                    + "                                       value='" + plant.getWatering() + "'\n"
+                    + "                                       readonly>\n"
+                    + "                                <p class=\"text-base font-medium text-gray-900\"></p>\n"
+                    + "                            </div>\n"
+                    + "                        </div>\n"
+                    + "\n"
+                    + "                        <!-- row 9-->\n"
+                    + "                        <div class=\"flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300\">\n"
+                    + "\n"
+                    + "                            <!-- cell left-->\n"
+                    + "                            <div class=\"flex-none w-24 p-4 rounded-2xl bg-white\">\n"
+                    + "                                <p class=\"text-xs font-semibold text-gray-500 p-input-labels\">Pflegeaufwand</p>\n"
+                    + "                            </div>\n"
+                    + "\n"
+                    + "                            <!-- cell right-->\n"
+                    + "                            <div class=\"grow p-2 bg-white\">\n"
+                    + "                                <input class=\"border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline\"\n"
+                    + "                                       type='text' \n"
+                    + "                                       id='careRecommendations' \n"
+                    + "                                       name='careRecommendations' \n"
+                    + "                                       value='" + plant.getCareRecommendations() + "'\n"
+                    + "                                       readonly>\n"
+                    + "                                <p class=\"text-base font-medium text-gray-900\"></p>\n"
+                    + "                            </div>\n"
+                    + "                        </div>\n"
+                    + "\n"
+                    + "                        <div class=\"h-4 bg-gray-200\"></div>");
+
         }
     }
 
