@@ -43,7 +43,7 @@
     </head>
 
 
-    <body class="antialiased h-screen body-bg font-Metropolis mb-14">
+    <body class="antialiased h-screen body-bg font-Metropolis">
 
         <!-- fixed nav -->
         <nav class="bottom-nav fixed bottom-0 inset-x-0 z-10 bg-white border-gray-300 flex justify-between text-sm">
