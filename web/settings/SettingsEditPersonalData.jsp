@@ -79,7 +79,7 @@
 
             <!-- title + text area -->
             <div class="items-center py-6">
-                <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Einstellungen</h2>
+                <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Persönliche Daten ändern</h2>
             </div>
 
         </div>
