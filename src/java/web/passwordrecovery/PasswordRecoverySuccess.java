@@ -11,9 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.user.PwdHashing;
 import model.user.UserManager;
+import web.index.CheckPasswordStrength;
 
 /**
  *
@@ -44,23 +44,26 @@ public class PasswordRecoverySuccess extends HttpServlet {
             String pwdHashed = PwdHashing.pwdHashed(pwdUnhashed);
             List<User> users = um.findUserByEmail(email);
             User user = users.get(0);
-            
+
             RequestDispatcher rd;
 
-            if (user.getResetPassword() == true && user.getEmailVerificationCode().equals(authcode)) {
-                um.setErrors(false);
-                user.setResetPassword(false);
-                user.setIsActive(true);
-                user.setPwdHash(pwdHashed);
-                um.setUser(user);
-                um.update(user);
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
-                rd = request.getRequestDispatcher("PasswordRecoverySuccess.jsp");
-            } else {
+            if (CheckPasswordStrength.checkString(pwdUnhashed)) { // check password strength
+                if (user.getResetPassword() == true && user.getEmailVerificationCode().equals(authcode)) {
+                    um.setErrors(false);
+                    user.setResetPassword(false);
+                    user.setIsActive(true);
+                    user.setPwdHash(pwdHashed);
+                    um.update(user);
+                    rd = request.getRequestDispatcher("PasswordRecoverySuccess.jsp");
+                } else {
+                    um.setErrors(true);
+                    um.setStatus("Du hast keine Passwortänderung angefordert oder der Authentifizierungscode ist nicht korrekt.");
+                    rd = request.getRequestDispatcher("/Login.jsp");
+                }
+            } else { // password check failed
                 um.setErrors(true);
-                um.setStatus("Passwort ändern nicht möglich.");
-                rd = request.getRequestDispatcher("/Gardenly/Login.jsp");
+                um.setStatus("Das gewählte Passwort entspricht nicht den Sicherheitsanforderungen.");
+                rd = request.getRequestDispatcher("/Login.jsp");
             }
 
             rd.forward(request, response);
