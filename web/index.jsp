@@ -41,7 +41,7 @@
 
         <title>Gardenly Home</title>
     </head>
-    <body class="antialiased h-screen body-bg font-Metropolis mb-14 transition-all">
+    <body class="antialiased h-screen body-bg font-Metropolis transition-all">
 
         <!-- shield-->
         <section id="shield" class="shield hidden bg-black bg-opacity-50 z-20 w-full h-full fixed top-0 inset-x-0 animate__animated">
