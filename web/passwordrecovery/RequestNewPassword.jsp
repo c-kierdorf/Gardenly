@@ -39,22 +39,30 @@
         <title>Gardenly Neues Passwort</title>
     </head>
     <body class="antialiased h-screen body-bg font-Metropolis transition-all">
-        
+
         <!-- logo area -->
         <section class="container text-center py-12">
             <div class="container px-4 mx-auto">
                 <a href="/Gardenly/Index" title="Zur Startseite">
                     <img class="mx-auto w-9/12" src="/img/logo-main.svg" />
                 </a>
-            </div>
-            <a id="close-button"></a><section id="shield"></section> <!-- dummy for js -->
+            </div>  
         </section>
 
         <div class="container px-4 mx-auto">
-            <h1 class="h-10 text-3xl text-main-green font-Metropolis font-bold">Passwort zurücksetzen</h2>
+            <h1 class="h-10 text-3xl text-main-green font-Metropolis font-bold">Passwort zurücksetzen</h1>
+
             <!-- reset pw form start -->
             <div class="w-full mt-6">
                 <form action="PasswordRecoverySuccess" method="POST">
+                    <!-- dummy for js start -->
+                    <a id="add-plant"></a>
+                    <a id="close-button"></a>
+                    <a id="shield"></a>  
+                    <a id="overlay"></a>  
+                    <a id="login"></a>  
+                    <a id="register-with-mail"></a>  
+                    <!-- dummy for js end -->
                     <div class="mb-4">
                         <label class="block text-gray-900 text-sm font-bold mb-2" 
                                for="pw">
@@ -63,18 +71,18 @@
 
                         <div class="w-full" x-data="checkStrength()" x-init="checkStrength()">
                             <div class="relative mb-2">
-                                <input :type="showPasswordField?'password':'text'" 
+                                <input type="password" 
                                        id="password" 
                                        name="pwd"
                                        x-model="password" 
                                        class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
-                                       placeholder="Password" 
+                                       placeholder="Passwort" 
                                        @input="checkStrength()"
                                        required>
-                                <button class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-indigo-500 transition-colors" 
+<!--                                <button class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-indigo-500 transition-colors" 
                                         @click.prevent="showPasswordField=!showPasswordField">
                                     <i class="far " :class="`fa-${showPasswordField?'eye':'eye-slash'}`"></i>
-                                </button>
+                                </button>-->
                             </div>
                             <div class="flex -mx-1">
                                 <template x-for="(v,i) in 5">
@@ -101,8 +109,11 @@
                                        value="Jetzt zurücksetzen">
                             </div>
                         </div>
+
+                    </div>  
                 </form>
-            </div>   
+            </div>
+
             <!-- reset pw form end -->
 
         </div>
