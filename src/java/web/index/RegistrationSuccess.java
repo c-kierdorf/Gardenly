@@ -55,28 +55,34 @@ public class RegistrationSuccess extends HttpServlet {
 
             RequestDispatcher rd;
 
-            if (users.isEmpty()) {
-                um.setErrors(false);
-                boolean sendVerificationEmail = sm.sendEmail(user);
-                if (sendVerificationEmail) {
-                    um.create(user);
-                    /**
-                     * ACHTUNG KEINE um.setUser(user) ANWEISUNG an dieser Stelle!
-                     * Dann ist der User praktisch eingeloggt, aber es sind noch
-                     * nicht alle Attribute geladen. Das macht erst ein Login-
-                     * Prozess.
-                     */
-                    rd = request.getRequestDispatcher("RegistrationSuccess.jsp");
+            if (CheckPasswordStrength.checkString(pwdUnhashed)) { // check password strength
+                if (users.isEmpty()) { // check if user exists
+                    um.setErrors(false);
+                    boolean sendVerificationEmail = sm.sendEmail(user);
+                    if (sendVerificationEmail) {
+                        um.create(user);
+                        /**
+                         * ACHTUNG KEINE um.setUser(user) ANWEISUNG an dieser
+                         * Stelle! Dann ist der User praktisch eingeloggt, aber
+                         * es sind noch nicht alle Attribute geladen. Das macht
+                         * erst ein Login- Prozess.
+                         */
+                        rd = request.getRequestDispatcher("RegistrationSuccess.jsp");
+                    } else {
+                        um.setErrors(true);
+                        um.setStatus("Emailverifikation konnte nicht an " + email + " gesendet werden.");
+                        rd = request.getRequestDispatcher("Register.jsp");
+                    }
                 } else {
                     um.setErrors(true);
-                    um.setStatus("Emailverifikation konnte nicht an " + email + " gesendet werden.");
+                    um.setStatus("Die Emailadresse " + email + " ist bereits vergeben.");
                     rd = request.getRequestDispatcher("Register.jsp");
-                }
-            } else {
-                um.setErrors(true);
-                um.setStatus("Die Emailadresse " + email + " ist bereits vergeben.");
-                rd = request.getRequestDispatcher("Register.jsp");
 
+                }
+            } else { // password check failed
+                um.setErrors(true);
+                um.setStatus("Das gewählte Passwort entspricht nicht den Sicherheitsanforderungen.");
+                rd = request.getRequestDispatcher("Register.jsp");
             }
 
             rd.forward(request, response);
@@ -126,5 +132,6 @@ public class RegistrationSuccess extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }
