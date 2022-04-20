@@ -63,7 +63,7 @@
 
             <a href="/Gardenly/Index" style="position: relative" class="menu-item menu-item-main w-full basis-1/5 pt-0 text-center font-medium text-xs text-gray-900 hover:bg-blue-200 hover:text-blue-800">
                 <div class="rounded-full -mt-6 text-center mb-3 mx-auto">
-                    <img class="w-9 mb-2 text-center py-4 mx-auto" src="img/logo.svg">
+                    <img class="w-9 mb-2 text-center py-4 mx-auto" src="/img/logo.svg">
                 </div>
                 Mein<br />Garten
             </a>
