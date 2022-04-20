@@ -190,7 +190,7 @@
                                        name="u_pwd"
                                        x-model="password" 
                                        class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
-                                       placeholder="Password" 
+                                       placeholder="Passwort" 
                                        @input="checkStrength()"
                                        required>
                                 <button class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-indigo-500 transition-colors" 
