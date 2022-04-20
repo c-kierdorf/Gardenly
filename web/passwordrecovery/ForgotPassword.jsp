@@ -76,6 +76,7 @@
                     </div>
                 </form>
             </div>
+        </div>
             <!-- reset pw form end -->
             <!--                    
                 
