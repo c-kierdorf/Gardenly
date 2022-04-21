@@ -82,9 +82,23 @@
                 <c:choose>
                     <c:when test="${!um.errors}">
                         <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Passwort erfolgreich geändert</h2>
+
+                        <section  class="text-center px-4 mx-auto w-full mt-12">
+                            <a href="/Gardenly/Index" id="login" class="register">
+                                <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                    Zur Startseite
+                                </div>
+                            </a>
+                        </section>
+
                     </c:when>
                     <c:otherwise>
-                        <p class="error">${um.status}</p>
+                        <div id="invalidLogin" 
+                             class="invalid-login container">
+                            <div class="error">
+                                ${um.status}
+                            </div>
+                        </div>
                     </c:otherwise>
                 </c:choose>
             </div>
