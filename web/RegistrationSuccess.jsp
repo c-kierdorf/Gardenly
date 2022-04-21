@@ -1,5 +1,5 @@
 <%-- 
-    Document   : registrationSuccess
+    Document   : RegistrationSuccess
     Created on : 28.02.2022, 19:34:14
     Author     : CK
 --%>
