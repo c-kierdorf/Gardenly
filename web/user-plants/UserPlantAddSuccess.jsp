@@ -80,7 +80,7 @@
             <!-- title + text area -->
             <div class="items-center py-6">
                 <c:choose>
-                    <c:when test="${!um.errors}">
+                    <c:when test="${!upm.errors}">
                         <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">${upm.userPlant.userPlantName} erfolgreich hinzugefügt!</h2>
 
                         <section  class="text-center px-4 mx-auto w-full mt-12">
@@ -96,7 +96,7 @@
                         <div id="invalidLogin" 
                              class="invalid-login container">
                             <div class="error">
-                                ${um.status}
+                                ${upm.status}
                             </div>
                         </div>
                     </c:otherwise>
