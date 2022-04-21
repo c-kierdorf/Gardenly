@@ -53,7 +53,7 @@
                 <c:choose>
                     <c:when test="${!um.errors}">
                         <h1 class="text-3xl text-main-green font-Metropolis font-bold">Registrierung erfolgreich</h1>
-                        <p class="text-base font-medium text-gray-500">
+                        <p class="text-base font-medium text-gray-500 py-6">
                             Du kannst dich nun mit deiner E-Mailadresse und Passwort 
                             bei Gardenly anmelden.
                         </p>
