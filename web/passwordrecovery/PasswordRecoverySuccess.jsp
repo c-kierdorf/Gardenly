@@ -49,18 +49,30 @@
         <!-- text area -->
         <section>
             <div class="container px-4 mx-auto mb-8">
-                <h1 class="text-3xl text-main-green font-Metropolis font-bold">Passwort erfolgreich geändert</h1>
-                <p class="text-base font-medium text-gray-500">
-                    Dein Passwort wurde erfolgreich geändert. Du kannst dich nun mit 
-                    deinem neuen Passwort und deiner Emailadresse bei Gardenly anmelden.
-                </p>
-                <section  class="text-center px-4 mx-auto w-full mt-12">
-                    <a href="/Gardenly/Login.jsp" id="login" class="register">
-                        <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                            Zum Login
+                <c:choose>
+                    <c:when test="${!um.errors}">
+                        <h1 class="text-3xl text-main-green font-Metropolis font-bold">Passwort erfolgreich geändert</h1>
+                        <p class="text-base font-medium text-gray-500">
+                            Dein Passwort wurde erfolgreich geändert. Du kannst dich nun mit 
+                            deinem neuen Passwort und deiner Emailadresse bei Gardenly anmelden.
+                        </p>
+                        <section  class="text-center px-4 mx-auto w-full mt-12">
+                            <a href="/Gardenly/Login.jsp" id="login" class="register">
+                                <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                    Zum Login
+                                </div>
+                            </a>
+                        </section>
+                    </c:when>
+                    <c:otherwise>
+                        <div id="invalidLogin" 
+                             class="invalid-login container">
+                            <div class="error">
+                                ${um.status}
+                            </div>
                         </div>
-                    </a>
-                </section>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </section>
         <!--        
