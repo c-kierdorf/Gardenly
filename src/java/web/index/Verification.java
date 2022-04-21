@@ -44,6 +44,7 @@ public class Verification extends HttpServlet {
                 um.setErrors(false);
                 user.setIsActive(true);
                 um.update(user);
+                um.setUser(user);
             } else {
                 um.setErrors(true);
                 um.setStatus("Die Emailadresse existiert nicht in der Datenbank.");
