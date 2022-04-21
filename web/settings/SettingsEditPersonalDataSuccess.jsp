@@ -79,18 +79,38 @@
 
             <!-- title + text area -->
             <div class="items-center py-6">
-                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Persönliche Daten erfolgreich aktualisiert</h2>
-            </div>
-            
-            <!-- show personal data -->
-            <p class="text-base font-medium text-gray-500">
-                Neue Daten: <br />
-                ${um.user.firstName} ${um.user.lastName}<br />
-                ${um.user.email}
-            </p>
+                <c:choose>
+                    <c:when test="${!um.errors}">
+                        <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Persönliche Daten erfolgreich aktualisiert</h2>
 
+                        <!-- show personal data -->
+                        <p class="text-base font-medium text-gray-500 py-6">
+                            Neue Daten: <br />
+                            ${um.user.firstName} ${um.user.lastName}<br />
+                            ${um.user.email}
+                        </p>
+
+                        <section  class="text-center px-4 mx-auto w-full mt-12">
+                            <a href="/Gardenly/Index" id="login" class="register">
+                                <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                    Zur Startseite
+                                </div>
+                            </a>
+                        </section>
+
+                    </c:when>
+                    <c:otherwise>
+                        <div id="invalidLogin" 
+                             class="invalid-login container">
+                            <div class="error">
+                                ${um.status}
+                            </div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </div>
         </div>
-        
+
         <!--                    
             
             Footer CK
