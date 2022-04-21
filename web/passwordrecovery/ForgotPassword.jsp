@@ -77,24 +77,24 @@
                 </form>
             </div>
         </div>
-            <!-- reset pw form end -->
-            <!--                    
-                
-                Footer CK
-                
-            -->
-            <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+        <!-- reset pw form end -->
+        <!--                    
+            
+            Footer CK
+            
+        -->
+        <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
 
-            <!-- footer embeds MK -->
-            <script type="text/javascript" src="/js/main.js"></script>
-            <script type="text/javascript" src="/js/include.js"></script>
+        <!-- footer embeds MK -->
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/include.js"></script>
 
-            <script type="text/javascript" src="/js/brands.min.js"></script>
-            <script type="text/javascript" src="/js/regular.min.js"></script>
-            <script type="text/javascript" src="/js/solid.min.js"></script>
+        <script type="text/javascript" src="/js/brands.min.js"></script>
+        <script type="text/javascript" src="/js/regular.min.js"></script>
+        <script type="text/javascript" src="/js/solid.min.js"></script>
 
-            <script>
-                includeHTML();
-            </script>
+        <script>
+            includeHTML();
+        </script>
     </body>
 </html>
