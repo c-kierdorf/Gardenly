@@ -209,6 +209,40 @@
 
                 </div>
                 <!--        
+        
+                E-Mail Verification
+        
+                -->
+                <c:if test="${!um.user.isActive}">
+                    <div style="margin:50px"></div>
+                    <p class="text-base font-medium text-gray-500">
+                        Du musst deine E-Mail Adresse noch verifizieren. Schau dazu in deinen Emails nach dem Verifikationscode und trage ihn in das Feld ein:
+                    </p>
+                    <form action="Verification" method="POST">
+                        <input type="hidden"
+                               name="u_id"
+                               id="u_id"
+                               value="${um.user.userId}">
+                        <div class="mb-4 my-6">
+                            <label class="block text-gray-900 text-sm font-bold mb-2"
+                                   for="authcode">
+                                Email-Verifikationscode
+                            </label>
+                            <input class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
+                                   type="text" 
+                                   id="authcode" 
+                                   name="authcode" 
+                                   required>
+                        </div>
+                        <div class="items-center justify-between my-6">
+                            <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                <input type="submit" 
+                                       value="Verifizieren" >
+                            </div>
+                        </div>
+                    </form>
+                </c:if>
+                <!--        
                                     
                                     Footer CK
                                     
@@ -266,40 +300,6 @@
 
         </section>
         <!-- 🌷 add plant overlay end -->
-
-        <!--        
-                
-                Original Code CK 
-                
-        -->
-
-        <!--        
-        
-                E-Mail Verification
-        
-        -->
-        <c:choose>
-            <c:when test="${!um.user.isActive}">
-                <div style="margin:50px"></div>
-                <p>Du musst deine E-Mail Adresse noch verifizieren:</p>
-                <form action="Verification" method="POST">
-                    <input type="hidden"
-                           name="u_id"
-                           id="u_id"
-                           value="${um.user.userId}">
-                    <div class="field">
-                        <label for="authcode">Email-Verifikationscode</label>
-                        <input type="text" id="authcode" name="authcode" required>
-                    </div>
-                    <div class="field">
-                        <input type="submit" 
-                               value="Verifizieren" 
-                               style="background-color: #67C53F;
-                               color: white">
-                    </div>
-                </form>
-            </c:when>
-        </c:choose>
 
         <!-- footer embeds -->
         <script type="text/javascript" src="/js/main.js"></script>
