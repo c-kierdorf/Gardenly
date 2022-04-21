@@ -92,14 +92,19 @@
         <div class="container px-4 mx-auto">
             <div class="w-full">
                 <section class="text-center px-4 mx-auto w-full mt-12">
-                    <a href="/settings/SettingsEditPersonalData.jsp" id="" class="register-with-mail">
+                    <a href="/settings/SettingsEditPersonalData.jsp">
                         <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                             Persönliche Daten ändern
                         </div>
                     </a>
-                    <a href="/settings/SettingsEditPwd.jsp" id="" class="register-with-mail">
+                    <a href="/settings/SettingsEditPwd.jsp">
                         <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                             Passwort ändern
+                        </div>
+                    </a>
+                    <a href="SettingsDeleteUserSuccess" onclick="return confirm('Das eigene Profil wirklich löschen? Alle angelegten Pflanzen werden gelöscht.');">
+                        <div class="bg-red-500 hover:bg-red-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                            Profil löschen
                         </div>
                     </a>
                     <a href="Logout" id="" class="">
