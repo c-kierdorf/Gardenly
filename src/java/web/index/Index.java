@@ -140,7 +140,7 @@ public class Index extends HttpServlet {
                 // List UserPlants process for already logged in users
                 User user = um.getUser();
                 List<UserPlant> userPlants = upm.findUserPlantsByUserFk(user);
-                if (userPlants != null) {
+                if (!userPlants.isEmpty()) {
                     upm.setErrors(false);
                     upm.setUserPlants(userPlants);
                 } else {
