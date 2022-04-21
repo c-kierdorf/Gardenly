@@ -53,7 +53,7 @@
                 <c:choose>
                     <c:when test="${!um.errors}">
                         <h1 class="text-3xl text-main-green font-Metropolis font-bold">Benutzerkonto erfolgreich gelöscht</h1>
-                        <p class="text-base font-medium text-gray-500">
+                        <p class="text-base font-medium text-gray-500 py-6">
                             Wir würden uns freuen, dich bald wieder bei Gardenly zu begrüßen :-)
                         </p>
                     </c:when>
