@@ -49,7 +49,7 @@
 
         <div class="container px-4 mx-auto">
             <h1 class="text-3xl text-main-green font-Metropolis font-bold">Passwort vergessen?</h1>
-            <p class="text-base font-medium text-gray-500">
+            <p class="text-base font-medium text-gray-500 py-6">
                 Kein Problem! Hier kannst du dein altes Passwort zurücksetzen 
                 und ein neues anlegen.
             </p>
