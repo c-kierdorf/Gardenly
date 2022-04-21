@@ -52,7 +52,7 @@
                 <c:choose>
                     <c:when test="${!um.errors}">
                         <h1 class="text-3xl text-main-green font-Metropolis font-bold">Passwort erfolgreich geändert</h1>
-                        <p class="text-base font-medium text-gray-500">
+                        <p class="text-base font-medium text-gray-500 py-6">
                             Dein Passwort wurde erfolgreich geändert. Du kannst dich nun mit 
                             deinem neuen Passwort und deiner Emailadresse bei Gardenly anmelden.
                         </p>
