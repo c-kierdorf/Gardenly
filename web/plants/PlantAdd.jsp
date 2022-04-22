@@ -208,6 +208,7 @@
                                    type='number' 
                                    id='growingHeight' 
                                    name='growingHeight' 
+                                   min="1" step="1" 
                                    required >
                             <p class="text-base font-medium text-gray-900"></p>
                         </div>
