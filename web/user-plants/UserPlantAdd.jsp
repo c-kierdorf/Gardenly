@@ -77,7 +77,7 @@
 
         </nav>
 
-        <!-- 🌷 add plant -->
+        <!-- title area -->
         <div class="container px-4 mx-auto">
 
             <!-- title + text area -->
@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <!-- title area -->
+        <!-- add plant start -->
         <section class="block bg-white w-full rounded-t-2xl z-30 inset-x-0">
 
             <form action="UserPlantAddSuccess" 
@@ -312,12 +312,11 @@
                     </div>
                     <div class="py-12"></div>
                 </div>
-
+                
             </form>
+            
         </section>
-
-
-        <!-- 🌷 add plant end -->
+        <!-- edit plant end -->
 
         <!-- footer embeds -->
         <script type="text/javascript" src="/js/main.js"></script>
