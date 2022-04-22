@@ -83,7 +83,7 @@
             </div>
 
             <!-- show personal data -->
-            <p class="text-base font-medium text-gray-500">
+            <p class="text-base font-medium text-gray-500 py-6">
                 ${um.user.firstName} ${um.user.lastName}<br />
                 ${um.user.email}
             </p>
