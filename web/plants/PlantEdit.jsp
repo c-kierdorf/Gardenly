@@ -251,8 +251,8 @@
                             <select class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                     name="watering" 
                                     id="watering" 
-                                    value="${pm.plant.watering}" 
                                     required >
+                                <option selected value="${pm.plant.watering}">${pm.plant.watering}</option>
                                 <option value="Wenig">Wenig</option>
                                 <option value="Mäßig">Mäßig</option>
                                 <option value="Viel">Viel</option>
@@ -273,8 +273,8 @@
                                 <select class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                         name="careRecommendations" 
                                         id="careRecommendations" 
-                                        value="${pm.plant.careRecommendations}" 
                                         required >
+                                    <option selected value="${pm.plant.careRecommendations}">${pm.plant.careRecommendations}</option>
                                     <option value="Einfach">Einfach</option>
                                     <option value="Mittel">Mittel</option>
                                     <option value="Schwer">Schwer</option>
