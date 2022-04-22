@@ -177,13 +177,15 @@
                     <!-- dynamic content start -->
                     <div id="dynamicContent">
 
-                        <!-- picture -->
-                        <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center">
-                            <img src="/img/user-plants/${upm.userPlant.userPlantPicturePath}"
-                                 class='image-center' 
-                                 width='100' 
-                                 alt='Foto der Pflanze' /><br />
-                        </div>
+                        <c:if test="${upm.userPlant.userPlantPicturePath != ''}">
+                            <!-- picture -->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center">
+                                <img src="/img/user-plants/${upm.userPlant.userPlantPicturePath}"
+                                     class='image-center' 
+                                     width='100' 
+                                     alt='Foto der Pflanze' /><br />
+                            </div>
+                        </c:if>
 
                         <!-- row 4-->
                         <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
@@ -328,7 +330,7 @@
                 </div>
 
             </form>
-                                       
+
         </section>
         <!-- 🌷 edit plant end -->
 
