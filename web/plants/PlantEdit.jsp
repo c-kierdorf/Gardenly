@@ -86,267 +86,280 @@
         <!-- add plant start -->
         <section class="block bg-white w-full rounded-t-2xl z-30 inset-x-0">
 
-            <form action="PlantEditSuccess" 
-                  method="POST" 
-                  enctype="multipart/form-data" >
+            <c:choose>
+                <c:when test="${!pm.errors}">
 
-                <input hidden type="text" id="p_id" name="p_id" value="${pm.plant.plantsId}" >
 
-                <div class="justify-center">
 
-                    <!-- row current picture-->
-                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center py-6">
-                        <!-- cell left-->
-                        <div class="flex-none w-24 p-4 bg-white">
-                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Bild</p>
-                        </div>
+                    <form action="PlantEditSuccess" 
+                          method="POST" 
+                          enctype="multipart/form-data" >
 
-                        <!-- cell right-->
-                        <div class="grow p-3 bg-white">
-                            <div class="flex w-full">
-                                <img src="/img/plants/${pm.plant.picturePath}" 
-                                     width="100" 
-                                     height="117" 
-                                     alt="Bild der Pflanzen" />
-                            </div>
-                        </div>
-                    </div>
+                        <input hidden type="text" id="p_id" name="p_id" value="${pm.plant.plantsId}" >
 
-                    <!-- row new picture-->
-                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center py-6">
+                        <div class="justify-center">
 
-                        <!-- cell left-->
-                        <div class="flex-none w-24 p-4 bg-white">
-                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Neues Bild?</p> 
-                            <input type="checkbox" id="pictureYes" name="pictureYes" value="1">
-                        </div>
+                            <!-- row current picture-->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center py-6">
+                                <!-- cell left-->
+                                <div class="flex-none w-24 p-4 bg-white">
+                                    <p class="text-xs font-semibold text-gray-500 p-input-labels">Bild</p>
+                                </div>
 
-                        <!-- cell right-->
-                        <div class="grow p-3 bg-white">
-                            <div class="flex w-full">
-                                <input type='file' 
-                                       id='picture' 
-                                       name='picture' >
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="h-1 bg-gray-200"></div>
-
-                    <!-- row name-->
-                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-
-                        <!-- cell left-->
-                        <div class="flex-none w-24 p-4 bg-white">
-                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Name</p>
-                        </div>
-
-                        <!-- cell right-->
-                        <div class="grow p-2 bg-white">
-                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                   type="text" 
-                                   id="pflanzenname" 
-                                   name="p_name" 
-                                   value="${pm.plant.name}" 
-                                   required >
-                            <p class="text-base font-medium text-gray-900"></p>
-                        </div>
-                    </div>
-
-                    <!-- row orderBiology-->
-                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-
-                        <!-- cell left-->
-                        <div class="flex-none w-24 p-4 bg-white">
-                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Ordnung</p>
-                        </div>
-
-                        <!-- cell right-->
-                        <div class="grow p-2 bg-white">
-                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                                   type='text' 
-                                   id='orderBiology' 
-                                   name='orderBiology' 
-                                   value="${pm.plant.orderBiology}" 
-                                   required >
-                            <p class="text-base font-medium text-gray-900"></p>
-                        </div>
-                    </div>
-
-                    <!-- row familyBiology-->
-                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-
-                        <!-- cell left-->
-                        <div class="flex-none w-24 p-4 bg-white">
-                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Familie</p>
-                        </div>
-
-                        <!-- cell right-->
-                        <div class="grow p-2 bg-white">
-                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                                   type='text' 
-                                   id='familyBiology' 
-                                   name='familyBiology' 
-                                   value="${pm.plant.familyBiology}" 
-                                   required >
-                            <p class="text-base font-medium text-gray-900"></p>
-                        </div>
-                    </div>
-
-                    <!-- row subfamilyBiology-->
-                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-
-                        <!-- cell left-->
-                        <div class="flex-none w-24 p-4 rounded-2xl bg-white">
-                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Unterfamilie</p>
-                        </div>
-
-                        <!-- cell right-->
-                        <div class="grow p-2 bg-white">
-                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                   type='text' 
-                                   id='subfamilyBiology' 
-                                   name='subfamilyBiology' 
-                                   value="${pm.plant.subfamilyBiology}" 
-                                   required >
-                            <p class="text-base font-medium text-gray-900"></p>
-                        </div>
-                    </div>
-
-                    <div class="h-4 bg-gray-200"></div>
-
-                    <!-- row growingHeight-->
-                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-
-                        <!-- cell left-->
-                        <div class="flex-none w-24 p-4 rounded-2xl bg-white">
-                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Wuchshöhe in cm</p>
-                        </div>
-
-                        <!-- cell right-->
-                        <div class="grow p-2 bg-white">
-                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                   type='number' 
-                                   id='growingHeight' 
-                                   name='growingHeight' 
-                                   value="${pm.plant.growingHeight}" 
-                                   min="1" step="1" 
-                                   required >
-                            <p class="text-base font-medium text-gray-900"></p>
-                        </div>
-                    </div>
-
-                    <div class="h-4 bg-gray-200"></div>
-
-                    <!-- row watering-->
-                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-
-                        <!-- cell left-->
-                        <div class="flex-none w-24 p-4 rounded-2xl bg-white">
-                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Gieß-<br />empfehlung</p>
-                        </div>
-
-                        <!-- cell right-->
-                        <div class="grow p-2 bg-white">
-                            <select class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                                    name="watering" 
-                                    id="watering" 
-                                    required >
-                                <option selected value="${pm.plant.watering}">${pm.plant.watering}</option>
-                                <option value="Wenig">Wenig</option>
-                                <option value="Mäßig">Mäßig</option>
-                                <option value="Viel">Viel</option>
-                            </select>
-                            <p class="text-base font-medium text-gray-900"></p>
-                        </div>
-
-                        <!-- row careRecommendations-->
-                        <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-
-                            <!-- cell left-->
-                            <div class="flex-none w-24 p-4 bg-white">
-                                <p class="text-xs font-semibold text-gray-500 p-input-labels">Pflegeaufwand</p>
-                            </div>
-
-                            <!-- cell right-->
-                            <div class="grow p-2 bg-white">
-                                <select class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                                        name="careRecommendations" 
-                                        id="careRecommendations" 
-                                        required >
-                                    <option selected value="${pm.plant.careRecommendations}">${pm.plant.careRecommendations}</option>
-                                    <option value="Einfach">Einfach</option>
-                                    <option value="Mittel">Mittel</option>
-                                    <option value="Schwer">Schwer</option>
-                                </select>
-                                <p class="text-base font-medium text-gray-900"></p>
-                            </div>
-                        </div>
-
-                        <!-- row location-->
-                        <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-
-                            <!-- cell left-->
-                            <div class="flex-none w-24 p-4 bg-white">
-                                <p class="text-xs font-semibold text-gray-500 p-input-labels">Standort (Aktuell: ${pm.plant.location})</p>
-                            </div>
-
-                            <!-- cell right-->
-                            <div class="grow p-2 bg-white">
-                                <input type="checkbox" id="locationHell" name="locationHell" value="hell">
-                                <label for="locationHell">hell</label><br>
-                                <input type="checkbox" id="locationSonnig" name="locationSonnig" value="sonnig">
-                                <label for="locationSonnig">sonnig</label><br>
-                                <input type="checkbox" id="locationHalbschattig" name="locationHalbschattig" value="halbschattig">
-                                <label for="locationHalbschattig">halbschattig</label><br>
-                                <input type="checkbox" id="locationSchattig" name="locationSchattig" value="schattig">
-                                <label for="locationSchattig">schattig</label><br>
-                                <input type="checkbox" id="locationWarm" name="locationWarm" value="warm">
-                                <label for="locationWarm">warm</label><br>
-                                <input type="checkbox" id="locationKuehl" name="locationKuehl" value="kühl">
-                                <label for="locationKuehl">kühl</label><br>
-                                <input type="checkbox" id="locationLuftfeucht" name="locationLuftfeucht" value="luftfeucht">
-                                <label for="locationLuftfeucht">luftfeucht</label><br>
-                                <input type="checkbox" id="locationWindgeschuetzt" name="locationWindgeschuetzt" value="windgeschützt">
-                                <label for="locationWindgeschuetzt">windgeschützt</label><br>
-                                <input type="checkbox" id="locationKeineSonne" name="locationKeineSonne" value="keine direkte Sonne">
-                                <label for="locationKeineSonne">keine direkte Sonne</label><br>
-                                <input type="checkbox" id="locationNordfenster" name="locationNordfenster" value="Nordfenster">
-                                <label for="locationNordfenster">Nordfenster</label><br>
-                                <input type="checkbox" id="locationOstfenster" name="locationOstfenster" value="Ostfenster">
-                                <label for="locationOstfenster">Ostfenster</label><br>
-                                <input type="checkbox" id="locationSuedfenster" name="locationSuedfenster" value="Südfenster">
-                                <label for="locationSuedfenster">Südfenster</label><br>
-                                <input type="checkbox" id="locationWestfenster" name="locationWestfenster" value="Westfenster">
-                                <label for="locationWestfenster">Westfenster</label><br>
-                                <input type="checkbox" id="locationIndoor" name="locationIndoor" value="Indoor">
-                                <label for="locationIndoor">Indoor</label><br>
-                                <input type="checkbox" id="locationOutdoor" name="locationOutdoor" value="Outdoor">
-                                <label for="locationOutdoor">Outdoor</label><br> 
-                                <p class="text-base font-medium text-gray-900"></p>
-                            </div>
-                        </div>
-
-                        <div class="h-4 bg-gray-200"></div>
-
-                        <!-- save button-->
-                        <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
-                            <div class="w-full mt-6">
-                                <div class="items-center justify-between my-6 px-4">
-                                    <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                                        <input type="submit"
-                                               class="register"
-                                               value="Speichern"  >
+                                <!-- cell right-->
+                                <div class="grow p-3 bg-white">
+                                    <div class="flex w-full">
+                                        <img src="/img/plants/${pm.plant.picturePath}" 
+                                             width="100" 
+                                             height="117" 
+                                             alt="Bild der Pflanzen" />
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- row new picture-->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center py-6">
+
+                                <!-- cell left-->
+                                <div class="flex-none w-24 p-4 bg-white">
+                                    <p class="text-xs font-semibold text-gray-500 p-input-labels">Neues Bild?</p> 
+                                    <input type="checkbox" id="pictureYes" name="pictureYes" value="1">
+                                </div>
+
+                                <!-- cell right-->
+                                <div class="grow p-3 bg-white">
+                                    <div class="flex w-full">
+                                        <input type='file' 
+                                               id='picture' 
+                                               name='picture' >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="h-1 bg-gray-200"></div>
+
+                            <!-- row name-->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                                <!-- cell left-->
+                                <div class="flex-none w-24 p-4 bg-white">
+                                    <p class="text-xs font-semibold text-gray-500 p-input-labels">Name</p>
+                                </div>
+
+                                <!-- cell right-->
+                                <div class="grow p-2 bg-white">
+                                    <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                           type="text" 
+                                           id="pflanzenname" 
+                                           name="p_name" 
+                                           value="${pm.plant.name}" 
+                                           required >
+                                    <p class="text-base font-medium text-gray-900"></p>
+                                </div>
+                            </div>
+
+                            <!-- row orderBiology-->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                                <!-- cell left-->
+                                <div class="flex-none w-24 p-4 bg-white">
+                                    <p class="text-xs font-semibold text-gray-500 p-input-labels">Ordnung</p>
+                                </div>
+
+                                <!-- cell right-->
+                                <div class="grow p-2 bg-white">
+                                    <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                           type='text' 
+                                           id='orderBiology' 
+                                           name='orderBiology' 
+                                           value="${pm.plant.orderBiology}" 
+                                           required >
+                                    <p class="text-base font-medium text-gray-900"></p>
+                                </div>
+                            </div>
+
+                            <!-- row familyBiology-->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                                <!-- cell left-->
+                                <div class="flex-none w-24 p-4 bg-white">
+                                    <p class="text-xs font-semibold text-gray-500 p-input-labels">Familie</p>
+                                </div>
+
+                                <!-- cell right-->
+                                <div class="grow p-2 bg-white">
+                                    <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                           type='text' 
+                                           id='familyBiology' 
+                                           name='familyBiology' 
+                                           value="${pm.plant.familyBiology}" 
+                                           required >
+                                    <p class="text-base font-medium text-gray-900"></p>
+                                </div>
+                            </div>
+
+                            <!-- row subfamilyBiology-->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                                <!-- cell left-->
+                                <div class="flex-none w-24 p-4 rounded-2xl bg-white">
+                                    <p class="text-xs font-semibold text-gray-500 p-input-labels">Unterfamilie</p>
+                                </div>
+
+                                <!-- cell right-->
+                                <div class="grow p-2 bg-white">
+                                    <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                           type='text' 
+                                           id='subfamilyBiology' 
+                                           name='subfamilyBiology' 
+                                           value="${pm.plant.subfamilyBiology}" 
+                                           required >
+                                    <p class="text-base font-medium text-gray-900"></p>
+                                </div>
+                            </div>
+
+                            <div class="h-4 bg-gray-200"></div>
+
+                            <!-- row growingHeight-->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                                <!-- cell left-->
+                                <div class="flex-none w-24 p-4 rounded-2xl bg-white">
+                                    <p class="text-xs font-semibold text-gray-500 p-input-labels">Wuchshöhe in cm</p>
+                                </div>
+
+                                <!-- cell right-->
+                                <div class="grow p-2 bg-white">
+                                    <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                           type='number' 
+                                           id='growingHeight' 
+                                           name='growingHeight' 
+                                           value="${pm.plant.growingHeight}" 
+                                           min="1" step="1" 
+                                           required >
+                                    <p class="text-base font-medium text-gray-900"></p>
+                                </div>
+                            </div>
+
+                            <div class="h-4 bg-gray-200"></div>
+
+                            <!-- row watering-->
+                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                                <!-- cell left-->
+                                <div class="flex-none w-24 p-4 rounded-2xl bg-white">
+                                    <p class="text-xs font-semibold text-gray-500 p-input-labels">Gieß-<br />empfehlung</p>
+                                </div>
+
+                                <!-- cell right-->
+                                <div class="grow p-2 bg-white">
+                                    <select class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                            name="watering" 
+                                            id="watering" 
+                                            required >
+                                        <option selected value="${pm.plant.watering}">${pm.plant.watering}</option>
+                                        <option value="Wenig">Wenig</option>
+                                        <option value="Mäßig">Mäßig</option>
+                                        <option value="Viel">Viel</option>
+                                    </select>
+                                    <p class="text-base font-medium text-gray-900"></p>
+                                </div>
+
+                                <!-- row careRecommendations-->
+                                <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                                    <!-- cell left-->
+                                    <div class="flex-none w-24 p-4 bg-white">
+                                        <p class="text-xs font-semibold text-gray-500 p-input-labels">Pflegeaufwand</p>
+                                    </div>
+
+                                    <!-- cell right-->
+                                    <div class="grow p-2 bg-white">
+                                        <select class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                                name="careRecommendations" 
+                                                id="careRecommendations" 
+                                                required >
+                                            <option selected value="${pm.plant.careRecommendations}">${pm.plant.careRecommendations}</option>
+                                            <option value="Einfach">Einfach</option>
+                                            <option value="Mittel">Mittel</option>
+                                            <option value="Schwer">Schwer</option>
+                                        </select>
+                                        <p class="text-base font-medium text-gray-900"></p>
+                                    </div>
+                                </div>
+
+                                <!-- row location-->
+                                <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                                    <!-- cell left-->
+                                    <div class="flex-none w-24 p-4 bg-white">
+                                        <p class="text-xs font-semibold text-gray-500 p-input-labels">Standort (Aktuell: ${pm.plant.location})</p>
+                                    </div>
+
+                                    <!-- cell right-->
+                                    <div class="grow p-2 bg-white">
+                                        <input type="checkbox" id="locationHell" name="locationHell" value="hell">
+                                        <label for="locationHell">hell</label><br>
+                                        <input type="checkbox" id="locationSonnig" name="locationSonnig" value="sonnig">
+                                        <label for="locationSonnig">sonnig</label><br>
+                                        <input type="checkbox" id="locationHalbschattig" name="locationHalbschattig" value="halbschattig">
+                                        <label for="locationHalbschattig">halbschattig</label><br>
+                                        <input type="checkbox" id="locationSchattig" name="locationSchattig" value="schattig">
+                                        <label for="locationSchattig">schattig</label><br>
+                                        <input type="checkbox" id="locationWarm" name="locationWarm" value="warm">
+                                        <label for="locationWarm">warm</label><br>
+                                        <input type="checkbox" id="locationKuehl" name="locationKuehl" value="kühl">
+                                        <label for="locationKuehl">kühl</label><br>
+                                        <input type="checkbox" id="locationLuftfeucht" name="locationLuftfeucht" value="luftfeucht">
+                                        <label for="locationLuftfeucht">luftfeucht</label><br>
+                                        <input type="checkbox" id="locationWindgeschuetzt" name="locationWindgeschuetzt" value="windgeschützt">
+                                        <label for="locationWindgeschuetzt">windgeschützt</label><br>
+                                        <input type="checkbox" id="locationKeineSonne" name="locationKeineSonne" value="keine direkte Sonne">
+                                        <label for="locationKeineSonne">keine direkte Sonne</label><br>
+                                        <input type="checkbox" id="locationNordfenster" name="locationNordfenster" value="Nordfenster">
+                                        <label for="locationNordfenster">Nordfenster</label><br>
+                                        <input type="checkbox" id="locationOstfenster" name="locationOstfenster" value="Ostfenster">
+                                        <label for="locationOstfenster">Ostfenster</label><br>
+                                        <input type="checkbox" id="locationSuedfenster" name="locationSuedfenster" value="Südfenster">
+                                        <label for="locationSuedfenster">Südfenster</label><br>
+                                        <input type="checkbox" id="locationWestfenster" name="locationWestfenster" value="Westfenster">
+                                        <label for="locationWestfenster">Westfenster</label><br>
+                                        <input type="checkbox" id="locationIndoor" name="locationIndoor" value="Indoor">
+                                        <label for="locationIndoor">Indoor</label><br>
+                                        <input type="checkbox" id="locationOutdoor" name="locationOutdoor" value="Outdoor">
+                                        <label for="locationOutdoor">Outdoor</label><br> 
+                                        <p class="text-base font-medium text-gray-900"></p>
+                                    </div>
+                                </div>
+
+                                <div class="h-4 bg-gray-200"></div>
+
+                                <!-- save button-->
+                                <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+                                    <div class="w-full mt-6">
+                                        <div class="items-center justify-between my-6 px-4">
+                                            <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                                <input type="submit"
+                                                       class="register"
+                                                       value="Speichern"  >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="py-12"></div>
+                            </div>
                         </div>
-                        <div class="py-12"></div>
+
+                    </form>
+                </c:when>
+                <c:otherwise>
+                    <div class="card flex-auto p-4 rounded-2xl bg-white">
+                        <div>
+                            <p class="text-sm mt-3 font-semibold">${pm.status}</p>
+                        </div>
                     </div>
-                </div>
-
-            </form>
-
+                </c:otherwise>
+            </c:choose>
         </section>
         <!-- edit plant end -->
 
