@@ -42,10 +42,10 @@
         <br />
         <p>
             <b>Gesundheit:</b> ${upm.userPlant.health}%<br>
-            <b>Temperatur:</b> ${upm.userPlant.temperatureAverageWeek}° C<br>
-            <b>Bodenfeuchtigkeit:</b> ${upm.userPlant.soilmoistureAverageWeek}%<br>
-            <b>Lichteinfluss:</b> ${upm.userPlant.lightAverageWeek} Lumen<br>
-            <b>Luftfeuchtigkeit:</b> ${upm.userPlant.humidityAverageWeek}%<br>
+            <b>Temperatur:</b> ${upm.userPlant.temperatureNow}° C<br>
+            <b>Bodenfeuchtigkeit:</b> ${upm.userPlant.soilmoistureNow}%<br>
+            <b>Lichteinfluss:</b> ${upm.userPlant.lightNow} Lumen<br>
+            <b>Luftfeuchtigkeit:</b> ${upm.userPlant.humidityNow}%<br>
             <b>Wasserstand Gardenlymodul:</b> ${upm.userPlant.waterlevel}%<br>
         </p>
         <p>
