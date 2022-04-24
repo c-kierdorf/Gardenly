@@ -31,9 +31,10 @@ public class Watering extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs Allowed GET-Request-patterns:
-     * https://gardenly.garden/Watering?id=9&waterlevel=77
-     * https://gardenly.garden/Watering?id=9&watering=now
-     * https://gardenly.garden/Watering?id=9&waterlevel=70&watering=now
+     * Der Arduino kann keine HTTPS Anfragen senden. Deshalb muss folgende URL
+     * mit HTTP statt HTTPS verwendet werden:
+     * http://gardenly.garden:3080/Watering?id=9&waterlevel=70&watering=now&humidity=12&light=50&temperature=12&soilmoisture=300 
+     * 
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -46,19 +47,16 @@ public class Watering extends HttpServlet {
 
             if (userPlant != null) {
 
-                // Watering
+                // watering
                 String watering = request.getParameter("watering");
                 if (watering != null) {
                     if (watering.equals("now")) {
                         Date date = new Date();
                         userPlant.setWateringDate(date);
-                    } else {
-                        upm.setErrors(true);
-                        upm.setStatus("Es wurde kein gültiges Schlüsselwort für das bewässern angegben.");
-                    }
+                    } 
                 }
 
-                // Waterlevel
+                // waterlevel
                 String waterlevel = request.getParameter("waterlevel");
                 if (waterlevel != null) {
                     try {
@@ -71,6 +69,34 @@ public class Watering extends HttpServlet {
                         nfe.printStackTrace();
                     }
 
+                }
+                
+                // humidity
+                String humidity = request.getParameter("humidity");
+                if (humidity != null) {
+                    Integer humidityInt = Integer.parseInt(request.getParameter("humidity"));
+                    // ToDo: set humidity in DB
+                }
+                
+                // light
+                String light = request.getParameter("light");
+                if (light != null) {
+                    Integer lightInt = Integer.parseInt(request.getParameter("light"));
+                    // ToDo: set light in DB
+                }
+                
+                // temperature
+                String temperature = request.getParameter("temperature");
+                if (temperature != null) {
+                    Integer temperatureInt = Integer.parseInt(request.getParameter("temperature"));
+                    // ToDo: set temperature in DB
+                }
+                
+                // soilmoisture
+                String soilmoisture = request.getParameter("soilmoisture");
+                if (soilmoisture != null) {
+                    Integer soilmoistureInt = Integer.parseInt(request.getParameter("soilmoisture"));
+                    // ToDo: set soilmoisture in DB
                 }
 
                 upm.setUserPlant(userPlant);
