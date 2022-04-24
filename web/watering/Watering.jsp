@@ -17,14 +17,18 @@
             <c:when test="${!upm.errors}">
                 <h1>Aktualisierung erfolgreich</h1>
                 <p>
-                    Name der Pflanze: ${upm.userPlant.userPlantName}<br />
-                    Besitzer: ${upm.userPlant.userFk.firstName} ${upm.userPlant.userFk.lastName}<br />
-                    Letztes Bewässerungsdatum: <fmt:formatDate type = "both"  
+                    <b>Name der Pflanze:</b> ${upm.userPlant.userPlantName}<br />
+                    <b>Besitzer:</b> ${upm.userPlant.userFk.firstName} ${upm.userPlant.userFk.lastName}<br />
+                    <b>Bodenfeuchtigkeit:</b> ${upm.userPlant.soilmoistureNow}%<br />
+                    <b>Licht:</b> ${upm.userPlant.lightNow} Lumen<br />
+                    <b>Temperatur:</b> ${upm.userPlant.temperatureNow}° C<br />
+                    <b>Luftfeuchtigkeit:</b> ${upm.userPlant.humidityNow}%<br />
+                    <b>Letztes Bewässerungsdatum:</b> <fmt:formatDate type = "both"  
                                                        timeZone="Europe/Berlin" 
                                                        dateStyle = "long" 
                                                        timeStyle = "short" 
                                                        value="${upm.userPlant.wateringDate}" /> Uhr<br />
-                    Letzter gespeicherter Wasserstand: ${upm.userPlant.waterlevel}<br />
+                    <b>Wasserstand des Gardenlymoduls:</b> ${upm.userPlant.waterlevel}%<br />
                 </p>
             </c:when>
             <c:otherwise>
