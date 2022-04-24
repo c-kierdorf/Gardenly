@@ -10,12 +10,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gardenly Watering</title>
+        <title>Gardenly Aktualisierung UserPlant</title>
     </head>
     <body>
         <c:choose>
             <c:when test="${!upm.errors}">
-                <h1>Wasserstandsmeldung</h1>
+                <h1>Aktualisierung erfolgreich</h1>
                 <p>
                     Name der Pflanze: ${upm.userPlant.userPlantName}<br />
                     Besitzer: ${upm.userPlant.userFk.firstName} ${upm.userPlant.userFk.lastName}<br />
