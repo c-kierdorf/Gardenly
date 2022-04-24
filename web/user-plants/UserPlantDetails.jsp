@@ -41,16 +41,15 @@
         </c:choose>
         <br />
         <p>
-            &#128515; ${upm.userPlant.health}%<br>
-            &#128167; ${upm.userPlant.waterlevel}% 
-            <input type="hidden" 
-                   name="up_id" 
-                   id="up_id" 
-                   value="${upm.userPlant.userPlantsId}"><br>
-            &#127780; ausreichend Licht
+            <b>Gesundheit:</b> ${upm.userPlant.health}%<br>
+            <b>Temperatur:</b> ${upm.userPlant.temperatureAverageWeek}° C<br>
+            <b>Bodenfeuchtigkeit:</b> ${upm.userPlant.soilmoistureAverageWeek}%<br>
+            <b>Lichteinfluss:</b> ${upm.userPlant.lightAverageWeek} Lumen<br>
+            <b>Luftfeuchtigkeit:</b> ${upm.userPlant.humidityAverageWeek}%<br>
+            <b>Wasserstand Gardenlymodul:</b> ${upm.userPlant.waterlevel}%<br>
         </p>
         <p>
-            Außenbedingungen<br>
+            <b>Außenbedingungen</b><br>
             <c:choose>
                 <c:when test="${!wm.errors}">
                     <img src="https://openweathermap.org/img/wn/${wm.weatherJsonObject.weather.get(0).getIcon()}.png" width="15px" alt="Openweathermap Icon" /> ${wm.weatherJsonObject.weather.get(0).getDescription()}
@@ -63,7 +62,7 @@
             </c:choose>
         </p>
         <p>
-            Letzte Bewässerung<br>
+            <b>Letzte Bewässerung</b><br>
             <c:choose>
                 <c:when test="${upm.userPlant.wateringDate != null}">
                     <fmt:formatDate type = "both" 
