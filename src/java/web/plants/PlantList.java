@@ -43,12 +43,6 @@ public class PlantList extends HttpServlet {
             if (name != null) {
                 plants = pm.findPlantByName(name);
             }
-            // query coming from URL /user-plants/UserPlantDetails
-            String upId = request.getParameter("up_id");
-            if (upId != null) {
-                Integer id = Integer.parseInt(upId);
-                plants.add(pm.findPlantById(id));
-            }
 
             if (!plants.isEmpty()) {
                 pm.setPlants(plants);
