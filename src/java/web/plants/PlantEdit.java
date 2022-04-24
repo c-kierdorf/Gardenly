@@ -37,17 +37,20 @@ public class PlantEdit extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             // From PlantList to PlantEdit - just fill out fields
             if (request.getParameter("p_id") != null) {
-                String pid = request.getParameter("p_id");
-                Integer id = Integer.parseInt(pid);
+                Integer id = Integer.parseInt(request.getParameter("p_id"));
                 Plant plant = pm.findPlantById(id);
                 if (plant == null) {
                     pm.setErrors(true);
-                    pm.setStatus("Pflanze mit ID '" + pid + "' nicht gefunden.");
+                    pm.setStatus("Pflanze mit ID '" + id + "' nicht gefunden.");
                 } else {
                     pm.setErrors(false);
                     pm.setPlant(plant);
                 }
+            } else {
+                pm.setErrors(true);
+                pm.setStatus("Es konnte keine Pflanze aufgerufen werden, weil keine Pflanzen ID übergeben wurde.");
             }
+            
             RequestDispatcher rd = request.getRequestDispatcher("PlantEdit.jsp");
             rd.forward(request, response);
         }
