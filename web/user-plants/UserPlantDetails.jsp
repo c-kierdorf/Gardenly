@@ -77,10 +77,10 @@
                 </c:otherwise>
             </c:choose>
         </p>
-        <form action="/Gardenly/plants/PlantList" method="POST" >
+        <form action="/plants/PlantDetails" method="POST" >
             <input hidden 
-                   name="up_id" 
-                   id="up_id"
+                   name="p_id" 
+                   id="p_id"
                    value="${upm.userPlant.plantsFk.plantsId}" >
             <input type="submit" 
                    value="Pflanze im Wiki anzeigen">
