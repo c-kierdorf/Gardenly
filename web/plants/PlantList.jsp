@@ -92,44 +92,46 @@
                     <c:choose>
                         <c:when test="${!pm.errors}">
                             <c:forEach items="${pm.plants}" var="p">
-
-                                <div class="card flex-auto p-4 rounded-2xl bg-white">
-                                    <div class="flex">
-                                        <div>
-                                            <img src="/img/plants/${p.picturePath}" 
-                                                 alt="Foto der Pflanze"
-                                                 class="img-userPlants-index" />
-                                        </div>
-                                        <div class="ml-auto">
-                                            <div class="text-right font-semibold font-md text-xs">${p.growingHeight} cm</div>
-                                            <div class="text-right font-semibold font-md  text-xs"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${p.watering}</div>
-                                            <c:if test="${um.user.isAdmin}">
-                                                <div class="text-right font-semibold font-md text-xs">
-                                                    <form action="PlantEdit" 
-                                                          method="POST">
+                                <a href="/plants/PlantDetails?p_id=${p.plantsId}" 
+                                   title="Details der Pflanze aufrufen" 
+                                   class="a-userPlants-index">
+                                    <div class="card flex-auto p-4 rounded-2xl bg-white">
+                                        <div class="flex">
+                                            <div>
+                                                <img src="/img/plants/${p.picturePath}" 
+                                                     alt="Foto der Pflanze"
+                                                     class="img-userPlants-index" />
+                                            </div>
+                                            <div class="ml-auto">
+                                                <div class="text-right font-semibold font-md text-xs">${p.growingHeight} cm</div>
+                                                <div class="text-right font-semibold font-md  text-xs"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${p.watering}</div>
+                                                <c:if test="${um.user.isAdmin}">
+                                                    <div class="text-right font-semibold font-md text-xs">
+                                                        <form action="PlantEdit" 
+                                                              method="POST">
                                                             <input type="hidden" name="p_id" id="p_id" value="${p.plantsId}">
                                                             <input type="submit" 
                                                                    value="Bearbeiten" >
-                                                    </form>
-                                                </div>
-                                                <div class="text-right font-semibold font-md text-xs">
-                                                    <form action="PlantDeleteSuccess" 
-                                                          method="POST" 
-                                                          onsubmit="return confirm('Pflanze wirklich löschen?');">
+                                                        </form>
+                                                    </div>
+                                                    <div class="text-right font-semibold font-md text-xs">
+                                                        <form action="PlantDeleteSuccess" 
+                                                              method="POST" 
+                                                              onsubmit="return confirm('Pflanze wirklich löschen?');">
                                                             <input type="hidden" name="p_id" id="p_id" value="${p.plantsId}">
                                                             <input type="submit" 
-                                                                   value="Löschen" >
-                                                    </form>
-                                                </div>    
-                                            </c:if>
+                                                                   value="Löschen" style="color:red" >
+                                                        </form>
+                                                    </div>    
+                                                </c:if>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm mt-3 font-semibold">${p.name}</p>
+                                            <p class="text-xs font-semibold text-gray-500">${p.orderBiology}</p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <p class="text-sm mt-3 font-semibold">${p.name}</p>
-                                        <p class="text-xs font-semibold text-gray-500">${p.orderBiology}</p>
-                                    </div>
-                                </div>
-
+                                </a>
                             </c:forEach>
                         </c:when>
                         <c:otherwise>
@@ -169,7 +171,7 @@
         <script type="text/javascript" src="/js/regular.min.js"></script>
         <script type="text/javascript" src="/js/solid.min.js"></script>
         <script>
-                                                              includeHTML();
+                                                                  includeHTML();
         </script>
     </body>
 </html>
