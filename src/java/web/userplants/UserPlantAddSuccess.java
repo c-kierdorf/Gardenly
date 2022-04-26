@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,43 +54,24 @@ public class UserPlantAddSuccess extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String picturePath = "";
-
         try (PrintWriter out = response.getWriter()) {
-            // File Upload
-            Part filePart = request.getPart("picture");
-            boolean isThereAFile = filePart.getSize() > 0;
-
-            if (isThereAFile) {
-                final String path = "/var/www/html/gardenly.garden/img/user-plants";
-                final String fileName = GetFileName.of(filePart);
-
-                OutputStream outputStream = null;
-                InputStream filecontent = null;
-
-                outputStream = new FileOutputStream(new File(path + File.separator
-                        + fileName));
-                filecontent = filePart.getInputStream();
-
-                int read = 0;
-                final byte[] bytes = new byte[1024];
-
-                while ((read = filecontent.read(bytes)) != -1) {
-                    outputStream.write(bytes, 0, read);
-                }
-                picturePath = fileName;
-            }
 
             // Form-Data to Database
             Integer plantId = Integer.parseInt(request.getParameter("plantType"));
             Plant plant = pm.findPlantById(plantId);
             User user = um.getUser();
             String userPlantName = request.getParameter("up_name");
+            String picturePath = fileUpload(request, response);
+            boolean isConnected = checkHardwareId(request, response);
             Date datePlanted = new Date();
-            
 
-
-            UserPlant userPlant = new UserPlant(plant, user, userPlantName, picturePath, datePlanted);
+            UserPlant userPlant = new UserPlant(
+                    plant,
+                    user,
+                    userPlantName,
+                    picturePath,
+                    datePlanted,
+                    isConnected);
 
             upm.setUserPlant(userPlant);
             upm.create(userPlant);
@@ -152,4 +134,49 @@ public class UserPlantAddSuccess extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    // <editor-fold defaultstate="collapsed" desc="fileUpload method. Click on the + sign on the left to edit the code.">
+    private String fileUpload(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String picturePath = "";
+        Part filePart = request.getPart("picture");
+        boolean isThereAFile = filePart.getSize() > 0;
+
+        if (isThereAFile) {
+            final String path = "/var/www/html/gardenly.garden/img/user-plants";
+            final String fileName = GetFileName.of(filePart);
+
+            OutputStream outputStream = null;
+            InputStream filecontent = null;
+
+            outputStream = new FileOutputStream(new File(path + File.separator
+                    + fileName));
+            filecontent = filePart.getInputStream();
+
+            int read = 0;
+            final byte[] bytes = new byte[1024];
+
+            while ((read = filecontent.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
+            }
+            picturePath = fileName;
+        }
+
+        return picturePath;
+    }// </editor-fold>
+
+    private boolean checkHardwareId(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        boolean isConnected = false;
+        int hardwareId = Integer.parseInt(request.getParameter("hardware_id"));
+        if (hardwareId == 1) {
+            List<UserPlant> userPlants = upm.findAll();
+            if (userPlants != null) {
+                userPlants
+                        .stream()
+                        .forEach(i -> i.setIsConnected(false)); // alle verknüpften Pflanzen auf false setzen
+                isConnected = true; // aktuelle UserPlant auf true setzen.
+            } 
+        }
+        return isConnected;
+    }
 }
