@@ -112,7 +112,7 @@ public class GetPlantDetails extends HttpServlet {
                     + "                            <!-- cell right-->\n"
                     + "                            <div class=\"grow p-2 bg-white\">\n"
                     + "                                <input class=\"border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline\"\n"
-                    + "                                       type='number' \n"
+                    + "                                       type='text' \n"
                     + "                                       id='growingHeight' \n"
                     + "                                       name='growingHeight' \n"
                     + "                                       value='" + plant.getGrowingHeight() + "'\n"
