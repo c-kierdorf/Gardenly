@@ -56,7 +56,7 @@
                 Meldungen
             </a>
 
-            <a href="/plants/PlantsDashboard.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/plants/PlantsDashboard.jsp" class="active menu-item w-full basis-1/5 pt-3 pb-2 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa fa-book text-2xl mr-1 text-gray-400 mb-1"></i><br />
                 Wiki
             </a>
@@ -179,7 +179,10 @@
                                             </div>
                                             <div class="ml-auto">
                                                 <div class="text-right font-semibold font-md"><i class="far fa-face-smile text-lg mr-1 text-main-green"></i> ${up.health}%</div>
-                                                <div class="text-right font-semibold font-md"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${up.waterlevel}%</div>
+                                                <div class="text-right font-semibold font-md"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${up.soilmoistureNow}%</div>
+                                                <c:if test="${up.isConnected}">
+                                                    <div class="text-right font-semibold font-md"><i class="fa-solid fa-plug-circle-check text-lg mr-1 text-main-green"></i></div>
+                                                    </c:if>
                                             </div>
                                         </div>
                                         <div>
