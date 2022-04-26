@@ -40,7 +40,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "UserPlant.findBySoilmoistureNow", query = "SELECT u FROM UserPlant u WHERE u.soilmoistureNow = :soilmoistureNow"),
     @NamedQuery(name = "UserPlant.findBySoilmoistureAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.soilmoistureAverageWeek = :soilmoistureAverageWeek"),
     @NamedQuery(name = "UserPlant.findByTemperatureNow", query = "SELECT u FROM UserPlant u WHERE u.temperatureNow = :temperatureNow"),
-    @NamedQuery(name = "UserPlant.findByTemperatureAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.temperatureAverageWeek = :temperatureAverageWeek")})
+    @NamedQuery(name = "UserPlant.findByTemperatureAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.temperatureAverageWeek = :temperatureAverageWeek"),
+    @NamedQuery(name = "UserPlant.findByIsConnected", query = "SELECT u FROM UserPlant u WHERE u.isConnected = :isConnected")})
 public class UserPlant implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -90,6 +91,8 @@ public class UserPlant implements Serializable {
     private Integer temperatureNow;
     @Column(name = "temperature_average_week")
     private Integer temperatureAverageWeek;
+    @Column(name = "is_connected")
+    private boolean isConnected;
     
     public UserPlant() {
     }
@@ -108,7 +111,8 @@ public class UserPlant implements Serializable {
                      User user, 
                      String userPlantName, 
                      String userPlantPicturePath, 
-                     Date planted) {
+                     Date planted,
+                     boolean isConnected) {
         this.plantsFk = plant;
         this.userFk = user;
         this.userPlantName = userPlantName;
@@ -126,6 +130,7 @@ public class UserPlant implements Serializable {
         soilmoistureAverageWeek = 0;
         temperatureNow = 0;
         temperatureAverageWeek = 0;
+        this.isConnected = isConnected;
     }
 
     public Integer getUserPlantsId() {
@@ -270,6 +275,14 @@ public class UserPlant implements Serializable {
 
     public void setTemperatureAverageWeek(Integer temperatureAverageWeek) {
         this.temperatureAverageWeek = temperatureAverageWeek;
+    }
+
+    public boolean isIsConnected() {
+        return isConnected;
+    }
+
+    public void setIsConnected(boolean isConnected) {
+        this.isConnected = isConnected;
     }
 
     @Override
