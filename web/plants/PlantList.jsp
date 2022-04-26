@@ -105,25 +105,6 @@
                                             <div class="ml-auto">
                                                 <div class="text-right font-semibold font-md text-xs">${p.growingHeight} cm</div>
                                                 <div class="text-right font-semibold font-md  text-xs"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${p.watering}</div>
-                                                <c:if test="${um.user.isAdmin}">
-                                                    <div class="text-right font-semibold font-md text-xs">
-                                                        <form action="PlantEdit" 
-                                                              method="POST">
-                                                            <input type="hidden" name="p_id" id="p_id" value="${p.plantsId}">
-                                                            <input type="submit" 
-                                                                   value="Bearbeiten" >
-                                                        </form>
-                                                    </div>
-                                                    <div class="text-right font-semibold font-md text-xs">
-                                                        <form action="PlantDeleteSuccess" 
-                                                              method="POST" 
-                                                              onsubmit="return confirm('Pflanze wirklich löschen?');">
-                                                            <input type="hidden" name="p_id" id="p_id" value="${p.plantsId}">
-                                                            <input type="submit" 
-                                                                   value="Löschen" style="color:red" >
-                                                        </form>
-                                                    </div>    
-                                                </c:if>
                                             </div>
                                         </div>
                                         <div>
