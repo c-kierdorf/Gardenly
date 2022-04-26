@@ -47,6 +47,8 @@
             <b>Lichteinfluss:</b> ${upm.userPlant.lightNow} Lumen<br>
             <b>Luftfeuchtigkeit:</b> ${upm.userPlant.humidityNow}%<br>
             <b>Wasserstand Gardenlymodul:</b> ${upm.userPlant.waterlevel}%<br>
+            <b>ID:</b> ${upm.userPlant.userPlantsId}<br>
+            <b>Mit Arduino connected:</b> ${upm.userPlant.isConnected}
         </p>
         <p>
             <b>Außenbedingungen</b><br>
@@ -88,7 +90,7 @@
             <input hidden 
                    name="up_id" 
                    id="up_id"
-                   value="${upm.userPlant.plantsFk.plantsId}" >
+                   value="${upm.userPlant.userPlantsId}" >
             <input type="submit" 
                    value="Pflanze bearbeiten">
         </form>
