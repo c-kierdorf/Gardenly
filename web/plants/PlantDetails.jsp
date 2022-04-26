@@ -103,10 +103,28 @@
             <c:if test="${um.user.isAdmin}">
                 <div class="py-2"></div>
                 <p>
-                    <b>Admin Angaben:</b>
+                    <b>Admin Angaben:</b><br />
                     <b>Pflanzen ID:</b> ${pm.plant.plantsId}<br />
                     <b>Erstellt von:</b> ${pm.plant.createdBy.firstName} ${pm.plant.createdBy.lastName}
                 </p>
+                <div class="py-2"></div>
+                <section  class="text-center px-4 mx-auto w-full mt-12">
+                    <form action="PlantEdit" 
+                          method="POST">
+                        <input type="hidden" name="p_id" id="p_id" value="${pm.plant.plantsId}">
+                        <input class="bg-transparent hover:bg-gray-100 active:transform active:scale-90 transition-all text-center text-gray-900 font-semibold w-full py-4 px-4 rounded-xl"
+                               type="submit" 
+                               value="Bearbeiten" >
+                    </form>
+                    <form action="PlantDeleteSuccess" 
+                          method="POST" 
+                          onsubmit="return confirm('Pflanze wirklich löschen?');">
+                        <input type="hidden" name="p_id" id="p_id" value="${pm.plant.plantsId}">
+                        <input class="bg-red-500 hover:bg-red-600 active:transform active:scale-90 transition-all text-center text-white font-semibold w-full py-4 px-4 rounded-xl mb-3"
+                               type="submit" 
+                               value="Löschen" >
+                    </form>
+                </section>
             </c:if>
 
             <section  class="text-center px-4 mx-auto w-full mt-12">
@@ -137,7 +155,7 @@
         <script type="text/javascript" src="/js/regular.min.js"></script>
         <script type="text/javascript" src="/js/solid.min.js"></script>
         <script>
-            includeHTML();
+                          includeHTML();
         </script>
     </body>
 </html>
