@@ -88,7 +88,7 @@
                  width="100px" />
             <br />
             <p>
-                <b>Pflanzenname:</b> ${pm.plant.name}<br />
+                <b>Pflanzentyp:</b> ${pm.plant.name}<br />
                 <b>Ordnung:</b> ${pm.plant.orderBiology}<br />
                 <b>Familie:</b> ${pm.plant.familyBiology}<br />
                 <b>Unterfamilie:</b> ${pm.plant.subfamilyBiology}<br />
