@@ -101,7 +101,7 @@
 
                 <div class="justify-center">
 
-                    <!-- row 1-->
+                    <!-- row picture -->
                     <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center py-6">
 
                         <!-- cell left-->
@@ -121,7 +121,7 @@
 
                     <div class="h-1 bg-gray-200"></div>
 
-                    <!-- row 2-->
+                    <!-- row plant name -->
                     <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
 
                         <!-- cell left-->
@@ -141,7 +141,35 @@
                         </div>
                     </div>
 
-                    <!-- row 3-->
+                    <!-- row hardware id -->
+                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                        <!-- cell left-->
+                        <div class="flex-none w-24 p-4 bg-white">
+                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Hardware ID<br />(Pflicht)</p>
+                        </div>
+
+                        <!-- cell right-->
+                        <div class="grow p-2 bg-white">
+                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                   type="number" 
+                                   id="hardware_id" 
+                                   name="hardware_id" 
+                                   <c:choose>
+                                       <c:when test="${upm.userPlant.isConnected}">
+                                           value="1"
+                                       </c:when>
+                                       <c:otherwise>
+                                           value="0"
+                                       </c:otherwise>
+                                   </c:choose>
+                                   min="0" step="1"
+                                   required>
+                            <p class="text-base font-medium text-gray-900"></p>
+                        </div>
+                    </div>
+
+                    <!-- row planttype -->
                     <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
 
                         <!-- cell left-->
@@ -177,17 +205,28 @@
                     <!-- dynamic content start -->
                     <div id="dynamicContent">
 
-                        <c:if test="${upm.userPlant.userPlantPicturePath != ''}">
-                            <!-- picture -->
-                            <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center">
-                                <img src="/img/user-plants/${upm.userPlant.userPlantPicturePath}"
-                                     class='image-center' 
-                                     width='100' 
-                                     alt='Foto der Pflanze' /><br />
-                            </div>
-                        </c:if>
 
-                        <!-- row 4-->
+                        <!-- picture -->
+                        <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center">
+
+                            <img 
+                                <c:choose>
+                                    <c:when test="${upm.userPlant.userPlantPicturePath != ''}">
+                                        src="/img/user-plants/${upm.userPlant.userPlantPicturePath}"
+                                    </c:when>
+                                    <c:otherwise>
+                                        src="/img/plants/${upm.userPlant.plantsFk.picturePath}"
+                                    </c:otherwise>
+                                </c:choose>
+                                class='image-center' 
+                                width='100' 
+                                alt='Foto der Pflanze' /><br />
+                        </div>
+
+
+
+
+                        <!-- row orderBiology -->
                         <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
 
                             <!-- cell left-->
@@ -207,7 +246,7 @@
                             </div>
                         </div>
 
-                        <!-- row 5-->
+                        <!-- row familyBiology -->
                         <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
 
                             <!-- cell left-->
@@ -227,7 +266,7 @@
                             </div>
                         </div>
 
-                        <!-- row 6-->
+                        <!-- row subfamilyBiology -->
                         <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
 
                             <!-- cell left-->
@@ -249,7 +288,7 @@
 
                         <div class="h-4 bg-gray-200"></div>
 
-                        <!-- row 7-->
+                        <!-- row growingHeight -->
                         <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
 
                             <!-- cell left-->
@@ -260,7 +299,7 @@
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
                                 <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                       type='number' 
+                                       type='text' 
                                        id='growingHeight' 
                                        name='growingHeight' 
                                        value='${upm.userPlant.plantsFk.growingHeight}'
@@ -269,7 +308,7 @@
                             </div>
                         </div>
 
-                        <!-- row 8-->
+                        <!-- row watering -->
                         <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
 
                             <!-- cell left-->
@@ -289,7 +328,7 @@
                             </div>
                         </div>
 
-                        <!-- row 9-->
+                        <!-- row careRecommendations -->
                         <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
 
                             <!-- cell left-->
