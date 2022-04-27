@@ -22,6 +22,7 @@ public class PlantManager implements Serializable {
     private Plant plant;
     private String status;
     private boolean errors;
+    private boolean errorsQueryPlantDetails;
     
     public PlantManager() {
     }
@@ -89,4 +90,13 @@ public class PlantManager implements Serializable {
     public void setErrors(boolean errors) {
         this.errors = errors;
     }
+
+    public boolean isErrorsQueryPlantDetails() {
+        return errorsQueryPlantDetails;
+    }
+
+    public void setErrorsQueryPlantDetails(boolean errorsQueryPlantDetails) {
+        this.errorsQueryPlantDetails = errorsQueryPlantDetails;
+    }
+    
 }
