@@ -164,6 +164,7 @@ public class UserPlantAddSuccess extends HttpServlet {
         return picturePath;
     }// </editor-fold>
 
+    // <editor-fold defaultstate="collapsed" desc="checkHardwareId method. Click on the + sign on the left to edit the code.">
     private boolean checkHardwareId(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         boolean isConnected = false;
@@ -178,5 +179,5 @@ public class UserPlantAddSuccess extends HttpServlet {
             } 
         }
         return isConnected;
-    }
+    }// </editor-fold>
 }
