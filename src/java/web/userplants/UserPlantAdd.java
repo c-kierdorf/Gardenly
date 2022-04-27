@@ -47,6 +47,18 @@ public class UserPlantAdd extends HttpServlet {
                 pm.setStatus("Keine Pflanzen in der Datenbank hinterlegt");
             }
             
+            //Query coming from PlantDetails.jsp
+            String pid = request.getParameter("p_id");
+            if (pid != null) {
+                pm.setErrorsQueryPlantDetails(false);
+                Integer id = Integer.parseInt(request.getParameter("p_id"));
+                Plant plant = pm.findPlantById(id);
+                pm.setPlant(plant);
+            } else {
+                pm.setErrorsQueryPlantDetails(true);
+                pm.setPlant(null);
+            }
+            
             RequestDispatcher rd = request.getRequestDispatcher("/user-plants/UserPlantAdd.jsp");
             rd.forward(request, response);
             
