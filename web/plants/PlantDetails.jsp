@@ -128,14 +128,19 @@
             </c:if>
 
             <section  class="text-center px-4 mx-auto w-full mt-12">
+                <a href="/UserPlantAdd?p_id=${pm.plant.plantsId}" id="login" class="register">
+                    <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                        Pflanze meinem Garten hinzufügen
+                    </div>
+                </a>
                 <a href="/Gardenly/Index" id="login" class="register">
                     <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                        Zu meinem Garten
+                        Mein Garten
                     </div>
                 </a>
                 <a href="PlantsDashboard.jsp" id="login" class="register">
                     <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                        Zum Pflanzen Wiki
+                        Pflanzen Wiki
                     </div>
                 </a>
             </section>
