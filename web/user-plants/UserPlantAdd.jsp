@@ -173,7 +173,16 @@
                                             id="plantType" 
                                             onchange="userPlantAdd()"
                                             required>
-                                        <option value="none" selected disabled hidden>Wähle eine Pflanzenart</option>
+                                        
+                                        <c:choose>
+                                            <c:when test="${!pm.errorsQueryPlantDetails}"> <!-- if query is coming from PlantDetails.jsp -->
+                                                <option value="${pm.plant.plantsId}" selected>${pm.plant.name}</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="none" selected disabled hidden>Wähle eine Pflanzenart</option>
+                                            </c:otherwise>
+                                        </c:choose>
+                                                
                                         <c:forEach items="${pm.plants}" var="p">
                                             <option value="${p.plantsId}">${p.name}</option>
                                         </c:forEach>
@@ -206,7 +215,7 @@
                                        type='text' 
                                        id='orderBiology' 
                                        name='orderBiology' 
-                                       value=''
+                                       value='${pm.plant.orderBiology}'
                                        readonly>
                                 <p class="text-base font-medium text-gray-900"></p>
                             </div>
@@ -226,7 +235,7 @@
                                        type='text' 
                                        id='familyBiology' 
                                        name='familyBiology' 
-                                       value=''
+                                       value='${pm.plant.familyBiology}'
                                        readonly>
                                 <p class="text-base font-medium text-gray-900"></p>
                             </div>
@@ -246,7 +255,7 @@
                                        type='text' 
                                        id='subfamilyBiology' 
                                        name='subfamilyBiology' 
-                                       value=''
+                                       value='${pm.plant.subfamilyBiology}'
                                        readonly>
                                 <p class="text-base font-medium text-gray-900"></p>
                             </div>
@@ -268,7 +277,7 @@
                                        type='text' 
                                        id='growingHeight' 
                                        name='growingHeight' 
-                                       value=''
+                                       value='${pm.plant.growingHeight}'
                                        readonly>
                                 <p class="text-base font-medium text-gray-900"></p>
                             </div>
@@ -288,7 +297,7 @@
                                        type='text' 
                                        id='watering' 
                                        name='watering' 
-                                       value=''
+                                       value='${pm.plant.watering}'
                                        readonly>
                                 <p class="text-base font-medium text-gray-900"></p>
                             </div>
@@ -308,7 +317,7 @@
                                        type='text' 
                                        id='careRecommendations' 
                                        name='careRecommendations' 
-                                       value=''
+                                       value='${pm.plant.careRecommendations}'
                                        readonly>
                                 <p class="text-base font-medium text-gray-900"></p>
                             </div>
