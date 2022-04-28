@@ -50,6 +50,10 @@ public class PlantManager implements Serializable {
     public List<Plant> findPlantByName (String name) {
         return plantFacade.findPlantByName(name);
     }
+    
+    public List<Plant> findPlantByScientificName (String name) {
+        return plantFacade.findPlantByScientificName(name);
+    }
 
     public PlantFacade getPlantFacade() {
         return plantFacade;
