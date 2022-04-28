@@ -33,4 +33,10 @@ public class PlantFacade extends AbstractFacade<Plant> {
         plantNameQuery.setParameter("name", name);
         return plantNameQuery.getResultList();
     }
+    
+    public List<Plant> findPlantByScientificName(String scientificName) {
+        Query plantNameQuery = em.createNamedQuery("Plant.findByScientificName");
+        plantNameQuery.setParameter("scientificName", scientificName);
+        return plantNameQuery.getResultList();
+    }
 }
