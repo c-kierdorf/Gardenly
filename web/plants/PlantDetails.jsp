@@ -92,6 +92,7 @@
                 <b>Ordnung:</b> ${pm.plant.orderBiology}<br />
                 <b>Familie:</b> ${pm.plant.familyBiology}<br />
                 <b>Unterfamilie:</b> ${pm.plant.subfamilyBiology}<br />
+                <b>Wissens. Name:</b> ${pm.plant.scientificName}<br />
             </p>
             <div class="py-2"></div>
             <p>
