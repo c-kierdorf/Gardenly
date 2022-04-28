@@ -94,7 +94,7 @@
 
         <div class="container px-4 mx-auto">
             <div class="w-full mt-6">
-                <form action="PlantList" method="POST">
+                <form action="PlantList" method="POST" enctype="multipart/form-data" >
                     <div class="mb-4">
                         <label class="block text-gray-900 text-sm font-bold mb-2" 
                                for="firstName">
@@ -113,7 +113,7 @@
                         </div>
                     </div>
                 </form>
-                <form action="PlantList" method="POST">
+                <form action="PlantList" method="POST" enctype="multipart/form-data" >
                     <input type="hidden" id="name" name="p_name" value="%">
                     <div class="items-center justify-between my-6">
                         <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
