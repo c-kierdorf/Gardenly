@@ -79,6 +79,7 @@ public class PlantEditSuccess extends HttpServlet {
             String orderBiology = request.getParameter("orderBiology").trim();
             String familyBiology = request.getParameter("familyBiology").trim();
             String subfamilyBiology = request.getParameter("subfamilyBiology").trim();
+            String scientificName = request.getParameter("scientificName").trim();
             Integer growingHeight = Integer.parseInt(request.getParameter("growingHeight"));
             String careRecommendations = request.getParameter("careRecommendations");
             String location = GetLocation.of(request);
@@ -89,6 +90,7 @@ public class PlantEditSuccess extends HttpServlet {
             plant.setOrderBiology(orderBiology);
             plant.setFamilyBiology(familyBiology);
             plant.setSubfamilyBiology(subfamilyBiology);
+            plant.setScientificName(scientificName);
             plant.setGrowingHeight(growingHeight);
             plant.setCareRecommendations(careRecommendations);
             if (!picturePath.equals("")) {
