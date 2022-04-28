@@ -36,7 +36,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Plant.findBySubfamilyBiology", query = "SELECT p FROM Plant p WHERE p.subfamilyBiology = :subfamilyBiology"),
     @NamedQuery(name = "Plant.findByGrowingHeight", query = "SELECT p FROM Plant p WHERE p.growingHeight = :growingHeight"),
     @NamedQuery(name = "Plant.findByCareRecommendations", query = "SELECT p FROM Plant p WHERE p.careRecommendations = :careRecommendations"),
-    @NamedQuery(name = "Plant.findByVersion", query = "SELECT p FROM Plant p WHERE p.version = :version")})
+    @NamedQuery(name = "Plant.findByVersion", query = "SELECT p FROM Plant p WHERE p.version = :version"),
+    @NamedQuery(name = "Plant.findByScientificName", query = "SELECT p FROM Plant p WHERE p.scientificName like :scientificName")})
 public class Plant implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -91,6 +92,9 @@ public class Plant implements Serializable {
     private User createdBy;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "plantsFk")
     private Collection<UserPlant> userPlantCollection;
+    @Size(max = 999)
+    @Column(name = "scientific_name")
+    private String scientificName;
 
     public Plant() {
     }
@@ -99,7 +103,7 @@ public class Plant implements Serializable {
         this.plantsId = plantsId;
     }
 
-    public Plant(String name, String location, String watering, String orderBiology, String familyBiology, String subfamilyBiology, Integer growingHeight, String careRecommendations, String picturePath, User user) {
+    public Plant(String name, String location, String watering, String orderBiology, String familyBiology, String subfamilyBiology, Integer growingHeight, String careRecommendations, String picturePath, User user, String scientificName) {
         this.name = name;
         this.location = location;
         this.watering = watering;
@@ -110,6 +114,7 @@ public class Plant implements Serializable {
         this.careRecommendations = careRecommendations;
         this.picturePath = picturePath;
         this.createdBy = user;
+        this.scientificName = scientificName;
     }
 
     public Integer getPlantsId() {
@@ -206,6 +211,14 @@ public class Plant implements Serializable {
 
     public void setCreatedBy(User createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public String getScientificName() {
+        return scientificName;
+    }
+
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
     }
 
     @Override
