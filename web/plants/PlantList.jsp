@@ -77,9 +77,14 @@
         <!-- header -->
         <section>
             <div class="container px-4 mx-auto">
-                <nav class="flex items-center py-6">
-                    <span class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanzen Wiki</span>
-                </nav>
+                <div class="flex items-center py-6">
+                    <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanzen Wiki</h2>
+                </div>
+                <c:if test="${pim.identified}">
+                    <p class="text-base font-medium text-gray-500 py-2">
+                        Folgende Pflanze konnten wir für dich identifizieren: 
+                    </p>
+                </c:if>
             </div>
         </section>
 
@@ -134,14 +139,20 @@
                         </a>
                     </c:if>
 
-                    <!--        
+                </div>
+                <c:if test="${pim.identified}">
+                    <p class="text-base font-medium text-gray-500 py-6">
+                        Wenn es die richtige Pflanze ist, klicke auf die Pflanze, um sie deinem Garten hinzuzufügen. 
+                        Sonst starte eine neue Identifikation.
+                    </p>
+                </c:if>
+                <!--        
                                      
                                      Footer CK
                                      
-                    -->
-                    <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
-                    <div class="py-12"></div>
-                </div>
+                -->
+                <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+                <div class="py-12"></div>
             </div>
         </section>
         <!-- footer embeds -->
@@ -152,7 +163,7 @@
         <script type="text/javascript" src="/js/regular.min.js"></script>
         <script type="text/javascript" src="/js/solid.min.js"></script>
         <script>
-                                                                  includeHTML();
+            includeHTML();
         </script>
     </body>
 </html>
