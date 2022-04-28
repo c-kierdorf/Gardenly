@@ -81,13 +81,14 @@ public class PlantAddSuccess extends HttpServlet {
             String orderBiology = request.getParameter("orderBiology").trim();
             String familyBiology = request.getParameter("familyBiology").trim();
             String subfamilyBiology = request.getParameter("subfamilyBiology").trim();
+            String scientificName = request.getParameter("scientificName").trim();
             Integer growingHeight = Integer.parseInt(request.getParameter("growingHeight"));
             String careRecommendations = request.getParameter("careRecommendations");
             String picturePath = fileName;
             User user = um.getUser();
             String location = GetLocation.of(request);
 
-            Plant plant = new Plant(name, location, watering, orderBiology, familyBiology, subfamilyBiology, growingHeight, careRecommendations, picturePath, user);
+            Plant plant = new Plant(name, location, watering, orderBiology, familyBiology, subfamilyBiology, growingHeight, careRecommendations, picturePath, user, scientificName);
             pm.setPlant(plant);
             pm.create(plant);
             pm.setErrors(false);
