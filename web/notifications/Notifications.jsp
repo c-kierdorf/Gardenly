@@ -4,6 +4,7 @@
     Author     : CK
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:if test="${um.user == null}">
     <c:redirect url="/Login.jsp"/>
@@ -82,6 +83,60 @@
             <div class="items-center py-6">
                 <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Meldungen</h2>
             </div>
+
+            <c:choose>
+                <c:when test="${!upm.errors}">
+                    <c:forEach items="${upm.userPlants}" var="up">
+                        <h3>Alle Meldungen zu ${up.userPlantName}</h3>
+                        <c:choose>
+                            <c:when test="${up.userPlantPicturePath != ''}">
+                                <img src="/img/user-plants/${up.userPlantPicturePath}" 
+                                     width="100px" 
+                                     alt="Foto der Userpflanze"/>
+                            </c:when>
+                            <c:otherwise>
+                                <img src="/img/plants/${up.plantsFk.picturePath}" 
+                                     alt="Default Foto der Pflanze"
+                                     width="100px" />
+                            </c:otherwise>
+                        </c:choose>
+                        <br />
+                        <p>
+                            <b>Gesundheit:</b> ${up.health}%<br>
+                            <b>Temperatur:</b> ${up.temperatureNow}° C<br>
+                            <b>Bodenfeuchtigkeit:</b> ${up.soilmoistureNow}%<br>
+                            <b>Lichteinfluss:</b> ${up.lightNow} Lumen<br>
+                            <b>Luftfeuchtigkeit:</b> ${up.humidityNow}%<br>
+                            <b>Wasserstand Gardenlymodul:</b> ${up.waterlevel}%<br>
+                            <b>ID:</b> ${up.userPlantsId}<br>
+                            <b>Mit Arduino connected:</b> ${up.isConnected}
+                        </p>
+                        <p>
+                            <b>Letzte Bewässerung</b><br>
+                            <c:choose>
+                                <c:when test="${up.wateringDate != null}">
+                                    <fmt:formatDate type = "both" 
+                                                    dateStyle = "long" 
+                                                    timeStyle = "short" 
+                                                    timeZone = "Europe/Berlin" 
+                                                    value = "${up.wateringDate}" /> Uhr
+                                </c:when>
+                                <c:otherwise>
+                                    Bisher wurde die Pflanze noch nicht gewässert :-)
+                                </c:otherwise>
+                            </c:choose>
+                        </p>
+                        <div class="py-6"></div>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <div class="card flex-auto p-4 rounded-2xl bg-white">
+                        <div>
+                            <p class="text-sm mt-3 font-semibold">${upm.status}</p>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
         </div>
         <!--                    
             
@@ -89,7 +144,7 @@
             
         -->
         <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
-
+        <div class="py-12"></div>
         <!-- footer embeds MK -->
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/include.js"></script>
