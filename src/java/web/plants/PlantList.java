@@ -1,28 +1,38 @@
 package web.plants;
 
 import db.Plant;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import model.plant.PlantManager;
+import model.plantidentify.PlantIdentifyManager;
+import model.plantidentify.PlantJsonObject;
 
 /**
  *
  * @author CK
  */
 @WebServlet(name = "PlantList", urlPatterns = {"/plants/PlantList"})
+@MultipartConfig
 public class PlantList extends HttpServlet {
 
     @Inject
     private PlantManager pm;
+    @Inject
+    private PlantIdentifyManager pim;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,19 +47,20 @@ public class PlantList extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            List<Plant> plants = new ArrayList();
             // query coming from URL /plants/PlantList
             String name = request.getParameter("p_name");
             if (name != null) {
-                plants = pm.findPlantByName(name);
+                findPlantByName(request, response, name);
             }
 
-            if (!plants.isEmpty()) {
-                pm.setPlants(plants);
-                pm.setErrors(false);
+            //query coming from URL /plants/PlantIdentify
+            Part filePart = request.getPart("picture");
+            if (filePart != null) {
+                String picturePath = fileUpload(request, response);
+                findPlantByScientificName(request, response, getIdentifiedPlant(picturePath));
+                pim.setIdentified(true);
             } else {
-                pm.setErrors(true);
-                pm.setStatus("Keine Einträge zu '" + name + "' gefunden.");
+                pim.setIdentified(false);
             }
 
             RequestDispatcher rd
@@ -97,4 +108,85 @@ public class PlantList extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    // <editor-fold defaultstate="collapsed" desc="findPlantByName method. Click on the + sign on the left to edit the code.">
+    private void findPlantByName(HttpServletRequest request, HttpServletResponse response, String name)
+            throws ServletException, IOException {
+        List<Plant> plants = pm.findPlantByName(name);
+        if (!plants.isEmpty()) {
+            pm.setPlants(plants);
+            pm.setErrors(false);
+        } else {
+            pm.setErrors(true);
+            pm.setStatus("Keine Einträge zu '" + name + "' gefunden.");
+        }
+    }// </editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc="fileUpload method. Click on the + sign on the left to edit the code.">
+    private String fileUpload(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String picturePath = "";
+        Part filePart = request.getPart("picture");
+        boolean isThereAFile = filePart.getSize() > 0;
+
+        if (isThereAFile) {
+            final String path = "/var/www/html/gardenly.garden/img/plant-identify";
+            final String fileName = GetFileName.of(filePart);
+
+            OutputStream outputStream = null;
+            InputStream filecontent = null;
+
+            outputStream = new FileOutputStream(new File(path + File.separator
+                    + fileName));
+            filecontent = filePart.getInputStream();
+
+            int read = 0;
+            final byte[] bytes = new byte[1024];
+
+            while ((read = filecontent.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
+            }
+            picturePath = fileName;
+        }
+
+        return picturePath;
+    }// </editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc="getIdentifiedPlant method. Click on the + sign on the left to edit the code.">
+    private String getIdentifiedPlant(String picturePath) {
+        PlantJsonObject plantJsonObject = null;
+        try {
+            plantJsonObject = pim.getIdentifiedPlant(picturePath);
+        } catch (NullPointerException npe) {
+            npe.printStackTrace();
+            pim.setErrors(true);
+            pim.setStatus("plantnet.org API kann nicht geladen werden.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            pim.setErrors(true);
+            pim.setStatus("Beim identifizieren der Pflanze ist ein unbekannter Fehler aufgetreten.");
+        }
+
+        if (plantJsonObject != null) {
+            pim.setErrors(false);
+            System.out.println("DAS IST DIE AUSGABE: " + plantJsonObject.getBestMatch());
+            return plantJsonObject.getBestMatch();
+        } else {
+            pim.setErrors(true);
+            pim.setStatus("Es wurde keine Instanz von plantJsonObject angelegt.");
+            return "%";
+        }
+    }// </editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc="findPlantByScientificName method. Click on the + sign on the left to edit the code.">
+    private void findPlantByScientificName(HttpServletRequest request, HttpServletResponse response, String name)
+            throws ServletException, IOException {
+        List<Plant> plants = pm.findPlantByScientificName(name);
+        if (!plants.isEmpty()) {
+            pm.setPlants(plants);
+            pm.setErrors(false);
+        } else {
+            pm.setErrors(true);
+            pm.setStatus("Keine Einträge zu '" + name + "' gefunden.");
+        }
+    }// </editor-fold>
 }
