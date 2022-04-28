@@ -103,11 +103,6 @@
 
                     <!-- buttons -->
                     <section class="text-center px-4 mx-auto w-full mt-12">
-                        <a href="#" id="" class="">
-                            <div class="bg-blue-700 hover:bg-blue-800 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                                <i class="fab fa-facebook-f mr-2"></i> Mit Facebook fortfahren
-                            </div>
-                        </a>
                         <a href="#" id="register-with-mail" class="register-with-mail">
                             <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                                 Mit E-Mail registrieren
