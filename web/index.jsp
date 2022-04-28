@@ -83,15 +83,15 @@
         <!-- header -->
         <section>
             <div class="container px-4 mx-auto">
-                <nav class="flex items-center py-6">
-                    <span class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Mein Garten</span>
+                <div class="flex items-center py-6">
+                    <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Mein Garten</h2>
 
                     <div class="ml-auto">
                         <a href="#" class="add-plant">
                             <i class="far fa-plus text-4xl px-2 pt-0 text-main-green"></i>
                         </a>
                     </div>
-                </nav>
+                </div>
             </div>
         </section>
 
@@ -277,7 +277,7 @@
                 <!-- selection buttons-->
                 <div class="py-6 w-full">
                     <!-- button 1-->
-                    <a href="#" class="flex flex-row items-center w-full p-6 pr-2 gap-5 rounded-3xl mb-4 bg-main-green hover:bg-main-green-600 transition-all">
+                    <a href="/plants/PlantIdentify.jsp" class="flex flex-row items-center w-full p-6 pr-2 gap-5 rounded-3xl mb-4 bg-main-green hover:bg-main-green-600 transition-all">
                         <img class="flex-initial" src="/img/indentify-auto.svg"/>
                         <div>
                             <h3 class="text-white text-lg font-bold mb-1">Pflanze automatisch erkennen</h3>
