@@ -191,6 +191,25 @@
                             <p class="text-base font-medium text-gray-900"></p>
                         </div>
                     </div>
+                    
+                    <!-- row scientificName -->
+                    <div class="flex flex-row flex-wrap w-full gap-3 items-start items-center border-b-2 border-gray-300">
+
+                        <!-- cell left-->
+                        <div class="flex-none w-24 p-4 rounded-2xl bg-white">
+                            <p class="text-xs font-semibold text-gray-500 p-input-labels">Wissens. Name</p>
+                        </div>
+
+                        <!-- cell right-->
+                        <div class="grow p-2 bg-white">
+                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                   type='text' 
+                                   id='scientificName' 
+                                   name='scientificName' 
+                                   required >
+                            <p class="text-base font-medium text-gray-900"></p>
+                        </div>
+                    </div>
 
                     <div class="h-4 bg-gray-200"></div>
 
