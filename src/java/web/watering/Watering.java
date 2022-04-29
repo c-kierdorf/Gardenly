@@ -33,7 +33,7 @@ public class Watering extends HttpServlet {
      * @throws IOException if an I/O error occurs Allowed GET-Request-patterns:
      * Der Arduino kann keine HTTPS Anfragen senden. Deshalb muss folgende URL
      * mit HTTP statt HTTPS verwendet werden:
-     * http://gardenly.garden:3080/Watering?id=9&waterlevel=70&watering=now&humidity=12&light=50&temperature=12&soilmoisture=300
+     * http://gardenly.garden:3080/Watering?id=9&waterlevel=70&watering=now&humidity=40&light=50&temperature=12&soilmoisture=80
      *
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
