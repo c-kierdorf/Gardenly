@@ -10,6 +10,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeUtility;
 import model.user.SendEmailCredentials;
 
 public class SendNewPwdEmail {
@@ -46,7 +47,7 @@ public class SendNewPwdEmail {
             Message msg = new MimeMessage(session);
             msg.setFrom(new InternetAddress(fromEmailAlfahosting));
             msg.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-            msg.setSubject("Gardenly Passwort zurücksetzen");
+            msg.setSubject(MimeUtility.encodeText("Gardenly Passwort zurücksetzen", "utf-8", "B"));
             msg.setContent("Hallo " + user.getFirstName() + "!<br />"
                     + "Du hast das zurücksetzen deines Passworts angefordert. "
                     + "Bitte klicke auf den unten stehenden Link, um dein "
