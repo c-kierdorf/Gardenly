@@ -33,6 +33,9 @@ public class Watering extends HttpServlet {
      * @throws IOException if an I/O error occurs Allowed GET-Request-patterns:
      * Der Arduino kann keine HTTPS Anfragen senden. Deshalb muss folgende URL
      * mit HTTP statt HTTPS verwendet werden:
+     * http://gardenly.garden:3080/Watering?id=9&waterlevel=70&watering=now&humidity=40&light=50&temperature=12&soilmoisture=80
+     * Update 7.5.22: wahrscheinlich funktionieren einige Sensoren nicht. 
+     * Dann muss der Request so aussehen:
      * http://gardenly.garden:3080/Watering?id=9&waterlevel=70&watering=now&soilmoisture=80
      *
      */
@@ -121,47 +124,47 @@ public class Watering extends HttpServlet {
 
             }
 
-            // humidity
-            String humidity = request.getParameter("humidity");
-            if (humidity != null) {
-                try {
-                    Integer humidityInt = Integer.parseInt(request.getParameter("humidity"));
-                    userPlant.setHumidityNow(humidityInt);
-                } catch (NumberFormatException nfe) {
-                    upm.setErrors(true);
-                    upm.setStatus("Es wurde keine gültige Zahl für die Luftfeuchtigkeit eingegeben.");
-                    System.out.println("Es wurde keine gültige Zahl für die Luftfeuchtigkeit eingegeben.");
-                    nfe.printStackTrace();
-                }
-            }
-
-            // light
-            String light = request.getParameter("light");
-            if (light != null) {
-                try {
-                    Integer lightInt = Integer.parseInt(request.getParameter("light"));
-                    userPlant.setLightNow(lightInt);
-                } catch (NumberFormatException nfe) {
-                    upm.setErrors(true);
-                    upm.setStatus("Es wurde keine gültige Zahl für den Lichteinfluss eingegeben.");
-                    System.out.println("Es wurde keine gültige Zahl für den Lichteinfluss eingegeben.");
-                    nfe.printStackTrace();
-                }
-            }
-
-            // temperature
-            String temperature = request.getParameter("temperature");
-            if (temperature != null) {
-                try {
-                    Integer temperatureInt = Integer.parseInt(request.getParameter("temperature"));
-                    userPlant.setTemperatureNow(temperatureInt);
-                } catch (NumberFormatException nfe) {
-                    upm.setErrors(true);
-                    upm.setStatus("Es wurde keine gültige Zahl für die Temperatur eingegeben.");
-                    System.out.println("Es wurde keine gültige Zahl für die Temperatur eingegeben.");
-                    nfe.printStackTrace();
-                }
-            }
+//            // humidity
+//            String humidity = request.getParameter("humidity");
+//            if (humidity != null) {
+//                try {
+//                    Integer humidityInt = Integer.parseInt(request.getParameter("humidity"));
+//                    userPlant.setHumidityNow(humidityInt);
+//                } catch (NumberFormatException nfe) {
+//                    upm.setErrors(true);
+//                    upm.setStatus("Es wurde keine gültige Zahl für die Luftfeuchtigkeit eingegeben.");
+//                    System.out.println("Es wurde keine gültige Zahl für die Luftfeuchtigkeit eingegeben.");
+//                    nfe.printStackTrace();
+//                }
+//            }
+//
+//            // light
+//            String light = request.getParameter("light");
+//            if (light != null) {
+//                try {
+//                    Integer lightInt = Integer.parseInt(request.getParameter("light"));
+//                    userPlant.setLightNow(lightInt);
+//                } catch (NumberFormatException nfe) {
+//                    upm.setErrors(true);
+//                    upm.setStatus("Es wurde keine gültige Zahl für den Lichteinfluss eingegeben.");
+//                    System.out.println("Es wurde keine gültige Zahl für den Lichteinfluss eingegeben.");
+//                    nfe.printStackTrace();
+//                }
+//            }
+//
+//            // temperature
+//            String temperature = request.getParameter("temperature");
+//            if (temperature != null) {
+//                try {
+//                    Integer temperatureInt = Integer.parseInt(request.getParameter("temperature"));
+//                    userPlant.setTemperatureNow(temperatureInt);
+//                } catch (NumberFormatException nfe) {
+//                    upm.setErrors(true);
+//                    upm.setStatus("Es wurde keine gültige Zahl für die Temperatur eingegeben.");
+//                    System.out.println("Es wurde keine gültige Zahl für die Temperatur eingegeben.");
+//                    nfe.printStackTrace();
+//                }
+//            }
 
             // soilmoisture
             String soilmoisture = request.getParameter("soilmoisture");
