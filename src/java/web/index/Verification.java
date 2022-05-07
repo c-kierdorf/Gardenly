@@ -47,7 +47,7 @@ public class Verification extends HttpServlet {
                 um.setUser(user);
             } else {
                 um.setErrors(true);
-                um.setStatus("Die Emailadresse existiert nicht in der Datenbank.");
+                um.setStatus("Der Verifizierungscode ist falsch.");
             }
 
             RequestDispatcher rd = request.getRequestDispatcher("Verification.jsp");
