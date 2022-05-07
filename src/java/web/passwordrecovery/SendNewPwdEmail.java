@@ -52,8 +52,8 @@ public class SendNewPwdEmail {
                     + "Du hast das zurücksetzen deines Passworts angefordert. "
                     + "Bitte klicke auf den unten stehenden Link, um dein "
                     + "Passwort zurückzusetzen:<br /><br />"
-                    + "<a href='http://gardenly.garden/passwordrecovery/RequestNewPassword.jsp?email="+user.getEmail()+"&authcode="+user.getEmailVerificationCode()
-                    + "'>http://gardenly.garden/passwordrecovery/RequestNewPassword.jsp?email="+user.getEmail()+"&authcode="+user.getEmailVerificationCode()
+                    + "<a href='https://gardenly.garden/passwordrecovery/RequestNewPassword.jsp?email="+user.getEmail()+"&authcode="+user.getEmailVerificationCode()
+                    + "'>https://gardenly.garden/passwordrecovery/RequestNewPassword.jsp?email="+user.getEmail()+"&authcode="+user.getEmailVerificationCode()
                     + "</a>", "text/html; charset=utf-8");
 
             Transport.send(msg);
