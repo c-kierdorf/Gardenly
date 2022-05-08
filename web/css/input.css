@@ -46,5 +46,28 @@
     a{
         @apply font-semibold text-green-500;
     }
+    
+    .watering-list{
+        @apply list-none text-xs font-medium leading-loose border-solid border border-gray-300 rounded-md my-2;
+    }
+    .watering-list li{
+        @apply border-solid border-b border-gray-300 bg-white p-2;
+    }
+    .watering-list li:first-child{
+        @apply rounded-t-md;
+    }
+    .watering-list li:last-child{
+        @apply border-b-0 rounded-b-md;
+    }
+    .waterlist-item-value{
+        width: 50px;
+        @apply inline-block text-gray-500;      
+    }
+    .waterlist-item-icon{
+        @apply pl-2 pr-4 text-blue-500;
+    }
+    .waterlist-item-datetime{
+        @apply float-right pr-2;
+    }
 
 };
