@@ -80,9 +80,9 @@
             <!-- title + text area -->
             <div class="flex items-center py-6">
                 <a href="javascript:history.back()" class="add-plant">
-                    <i class="fa fa-chevron-left font-bold text-xl px-3 pt-2.5 text-main-green"></i>
+                    <i class="fa fa-chevron-left font-bold text-xl px-3 pt-3 text-main-green"></i>
                 </a>
-                <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanze bearbeiten</h2>
+                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanze bearbeiten</h2>
             </div>
         </div>
 

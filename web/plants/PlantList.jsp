@@ -78,7 +78,7 @@
         <section>
             <div class="container px-4 mx-auto">
                 <div class="flex items-center py-6">
-                    <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanzen Wiki</h2>
+                    <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanzen Wiki</h2>
                 </div>
                 <c:if test="${pim.identified}">
                     <p class="text-base font-medium text-gray-500 py-2">

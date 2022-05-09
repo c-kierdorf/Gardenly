@@ -84,7 +84,7 @@
         <section>
             <div class="container px-4 mx-auto">
                 <div class="flex items-center py-6">
-                    <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Mein Garten</h2>
+                    <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Mein Garten</h2>
 
                     <div class="ml-auto">
                         <a href="#" class="add-plant">
@@ -263,7 +263,7 @@
 
                 <!-- title + text area -->
                 <div class="flex items-center py-6">
-                    <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanze hinzufügen</h2>
+                    <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Pflanze hinzufügen</h2>
 
                     <div class="ml-auto">
                         <!-- close button -->

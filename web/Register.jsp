@@ -126,7 +126,7 @@
 
                 <!-- title + text area -->
                 <div class="flex items-center py-2">
-                    <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Registrieren</h2>
+                    <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Registrieren</h2>
 
                     <div class="ml-auto">
                         <!-- close button -->
