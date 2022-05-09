@@ -55,7 +55,7 @@
                 Wiki
             </a>
 
-            <a href="/Gardenly/Index" style="position: relative" class="menu-item menu-item-main w-full basis-1/5 pt-0 text-center font-medium text-xs text-gray-900 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/Index" style="position: relative" class="menu-item menu-item-main w-full basis-1/5 pt-0 text-center font-medium text-xs text-gray-900 hover:bg-blue-200 hover:text-blue-800">
                 <div class="rounded-full -mt-6 text-center mb-3 mx-auto">
                     <img class="w-9 mb-2 text-center py-4 mx-auto" src="/img/logo.svg">
                 </div>
@@ -84,7 +84,7 @@
                         <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">${upm.userPlant.userPlantName} erfolgreich bearbeitet</h2>
 
                         <section  class="text-center px-4 mx-auto w-full mt-12">
-                            <a href="/Gardenly/Index" id="login" class="register">
+                            <a href="/Index" id="login" class="register">
                                 <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                                     Zu meinem Garten
                                 </div>
@@ -108,7 +108,7 @@
             Footer CK
             
         -->
-        <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+        <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
 
         <!-- footer embeds MK -->
         <script type="text/javascript" src="/js/main.js"></script>
