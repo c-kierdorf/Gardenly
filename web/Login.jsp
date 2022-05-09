@@ -45,7 +45,7 @@
         <!-- logo area -->
         <section class="container text-center py-12">
             <div class="container px-4 mx-auto">
-                <a href="/Gardenly/Index" title="Zur Startseite">
+                <a href="/Index" title="Zur Startseite">
                     <img class="mx-auto w-9/12" src="/img/logo-main.svg" />
                 </a>
             </div>
@@ -89,7 +89,7 @@
                 
             -->
             <div style="margin:50px"></div>
-            <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+            <footer>&copy; Gardenly Inc. 2022 | <a href="/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
         </section>
 
         <!-- 🔑 login overlay -->
@@ -147,7 +147,7 @@
                                     type="submit" 
                                     value="Anmelden">
                             </div>
-                            <a class="inline-block mt-6 align-baseline font-bold text-sm text-center w-full text-main-green-500 hover:text-main-green-600" href="/Gardenly/passwordrecovery/ForgotPassword.jsp">
+                            <a class="inline-block mt-6 align-baseline font-bold text-sm text-center w-full text-main-green-500 hover:text-main-green-600" href="/passwordrecovery/ForgotPassword.jsp">
                                 Passwort vergessen?
                             </a>
                         </div>
