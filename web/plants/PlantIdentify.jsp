@@ -79,7 +79,10 @@
         <div class="container px-4 mx-auto">
 
             <!-- title + text area -->
-            <div class="items-center py-6">
+            <div class="felx items-center py-6">
+                <a href="javascript:history.back()" class="add-plant">
+                    <i class="fa fa-chevron-left font-bold text-xl px-3 pt-3 text-main-green"></i>
+                </a>
                 <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Meine Pflanze identifizieren</h2>
             </div>
         </div>
