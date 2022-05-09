@@ -58,7 +58,7 @@
                 Wiki
             </a>
 
-            <a href="/Gardenly/Index" style="position: relative" class="menu-item menu-item-main w-full basis-1/5 pt-0 text-center font-medium text-xs text-gray-900 hover:bg-blue-200 hover:text-blue-800">
+            <a href="/Index" style="position: relative" class="menu-item menu-item-main w-full basis-1/5 pt-0 text-center font-medium text-xs text-gray-900 hover:bg-blue-200 hover:text-blue-800">
                 <div class="rounded-full -mt-6 text-center mb-3 mx-auto">
                     <img class="w-9 mb-2 text-center py-4 mx-auto" src="/img/logo.svg">
                 </div>
@@ -81,7 +81,10 @@
         <div class="container px-4 mx-auto">
 
             <!-- title + text area -->
-            <div class="items-center py-6">
+            <div class="flex items-center py-6">
+                <a href="javascript:history.back()" class="add-plant">
+                    <i class="fa fa-chevron-left font-bold text-xl px-3 pt-2.5 text-main-green"></i>
+                </a>
                 <h2 class="h-10 text-3xl pt-2 text-main-green font-Metropolis font-bold">Meine Pflanze hinzufügen</h2>
             </div>
         </div>
@@ -125,7 +128,7 @@
 
                         <!-- cell right-->
                         <div class="grow p-2 bg-white">
-                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            <input class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                    type="text" 
                                    id="name" 
                                    name="up_name" 
@@ -145,7 +148,7 @@
 
                         <!-- cell right-->
                         <div class="grow p-2 bg-white">
-                            <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            <input class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                    type="number" 
                                    id="hardware_id" 
                                    name="hardware_id" 
@@ -168,7 +171,7 @@
                         <div class="grow p-2 bg-white">
                             <c:choose>
                                 <c:when test="${!pm.errors}">
-                                    <select class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                    <select class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                             name="plantType" 
                                             id="plantType" 
                                             onchange="userPlantAdd()"
@@ -211,7 +214,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                <input class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                        type='text' 
                                        id='orderBiology' 
                                        name='orderBiology' 
@@ -231,7 +234,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                <input class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                        type='text' 
                                        id='familyBiology' 
                                        name='familyBiology' 
@@ -251,7 +254,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                <input class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                        type='text' 
                                        id='subfamilyBiology' 
                                        name='subfamilyBiology' 
@@ -273,7 +276,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                <input class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                        type='text' 
                                        id='growingHeight' 
                                        name='growingHeight' 
@@ -293,7 +296,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                <input class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                        type='text' 
                                        id='watering' 
                                        name='watering' 
@@ -313,7 +316,7 @@
 
                             <!-- cell right-->
                             <div class="grow p-2 bg-white">
-                                <input class="border-0 w-full py-2 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                <input class="border-0 w-full py-4 px-3 font-medium text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                        type='text' 
                                        id='careRecommendations' 
                                        name='careRecommendations' 
