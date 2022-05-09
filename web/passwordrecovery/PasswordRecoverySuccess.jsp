@@ -40,7 +40,7 @@
         <!-- logo area -->
         <section class="container text-center py-12">
             <div class="container px-4 mx-auto">
-                <a href="/Gardenly/Index" title="Zur Startseite">
+                <a href="/Index" title="Zur Startseite">
                     <img class="mx-auto w-9/12" src="/img/logo-main.svg" />
                 </a>
             </div>
@@ -57,7 +57,7 @@
                             deinem neuen Passwort und deiner Emailadresse bei Gardenly anmelden.
                         </p>
                         <section  class="text-center px-4 mx-auto w-full mt-12">
-                            <a href="/Gardenly/Login.jsp" id="login" class="register">
+                            <a href="/Login.jsp" id="login" class="register">
                                 <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                                     Zum Login
                                 </div>
@@ -82,7 +82,7 @@
         -->
         <section  class="text-center px-4 mx-auto w-full mt-12">
             <div style="margin:50px"></div>
-            <footer>&copy; Gardenly Inc. 2022 | <a href="/Gardenly/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
+            <footer>&copy; Gardenly Inc. 2022 | <a href="/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
         </section>
         <!-- footer embeds MK -->
         <script type="text/javascript" src="/js/main.js"></script>
