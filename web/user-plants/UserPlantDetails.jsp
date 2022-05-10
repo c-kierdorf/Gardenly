@@ -117,9 +117,39 @@
                     </div>
                     <div>
                         <ul class="list-none text-md leading-loose ml-8">
-                            <li><i class="far fa-smile text-xl mr-1 text-main-green align-middle"></i> 90%</li>
-                            <li><i class="wi wi-raindrops text-4xl mr-1 text-blue-500 align-middle"></i> ${upm.userPlant.soilmoistureNow}% <button class="text-blue-500 border-blue-500 hover:text-white hover:bg-blue-500 leading-0 align-middle ml-4 px-2 rounded-lg border-solid text-sm font-bold border-2">Bewässern</button></li>
-                            <li><i class="wi wi-day-sunny text-1xl mr-1 text-orange-500 align-middle"></i> ausreichend Licht</li>
+                            <li>
+                                <i class="far fa-smile text-xl mr-1 text-main-green align-middle"></i> 
+                                ${upm.userPlant.health}%
+                            </li>
+                            <li><i class="wi wi-raindrops text-4xl mr-1 text-blue-500 align-middle"></i> 
+                                ${upm.userPlant.soilmoistureNow}% 
+                                <c:if test="${(upm.userPlant.isConnected == true) and (upm.userPlant.soilmoistureNow <= 30)}">
+                                    <button class="text-blue-500 border-blue-500 hover:text-white hover:bg-blue-500 leading-0 align-middle ml-4 px-2 rounded-lg border-solid text-sm font-bold border-2"
+                                            onclick="window.open(
+                                                            'https://gardenly.garden/Watering?id=${upm.userPlant.userPlantsId}&waterlevel=70&watering=now&soilmoisture=100',
+                                                            '_blank');">
+                                        Bewässern
+                                    </button>
+                                </c:if>
+                            </li>
+                            <li>
+                                <c:choose>
+                                    <c:when test="${upm.userPlant.waterlevel >= 50}">
+                                        <i class="fa-solid fa-glass-water text-xl mr-1 text-blue-500 align-middle"></i> 
+                                        ${upm.userPlant.waterlevel}%
+                                    </c:when>
+                                    <c:otherwise>
+                                        <i class="fa-solid fa-glass-water text-xl mr-1 text-red-500 align-middle"></i> 
+                                        ${upm.userPlant.waterlevel}%
+                                    </c:otherwise>
+                                </c:choose>
+
+                            </li>
+                            <li><c:if test="${upm.userPlant.isConnected}">
+                                    <i class="fa-solid fa-plug-circle-check text-xl mr-1 text-main-green"></i> 
+                                    Modul verbunden
+                                </c:if>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -164,14 +194,14 @@
                                         150 ml
                                     </span>
                                     <span class="waterlist-item-title">
-                                        Manuelle Bewässerung
+                                        Bewässerung
                                     </span>
                                     <span class="waterlist-item-datetime">
                                         <fmt:formatDate type = "both" 
-                                                        dateStyle = "short" 
+                                                        dateStyle = "long" 
                                                         timeStyle = "short" 
                                                         timeZone = "Europe/Berlin" 
-                                                        value = "${upm.userPlant.wateringDate}" />
+                                                        value = "${upm.userPlant.wateringDate}" /> Uhr
                                     </span>
                                 </li>
                             </c:when>
@@ -240,7 +270,7 @@
         <script type="text/javascript" src="/js/regular.min.js"></script>
         <script type="text/javascript" src="/js/solid.min.js"></script>
         <script>
-                           includeHTML();
+                               includeHTML();
         </script>
     </body>
 </html>
