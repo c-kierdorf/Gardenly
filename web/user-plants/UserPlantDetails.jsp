@@ -132,7 +132,8 @@
                                     </button>
                                 </c:if>
                             </li>
-                            <li>
+                            <li><i class="wi wi-day-sunny text-1xl mr-1 text-orange-500 align-middle"></i> ausreichend Licht</li>
+<!--                            <li>
                                 <c:choose>
                                     <c:when test="${upm.userPlant.waterlevel >= 50}">
                                         <i class="fa-solid fa-glass-water text-xl mr-1 text-blue-500 align-middle"></i> 
@@ -143,8 +144,7 @@
                                         ${upm.userPlant.waterlevel}%
                                     </c:otherwise>
                                 </c:choose>
-
-                            </li>
+                            </li>-->
                             <li><c:if test="${upm.userPlant.isConnected}">
                                     <i class="fa-solid fa-plug-circle-check text-xl mr-1 text-main-green"></i> 
                                     Modul verbunden
