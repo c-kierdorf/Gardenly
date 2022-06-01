@@ -15,7 +15,7 @@ import model.user.UserManager;
 
 /**
  *
- * @author crill
+ * @author CK
  */
 @WebServlet(name = "SettingsEditPwdSuccess", urlPatterns = {"/settings/SettingsEditPwdSuccess"})
 public class SettingsEditPwdSuccess extends HttpServlet {
