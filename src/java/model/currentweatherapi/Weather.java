@@ -1,12 +1,15 @@
 package model.currentweatherapi;
 
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+
 public class Weather {
-    
+
     private int id;
     private String main;
     private String description;
     private String icon;
-    
+
     public Weather() {
     }
 
@@ -34,7 +37,10 @@ public class Weather {
     }
 
     public String getDescription() {
-        return description;
+        String rawString = description;
+        ByteBuffer buffer = StandardCharsets.UTF_8.encode(rawString);
+        String utf8EncodedString = StandardCharsets.UTF_8.decode(buffer).toString();
+        return utf8EncodedString;
     }
 
     public void setDescription(String description) {
@@ -48,5 +54,5 @@ public class Weather {
     public void setIcon(String icon) {
         this.icon = icon;
     }
-    
+
 }
