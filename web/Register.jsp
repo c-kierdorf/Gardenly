@@ -76,27 +76,27 @@
                 <div class="w-full">
                     <ul class="">
                         <li class="flex p-3 ">
-                            <i class="fa fa-check-circle text-xl px-2 pt-0 text-main-green-500 mr-2 -mt-1"></i>
+                            <i class="fa fa-check-circle text-xl px-2 pt-038 text-main-green-500 mr-2 -mt-1"></i>
                             <span class="font-semibold">Rufe Details zu deinen Pflanzen von überall und von allen Endgeräten auf.</span> 
                         </li>
                         <li class="flex p-3 ">
-                            <i class="fa fa-check-circle text-xl px-2 pt-0 text-main-green-500 mr-2 -mt-1"></i>
+                            <i class="fa fa-check-circle text-xl px-2 pt-038 text-main-green-500 mr-2 -mt-1"></i>
                             <span class="font-semibold">Synchronisere deine Pflanzendaten mit der Gardenly-Cloud.</span> 
                         </li>
                         <li class="flex p-3 ">
-                            <i class="fa fa-check-circle text-xl px-2 pt-0 text-main-green-500 mr-2 -mt-1"></i>
+                            <i class="fa fa-check-circle text-xl px-2 pt-038 text-main-green-500 mr-2 -mt-1"></i>
                             <span class="font-semibold">Pflanzen-Erkennung durch unsere künstliche Intelligenz.</span> 
                         </li>
                         <li class="flex p-3 ">
-                            <i class="fa fa-check-circle text-xl px-2 pt-0 text-main-green-500 mr-2 -mt-1"></i>
+                            <i class="fa fa-check-circle text-xl px-2 pt-038 text-main-green-500 mr-2 -mt-1"></i>
                             <span class="font-semibold">Pflanzenprobleme erkennen.</span> 
                         </li>
                         <li class="flex p-3 ">
-                            <i class="fa fa-check-circle text-xl px-2 pt-0 text-main-green-500 mr-2 -mt-1"></i>
+                            <i class="fa fa-check-circle text-xl px-2 pt-038 text-main-green-500 mr-2 -mt-1"></i>
                             <span class="font-semibold">Automatische Bewässerung.</span> 
                         </li>
                         <li class="flex p-3 ">
-                            <i class="fa fa-check-circle text-xl px-2 pt-0 text-main-green-500 mr-2 -mt-1"></i>
+                            <i class="fa fa-check-circle text-xl px-2 pt-038 text-main-green-500 mr-2 -mt-1"></i>
                             <span class="font-semibold">Keine versteckte Kosten.</span> 
                         </li>
                     </ul>
