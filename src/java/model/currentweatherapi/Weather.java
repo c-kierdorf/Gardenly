@@ -37,6 +37,9 @@ public class Weather {
     }
 
     public String getDescription() {
+        /*
+        Encoding String to UTF-8. https://www.baeldung.com/java-string-encode-utf-8
+        */
         String rawString = description;
         ByteBuffer buffer = StandardCharsets.UTF_8.encode(rawString);
         String utf8EncodedString = StandardCharsets.UTF_8.decode(buffer).toString();
