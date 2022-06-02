@@ -120,10 +120,22 @@
                             </c:choose>
                             <b>Transfer Intervall:</b> ${up.transferInterval}000 ms<br>
                             <b>ID:</b> ${up.userPlantsId}<br>
-                            <b>Mit Arduino connected:</b> ${up.isConnected}
-                        </p>
-                        <p>
-                            <b>Letzte Bewässerung</b><br>
+                            <b>Mit Arduino connected:</b> ${up.isConnected}<br />
+                            <b>Letzter Datentransfer:</b><br>
+                            <c:choose>
+                                <c:when test="${up.transferDate != null}">
+                                    <fmt:formatDate type = "both" 
+                                                    dateStyle = "long" 
+                                                    timeStyle = "short" 
+                                                    timeZone = "Europe/Berlin" 
+                                                    value = "${up.transferDate}" /> Uhr
+                                </c:when>
+                                <c:otherwise>
+                                    Bisher war diese Pflanze noch nicht mit einem Hardware-Modul verbunden.
+                                </c:otherwise>
+                            </c:choose>
+                            <br>
+                            <b>Letzte Bewässerung:</b><br>
                             <c:choose>
                                 <c:when test="${up.wateringDate != null}">
                                     <fmt:formatDate type = "both" 
@@ -133,7 +145,7 @@
                                                     value = "${up.wateringDate}" /> Uhr
                                 </c:when>
                                 <c:otherwise>
-                                    Bisher wurde die Pflanze noch nicht gewässert :-)
+                                    Bisher wurde die Pflanze noch nicht bewässert.
                                 </c:otherwise>
                             </c:choose>
                         </p>
