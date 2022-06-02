@@ -41,7 +41,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "UserPlant.findBySoilmoistureAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.soilmoistureAverageWeek = :soilmoistureAverageWeek"),
     @NamedQuery(name = "UserPlant.findByTemperatureNow", query = "SELECT u FROM UserPlant u WHERE u.temperatureNow = :temperatureNow"),
     @NamedQuery(name = "UserPlant.findByTemperatureAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.temperatureAverageWeek = :temperatureAverageWeek"),
-    @NamedQuery(name = "UserPlant.findByIsConnected", query = "SELECT u FROM UserPlant u WHERE u.isConnected = :isConnected")})
+    @NamedQuery(name = "UserPlant.findByIsConnected", query = "SELECT u FROM UserPlant u WHERE u.isConnected = :isConnected"),
+    @NamedQuery(name = "UserPlant.findByTransferInterval", query = "SELECT u FROM UserPlant u WHERE u.transferInterval = :transferInterval")})
 public class UserPlant implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -93,6 +94,8 @@ public class UserPlant implements Serializable {
     private Integer temperatureAverageWeek;
     @Column(name = "is_connected")
     private boolean isConnected;
+    @Column(name = "transfer_interval")
+    private Integer transferInterval;
     
     public UserPlant() {
     }
@@ -131,6 +134,7 @@ public class UserPlant implements Serializable {
         temperatureNow = 0;
         temperatureAverageWeek = 0;
         this.isConnected = isConnected;
+        transferInterval = 1;
     }
 
     public Integer getUserPlantsId() {
@@ -283,6 +287,14 @@ public class UserPlant implements Serializable {
 
     public void setIsConnected(boolean isConnected) {
         this.isConnected = isConnected;
+    }
+
+    public Integer getTransferInterval() {
+        return transferInterval;
+    }
+
+    public void setTransferInterval(Integer transferInterval) {
+        this.transferInterval = transferInterval;
     }
 
     @Override
