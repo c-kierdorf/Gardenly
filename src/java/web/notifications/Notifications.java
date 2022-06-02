@@ -50,7 +50,8 @@ public class Notifications extends HttpServlet {
             }
             
             RequestDispatcher rd
-                    = request.getRequestDispatcher("/notifications/Notifications.jsp");
+                    = request.getRequestDispatcher("notifications/Notifications.jsp");
+            rd.forward(request, response);
         }
     }
 
