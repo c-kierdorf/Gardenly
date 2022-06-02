@@ -4,15 +4,15 @@ public class UserPlantJson {
     
     private Integer id;
     private String name;
-    private Integer checkIntervall;
+    private Integer transferIntervall;
     
     public UserPlantJson() {
     }
 
-    public UserPlantJson(Integer id, String name, Integer checkIntervall) {
+    public UserPlantJson(Integer id, String name, Integer transferIntervall) {
         this.id = id;
         this.name = name;
-        this.checkIntervall = checkIntervall;
+        this.transferIntervall = transferIntervall;
     }
 
     public Integer getId() {
@@ -31,11 +31,11 @@ public class UserPlantJson {
         this.name = name;
     }
 
-    public Integer getCheckIntervall() {
-        return checkIntervall;
+    public Integer getTransferIntervall() {
+        return transferIntervall;
     }
 
-    public void setCheckIntervall(Integer checkIntervall) {
-        this.checkIntervall = checkIntervall;
+    public void setTransferIntervall(Integer transferIntervall) {
+        this.transferIntervall = transferIntervall;
     }
 }
