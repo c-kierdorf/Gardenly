@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -60,6 +59,7 @@ public class Connect extends HttpServlet {
                     userPlantJson.setTransferIntervall(userPlant.getTransferInterval());
                     userPlantJsonString = gson.toJson(userPlantJson);
                     out.print(userPlantJsonString);
+                    // reading parameters with sensor data and saving to db
                     transferSensorData(request, response, userPlant);
                 } catch (ArrayIndexOutOfBoundsException e) {
                     upm.setErrors(true);
@@ -127,6 +127,11 @@ public class Connect extends HttpServlet {
             HttpServletResponse response,
             UserPlant userPlant)
             throws ServletException, IOException {
+        // current date for several use cases
+        Date date = new Date(); 
+        
+        // transferDate
+        userPlant.setTransferDate(date);
 
         // temperature
         String temperature = request.getParameter("temp");
@@ -174,7 +179,6 @@ public class Connect extends HttpServlet {
         String watering = request.getParameter("watering");
         if (watering != null) {
             if (watering.equals("now")) {
-                Date date = new Date();
                 userPlant.setWateringDate(date);
             }
         }
