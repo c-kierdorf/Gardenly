@@ -75,7 +75,7 @@
 
             <a href="/settings/Settings.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa-solid fa-gear text-2xl mr-1 text-gray-400 mb-1"></i><br />
-                Einstellungen
+                Profil
             </a>
 
         </nav>

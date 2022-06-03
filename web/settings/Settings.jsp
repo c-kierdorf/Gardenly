@@ -37,7 +37,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel='stylesheet' type='text/css' href='/Gardenly/css/gardenly.css'>
-        <title>Gardenly Einstellungen</title>
+        <title>Gardenly Profil</title>
     </head>
     <body class="antialiased h-screen body-bg font-Metropolis transition-all">
 
@@ -68,7 +68,7 @@
 
             <a href="/settings/Settings.jsp" class="menu-item w-full basis-1/5 pt-3 pb-2 text-center text-xs font-medium text-gray-500 hover:bg-blue-200 hover:text-blue-800">
                 <i class="block fa-solid fa-gear text-2xl mr-1 text-gray-400 mb-1"></i><br />
-                Einstellungen
+                Profil
             </a>
 
         </nav>
@@ -81,7 +81,7 @@
                 <a href="javascript:history.back()" class="add-plant">
                     <i class="fa fa-chevron-left font-bold text-xl px-3 pt-3 text-main-green"></i>
                 </a>
-                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Einstellungen</h2>
+                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Profil</h2>
             </div>
 
             <!-- show personal data -->
