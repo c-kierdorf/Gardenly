@@ -34,7 +34,7 @@ public class Connect extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs API zur Verbindung mit dem
      * Gardenly Hardware Modul (Raspberry Pi Pico)
-     * http://gardenly.garden:3080/Connect?temp=30&hum=40&liqLvl=1
+     * http://gardenly.garden:3080/Connect?moist=80temp=21&hum=40&liqLvl=1
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -132,6 +132,20 @@ public class Connect extends HttpServlet {
         
         // transferDate
         userPlant.setTransferDate(date);
+        
+        // soilmoisture
+        String soilmoisture = request.getParameter("moist");
+        if (soilmoisture != null) {
+            try {
+                Integer soilmoistureInt = Integer.parseInt(soilmoisture);
+                userPlant.setSoilmoistureNow(soilmoistureInt);
+            } catch (NumberFormatException nfe) {
+                upm.setErrors(true);
+                upm.setStatus("Es wurde keine gültige Zahl für die Bodenfeuchtigkeit eingegeben.");
+                System.out.println("Es wurde keine gültige Zahl für die Bodenfeuchtigkeit eingegeben.");
+                nfe.printStackTrace();
+            }
+        }
 
         // temperature
         String temperature = request.getParameter("temp");
@@ -198,19 +212,7 @@ public class Connect extends HttpServlet {
 //                }
 //            }
 //
-//        // soilmoisture
-//        String soilmoisture = request.getParameter("soilmoisture");
-//        if (soilmoisture != null) {
-//            try {
-//                Integer soilmoistureInt = Integer.parseInt(request.getParameter("soilmoisture"));
-//                userPlant.setSoilmoistureNow(soilmoistureInt);
-//            } catch (NumberFormatException nfe) {
-//                upm.setErrors(true);
-//                upm.setStatus("Es wurde keine gültige Zahl für die Bodenfeuchtigkeit eingegeben.");
-//                System.out.println("Es wurde keine gültige Zahl für die Bodenfeuchtigkeit eingegeben.");
-//                nfe.printStackTrace();
-//            }
-//        }
+        
         upm.setUserPlant(userPlant);
         upm.update(userPlant);
 
