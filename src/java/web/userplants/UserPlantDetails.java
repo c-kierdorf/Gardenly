@@ -10,8 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.currentweatherapi.WeatherJsonObject;
-import model.currentweatherapi.WeatherManager;
 import model.userplant.UserPlantManager;
 
 /**
@@ -23,8 +21,6 @@ public class UserPlantDetails extends HttpServlet {
     
     @Inject
     private UserPlantManager upm;
-    @Inject
-    private WeatherManager wm;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,28 +44,6 @@ public class UserPlantDetails extends HttpServlet {
             } else {
                 upm.setErrors(true);
                 upm.setStatus("User Pflanze mit ID '" + id + " konnte nicht gefunden werden.");
-            }
-            
-            // Get current weather
-            WeatherJsonObject weatherJsonObject = null;
-            try {
-                weatherJsonObject = wm.getCurrentWeather();
-            } catch (NullPointerException npe) {
-                npe.printStackTrace();
-                wm.setErrors(true);
-                wm.setStatus("openweathermap kann nicht geladen werden.");
-            } catch (Exception e) {
-                e.printStackTrace();
-                wm.setErrors(true);
-                wm.setStatus("Beim Laden des Wetters ist ein unbekannter Fehler aufgetreten.");
-            }
-            
-            if (weatherJsonObject != null) {
-                wm.setErrors(false);
-                wm.setWeatherJsonObject(weatherJsonObject);    
-            } else {
-                wm.setErrors(true);
-                wm.setStatus("Es wurde keine Instanz von weatherJsonObject angelegt.");
             }
             
             RequestDispatcher rd
