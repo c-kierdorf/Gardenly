@@ -43,7 +43,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "UserPlant.findByTemperatureAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.temperatureAverageWeek = :temperatureAverageWeek"),
     @NamedQuery(name = "UserPlant.findByIsConnected", query = "SELECT u FROM UserPlant u WHERE u.isConnected = :isConnected"),
     @NamedQuery(name = "UserPlant.findByTransferInterval", query = "SELECT u FROM UserPlant u WHERE u.transferInterval = :transferInterval"),
-    @NamedQuery(name = "UserPlant.findByTransferDate", query = "SELECT u FROM UserPlant u WHERE u.transferDate = :transferDate")})
+    @NamedQuery(name = "UserPlant.findByTransferDate", query = "SELECT u FROM UserPlant u WHERE u.transferDate = :transferDate"),
+    @NamedQuery(name = "UserPlant.findByWaterNow", query = "SELECT u FROM UserPlant u WHERE u.waterNow = :waterNow"),
+    @NamedQuery(name = "UserPlant.findByAutomaticWatering", query = "SELECT u FROM UserPlant u WHERE u.automaticWatering = :automaticWatering")})
 public class UserPlant implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -100,6 +102,10 @@ public class UserPlant implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "transfer_date")
     private Date transferDate;
+    @Column(name = "water_now")
+    private boolean waterNow;
+    @Column(name = "automatic_watering")
+    private boolean automaticWatering;
     
     public UserPlant() {
     }
@@ -140,6 +146,8 @@ public class UserPlant implements Serializable {
         this.isConnected = isConnected;
         transferInterval = 1;
         transferDate = null;
+        waterNow = false;
+        automaticWatering = false;
     }
 
     public Integer getUserPlantsId() {
@@ -308,6 +316,22 @@ public class UserPlant implements Serializable {
 
     public void setTransferDate(Date transferDate) {
         this.transferDate = transferDate;
+    }
+
+    public boolean isWaterNow() {
+        return waterNow;
+    }
+
+    public void setWaterNow(boolean waterNow) {
+        this.waterNow = waterNow;
+    }
+
+    public boolean isAutomaticWatering() {
+        return automaticWatering;
+    }
+
+    public void setAutomaticWatering(boolean automaticWatering) {
+        this.automaticWatering = automaticWatering;
     }
 
     @Override
