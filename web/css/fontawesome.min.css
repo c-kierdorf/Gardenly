@@ -4662,3 +4662,8 @@
     white-space:nowrap;
     border-width:0
 }
+
+/* CK added */
+.fa-tank-water:before{
+    content:"\e452"
+}
