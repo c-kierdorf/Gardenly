@@ -83,28 +83,6 @@
                     <c:when test="${!upm.errors}">
                         <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Automation erfolgreich aktualisiert</h2>
 
-                        <!-- show personal data -->
-                        <p class="text-base font-medium text-gray-500 py-6">
-                            Neuer Modus: 
-                        </p>
-                        <p class="text-base text-center font-bold text-gray-500 py-6">
-                            <c:choose>
-                                <c:when test="${!upm.errors}">
-                                    <c:if test="${upm.userPlant.transferInterval == 1}">
-                                        <i class="fa-solid fa-bolt-lightning text-xl mr-1 text-red-500 align-middle"></i> High Performance
-                                    </c:if>
-                                    <c:if test="${upm.userPlant.transferInterval == 2}">
-                                        <i class="fa-solid fa-scale-balanced text-xl mr-1 text-main-green-500 align-middle"></i> Ausbalanciert
-                                    </c:if>
-                                    <c:if test="${upm.userPlant.transferInterval == 3}">
-                                        <i class="fa-solid fa-battery-empty text-xl mr-1 text-main-green-500 align-middle"></i> Stromsparmodus/Urlaubsmodus
-                                    </c:if>
-                                </c:when>
-                                <c:otherwise>
-                                    ${upm.status}
-                                </c:otherwise>
-                            </c:choose>
-                        </p>
                         <section  class="text-center px-4 mx-auto w-full mt-12">
                             <a href="/Index" id="login" class="register">
                                 <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
