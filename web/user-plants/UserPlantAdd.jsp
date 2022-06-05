@@ -182,7 +182,7 @@
                                                 <option value="${pm.plant.plantsId}" selected>${pm.plant.name}</option>
                                             </c:when>
                                             <c:otherwise>
-                                                <option value="none" selected disabled hidden>Wähle eine Pflanzenart</option>
+                                                <option value="" disabled selected>Wähle eine Pflanzenart</option>
                                             </c:otherwise>
                                         </c:choose>
                                                 
