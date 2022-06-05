@@ -99,12 +99,24 @@
                     <div class="mb-4">
                         <label class="block text-gray-900 text-sm font-bold mb-2" 
                                for="transferInterval">
-                            Wähle einen Modus:
+                            Wähle das Transferintervall:
                         </label>
-                        <select name="transferInterval" id="transferInterval">
+                        <select name="transferInterval" id="transferInterval" required>
+                            <option value="" disabled selected>Bitte wählen</option>
                             <option value="1">High Performance</option>
                             <option value="2">Ausbalanciert</option>
                             <option value="3">Stromspar- /Urlaubsmodus</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-900 text-sm font-bold mb-2" 
+                               for="automaticWatering">
+                            Wähle den Bewässerungsmodus:
+                        </label>
+                        <select name="automaticWatering" id="automaticWatering" required>
+                            <option value="" disabled selected>Bitte wählen</option>
+                            <option value="true">Automatisch</option>
+                            <option value="false">Manuell</option>
                         </select>
                     </div>
                     <div class="items-center justify-between my-6">
