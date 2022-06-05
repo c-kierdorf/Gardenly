@@ -4,7 +4,6 @@ import db.User;
 import db.UserPlant;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -49,10 +48,12 @@ public class AutomationEditSuccess extends HttpServlet {
                 UserPlant userPlant = userPlants.get(0);
 
                 Integer transferInterval = Integer.parseInt(request.getParameter("transferInterval"));
+                boolean automaticWatering = Boolean.parseBoolean(request.getParameter("automaticWatering"));
 
                 for (int i = 0; i < userPlants.size(); i++) {
                     userPlant = userPlants.get(i);
                     userPlant.setTransferInterval(transferInterval);
+                    userPlant.setAutomaticWatering(automaticWatering);
                     upm.update(userPlant);
                 }
                 upm.setUserPlant(userPlant);
