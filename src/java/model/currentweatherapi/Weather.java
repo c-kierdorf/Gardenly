@@ -1,8 +1,5 @@
 package model.currentweatherapi;
 
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
-
 public class Weather {
 
     private int id;
@@ -37,13 +34,7 @@ public class Weather {
     }
 
     public String getDescription() {
-        /*
-        Encoding String to UTF-8. https://www.baeldung.com/java-string-encode-utf-8
-        */
-        String rawString = description;
-        ByteBuffer buffer = StandardCharsets.UTF_8.encode(rawString);
-        String utf8EncodedString = StandardCharsets.UTF_8.decode(buffer).toString();
-        return utf8EncodedString;
+        return description;
     }
 
     public void setDescription(String description) {
