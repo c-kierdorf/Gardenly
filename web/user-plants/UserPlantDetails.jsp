@@ -89,136 +89,194 @@
                         <i class="fa fa-chevron-left font-bold text-xl px-3 pt-3 text-main-green"></i>
                     </a>
                     <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">${upm.userPlant.userPlantName}</h2>
-
-
                 </nav>
             </div>
         </section>
-
-        <!-- picture and stats -->
-        <section>
-            <div class="container px-4 mx-auto">
-                <div class="flex items-center pb-6">
-                    <div>
-                        <img class="rounded-xl shadow-xl" 
-                             width="115" 
-                             height="115" 
-                             <c:choose>
-                                 <c:when test="${upm.userPlant.userPlantPicturePath != ''}">
-                                     alt="Foto der Userpflanze"
-                                     src="/img/user-plants/${upm.userPlant.userPlantPicturePath}" 
-                                 </c:when>
-                                 <c:otherwise>
-                                     alt="Default Foto der Pflanze"
-                                     src="/img/plants/${upm.userPlant.plantsFk.picturePath}" 
-                                 </c:otherwise>
-                             </c:choose>
-                             />
-                    </div>
-                    <div>
-                        <ul class="list-none text-md leading-loose ml-8">
-                            <li>
-                                <i class="far fa-smile text-xl mr-1 text-main-green align-middle"></i> 
-                                ${upm.userPlant.health}%
-                            </li>
-                            <li><i class="wi wi-raindrops text-4xl mr-1 text-blue-500 align-middle"></i> 
-                                ${upm.userPlant.soilmoistureNow}% 
-                                <c:if test="${(upm.userPlant.isConnected == true) and (upm.userPlant.soilmoistureNow <= 30)}">
-                                    <button class="text-blue-500 border-blue-500 hover:text-white hover:bg-blue-500 leading-0 align-middle ml-4 px-2 rounded-lg border-solid text-sm font-bold border-2"
-                                            onclick="window.open(
-                                                            'https://gardenly.garden/Watering?id=${upm.userPlant.userPlantsId}&waterlevel=70&watering=now&soilmoisture=100',
-                                                            '_blank');">
-                                        Bewässern
-                                    </button>
-                                </c:if>
-                            </li>
-                            <li><i class="wi wi-day-sunny text-1xl mr-1 text-orange-500 align-middle"></i> ausreichend Licht</li>
-                            <li>
-                                <c:choose>
-                                    <c:when test="${upm.userPlant.waterlevel >= 1}">
-                                        <i class="fa-solid fa-glass-water text-xl mr-1 text-blue-500 align-middle"></i> 
-                                        Wasserstand ok
-                                    </c:when>
-                                    <c:otherwise>
-                                        <i class="fa-solid fa-glass-water text-xl mr-1 text-red-500 align-middle"></i> 
-                                        Wassertank leer
-                                    </c:otherwise>
-                                </c:choose>
-                            </li>
-                            <li><c:if test="${upm.userPlant.isConnected}">
-                                    <i class="fa-solid fa-plug-circle-check text-xl mr-1 text-main-green"></i> 
+        <c:choose>
+            <c:when test="${upm.userPlant.transferDate == null}">
+                <section>
+                    <div class="container px-4 mx-auto">
+                        <div class="flex items-center pb-6">
+                            <div>
+                                <img class="rounded-xl shadow-xl" 
+                                     width="115" 
+                                     height="115" 
+                                     <c:choose>
+                                         <c:when test="${upm.userPlant.userPlantPicturePath != ''}">
+                                             alt="Foto der Userpflanze"
+                                             src="/img/user-plants/${upm.userPlant.userPlantPicturePath}" 
+                                         </c:when>
+                                         <c:otherwise>
+                                             alt="Default Foto der Pflanze"
+                                             src="/img/plants/${upm.userPlant.plantsFk.picturePath}" 
+                                         </c:otherwise>
+                                     </c:choose>
+                                     />
+                            </div>
+                            <div class="list-none text-md leading-loose ml-8">
+                                Bisher liegen noch keine Daten zur Pflanze vor. 
+                                Schließe die Pflanze an ein Gardenlymodul an, um die ersten Werte zu erfassen.<br />
+                                <br />
+                                <c:if test="${upm.userPlant.isConnected}">
+                                    <i class="fa-solid fa-plug-circle-check text-xl mr-1 text-main-green-500"></i> 
                                     Modul verbunden
                                 </c:if>
-                            </li>
-                        </ul>
+                                <c:if test="${upm.userPlant.isConnected == false}">
+                                    <i class="fa-solid fa-plug-circle-xmark text-xl mr-1 text-red-500"></i> 
+                                    Modul nicht verbunden
+                                </c:if>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
+            </c:when>
+            <c:otherwise>
 
-        <!-- current weather -->
-        <section>
-            <div class="container px-4 mx-auto">
-                <h3 class="text-lg mt-3 font-semibold">Außenbedingungen</h3>
-                <div class="flex items-center py-6">
-                    <c:choose>
-                        <c:when test="${!wm.errors}">
-                            <div class="font-semibold align-middle"><img src="https://openweathermap.org/img/wn/${wm.weatherJsonObject.weather.get(0).getIcon()}.png" width="15px" alt="Openweathermap Icon" /> ${wm.weatherJsonObject.weather.get(0).getDescription()}</div>
+
+                <!-- picture and stats -->
+                <section>
+                    <div class="container px-4 mx-auto">
+                        <div class="flex items-center pb-6">
+                            <div>
+                                <img class="rounded-xl shadow-xl" 
+                                     width="115" 
+                                     height="115" 
+                                     <c:choose>
+                                         <c:when test="${upm.userPlant.userPlantPicturePath != ''}">
+                                             alt="Foto der Userpflanze"
+                                             src="/img/user-plants/${upm.userPlant.userPlantPicturePath}" 
+                                         </c:when>
+                                         <c:otherwise>
+                                             alt="Default Foto der Pflanze"
+                                             src="/img/plants/${upm.userPlant.plantsFk.picturePath}" 
+                                         </c:otherwise>
+                                     </c:choose>
+                                     />
+                            </div>
+                            <div>
+                                <ul class="list-none text-md leading-loose ml-8">
+                                    <li>
+                                        <c:choose>
+                                            <c:when test="${upm.userPlant.health == 'OK'}">
+                                                <i class="fa-solid fa-circle-check text-lg mr-1 text-main-green-500 align-middle"></i> 
+                                            </c:when>
+                                            <c:otherwise>
+                                                <i class="fa-solid fa-triangle-exclamation text-lg mr-1 text-orange-500 align-middle"></i> 
+                                            </c:otherwise>
+                                        </c:choose>
+                                        ${upm.userPlant.health}
+                                    </li>
+                                    <li>
+                                        <c:if test="${upm.userPlant.soilmoistureNow >= 30}">
+                                            <i class="fa-solid fa-raindrops text-xl mr-1 text-blue-500 align-middle"></i> 
+                                        </c:if>
+                                        <c:if test="${upm.userPlant.soilmoistureNow < 30}">
+                                            <i class="fa-solid fa-raindrops text-xl mr-1 text-orange-500 align-middle"></i> 
+                                        </c:if>
+                                        ${upm.userPlant.soilmoistureNow} % 
+                                        <c:if test="${(upm.userPlant.isConnected == true) 
+                                                      and (upm.userPlant.soilmoistureNow <= 30) 
+                                                      and (upm.userPlant.waterlevel >= 40)
+                                                      and (upm.userPlant.automaticWatering == false)  }">
+                                              <button class="text-blue-500 border-blue-500 hover:text-white hover:bg-blue-500 leading-0 align-middle ml-4 px-2 rounded-lg border-solid text-sm font-bold border-2"
+                                                      onclick="window.open(
+                                                                      'https://gardenly.garden/Watering?id=${upm.userPlant.userPlantsId}',
+                                                                      '_blank');">
+                                                  Bewässern
+                                              </button>
+                                        </c:if>
+                                    </li>
+                                    <li>
+                                        <c:if test="${upm.userPlant.waterlevel >= 30}">
+                                            <i class="fa-solid fa-tank-water text-2xl mr-1 text-blue-500 align-middle"></i> 
+                                        </c:if>
+                                        <c:if test="${upm.userPlant.waterlevel < 30}">
+                                            <i class="fa-solid fa-tank-water text-2xl mr-1 text-orange-500 align-middle"></i> 
+                                        </c:if>
+                                        ${upm.userPlant.waterlevel} % im Tank
+                                    </li>
+                                    <li>
+                                        <c:if test="${upm.userPlant.isConnected}">
+                                            <i class="fa-solid fa-plug-circle-check text-xl mr-1 text-main-green-500"></i> 
+                                            Modul verbunden
+                                        </c:if>
+                                        <c:if test="${upm.userPlant.isConnected == false}">
+                                            <i class="fa-solid fa-plug-circle-xmark text-xl mr-1 text-orange-500"></i> 
+                                            Modul nicht verbunden
+                                        </c:if>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- indor conditions -->
+                <section>
+                    <div class="container px-4 mx-auto">
+                        <h3 class="text-lg mt-3 font-semibold">Innenbedingungen</h3>
+                        <div class="flex items-center py-6">
+                            <div class="font-semibold align-middle">
+                                <i class="fa-solid fa-sun-bright text-2xl mr-1 text-main-green"></i> 
+                                ausreichend Licht
+                            </div>
                             <div class="flex ml-auto">
-                                <div class="font-semibold mr-6 align-middle"><i class="wi wi-thermometer text-lg mr-1 text-main-green"></i> ${wm.weatherJsonObject.main.temp}° C</div>
-                                <div class="font-semibold align-middle"><i class="wi wi-strong-wind text-lg mr-1 text-main-green"></i> ${wm.weatherJsonObject.wind.speed} km/h</div>
+                                <div class="font-semibold mr-6 align-middle">
+                                    <i class="fa-solid fa-droplet-percent text-2xl mr-1 text-main-green"></i> 
+                                    ${upm.userPlant.humidityNow} %
+                                </div>
+                                <div class="font-semibold align-middle">
+                                    <i class="fa-solid fa-temperature-three-quarters text-2xl mr-1 text-main-green"></i> 
+                                    ${upm.userPlant.temperatureNow} °C
+                                </div>
                             </div> 
-                        </c:when>
-                        <c:otherwise>
-                            ${wm.status}
-                        </c:otherwise>
-                    </c:choose>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
-        </section>
+                </section>
 
-        <!-- last waterings -->
-        <section>
-            <div class="container px-4 mx-auto">
-                <h3 class="text-lg mt-3 font-semibold">Letzte Bewässerung</h3>
-                <div>
-                    <ul class="watering-list">
-                        <c:choose>
-                            <c:when test="${upm.userPlant.wateringDate != null}">
-                                <li>
-                                    <span class="waterlist-item-icon">
-                                        <i class="far fa-smile "></i>
-                                    </span>
-                                    <span class="waterlist-item-value">
-                                        150 ml
-                                    </span>
-                                    <span class="waterlist-item-title">
-                                        Bewässerung
-                                    </span>
-                                    <span class="waterlist-item-datetime">
-                                        <fmt:formatDate type = "both" 
-                                                        dateStyle = "long" 
-                                                        timeStyle = "short" 
-                                                        timeZone = "Europe/Berlin" 
-                                                        value = "${upm.userPlant.wateringDate}" /> Uhr
-                                    </span>
-                                </li>
-                            </c:when>
-                            <c:otherwise>
-                                <li>
-                                    <span class="waterlist-item-icon">
-                                        <i class="far fa-smile "></i>
-                                    </span>
-                                    <span class="waterlist-item-title">Bisher wurde die Pflanze noch nicht gewässert :-)</span>
-                                </li>
-                            </c:otherwise>
-                        </c:choose>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
+                <!-- last waterings -->
+                <section>
+                    <div class="container px-4 mx-auto">
+                        <h3 class="text-lg mt-3 font-semibold">Letzte Bewässerung</h3>
+                        <div>
+                            <ul class="watering-list">
+                                <c:choose>
+                                    <c:when test="${upm.userPlant.wateringDate != null}">
+                                        <li>
+                                            <span class="waterlist-item-icon">
+                                                <i class="far fa-smile "></i>
+                                            </span>
+                                            <span class="waterlist-item-value">
+                                                150 ml
+                                            </span>
+                                            <span class="waterlist-item-title">
+                                                Bewässerung
+                                            </span>
+                                            <span class="waterlist-item-datetime">
+                                                <fmt:formatDate type = "both" 
+                                                                dateStyle = "long" 
+                                                                timeStyle = "short" 
+                                                                timeZone = "Europe/Berlin" 
+                                                                value = "${upm.userPlant.wateringDate}" /> Uhr
+                                            </span>
+                                        </li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li>
+                                            <span class="waterlist-item-icon">
+                                                <i class="far fa-smile "></i>
+                                            </span>
+                                            <span class="waterlist-item-title">Bisher wurde die Pflanze noch nicht gewässert :-)</span>
+                                        </li>
+                                    </c:otherwise>
+                                </c:choose>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </c:otherwise>
+        </c:choose>
         <!-- actions -->
         <section>
             <div class="container px-4 mx-auto">
