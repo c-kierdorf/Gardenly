@@ -4667,3 +4667,15 @@
 .fa-tank-water:before{
     content:"\e452"
 }
+
+.fa-droplet-percent:before{
+    content:"\f750"
+}
+
+.fa-raindrops:before{
+    content:"\f75c"
+}
+
+.fa-sun-bright:before{
+    content:"\e28f"
+}
