@@ -28,19 +28,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "UserPlant.findByUserPlantsId", query = "SELECT u FROM UserPlant u WHERE u.userPlantsId = :userPlantsId"),
     @NamedQuery(name = "UserPlant.findByUserPlantName", query = "SELECT u FROM UserPlant u WHERE u.userPlantName like :userPlantName"),
     @NamedQuery(name = "UserPlant.findByUserPlantPicturePath", query = "SELECT u FROM UserPlant u WHERE u.userPlantPicturePath = :userPlantPicturePath"),
-    @NamedQuery(name = "UserPlant.findByHealth", query = "SELECT u FROM UserPlant u WHERE u.health = :health"),
+    @NamedQuery(name = "UserPlant.findByHealth", query = "SELECT u FROM UserPlant u WHERE u.health like :health"),
     @NamedQuery(name = "UserPlant.findByWaterlevel", query = "SELECT u FROM UserPlant u WHERE u.waterlevel = :waterlevel"),
     @NamedQuery(name = "UserPlant.findByPlanted", query = "SELECT u FROM UserPlant u WHERE u.planted = :planted"),
     @NamedQuery(name = "UserPlant.findByUserFk", query = "SELECT u FROM UserPlant u WHERE u.userFk = :userFk"),
     @NamedQuery(name = "UserPlant.findByVersion", query = "SELECT u FROM UserPlant u WHERE u.version = :version"),
     @NamedQuery(name = "UserPlant.findByHumidityNow", query = "SELECT u FROM UserPlant u WHERE u.humidityNow = :humidityNow"),
-    @NamedQuery(name = "UserPlant.findByHumidityAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.humidityAverageWeek = :humidityAverageWeek"),
     @NamedQuery(name = "UserPlant.findByLightNow", query = "SELECT u FROM UserPlant u WHERE u.lightNow = :lightNow"),
-    @NamedQuery(name = "UserPlant.findByLightAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.lightAverageWeek = :lightAverageWeek"),
     @NamedQuery(name = "UserPlant.findBySoilmoistureNow", query = "SELECT u FROM UserPlant u WHERE u.soilmoistureNow = :soilmoistureNow"),
-    @NamedQuery(name = "UserPlant.findBySoilmoistureAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.soilmoistureAverageWeek = :soilmoistureAverageWeek"),
     @NamedQuery(name = "UserPlant.findByTemperatureNow", query = "SELECT u FROM UserPlant u WHERE u.temperatureNow = :temperatureNow"),
-    @NamedQuery(name = "UserPlant.findByTemperatureAverageWeek", query = "SELECT u FROM UserPlant u WHERE u.temperatureAverageWeek = :temperatureAverageWeek"),
     @NamedQuery(name = "UserPlant.findByIsConnected", query = "SELECT u FROM UserPlant u WHERE u.isConnected = :isConnected"),
     @NamedQuery(name = "UserPlant.findByTransferInterval", query = "SELECT u FROM UserPlant u WHERE u.transferInterval = :transferInterval"),
     @NamedQuery(name = "UserPlant.findByTransferDate", query = "SELECT u FROM UserPlant u WHERE u.transferDate = :transferDate"),
@@ -62,7 +58,7 @@ public class UserPlant implements Serializable {
     @Size(max = 999)
     @Column(name = "user_plant_picture_path")
     private String userPlantPicturePath;
-    private Integer health;
+    private String health;
     private Integer waterlevel;
     @Temporal(TemporalType.DATE)
     private Date planted;
@@ -81,20 +77,12 @@ public class UserPlant implements Serializable {
     private User userFk;
     @Column(name = "humidity_now")
     private Integer humidityNow;
-    @Column(name = "humidity_average_week")
-    private Integer humidityAverageWeek;
     @Column(name = "light_now")
     private Integer lightNow;
-    @Column(name = "light_average_week")
-    private Integer lightAverageWeek;
     @Column(name = "soilmoisture_now")
     private Integer soilmoistureNow;
-    @Column(name = "soilmoisture_average_week")
-    private Integer soilmoistureAverageWeek;
     @Column(name = "temperature_now")
     private Integer temperatureNow;
-    @Column(name = "temperature_average_week")
-    private Integer temperatureAverageWeek;
     @Column(name = "is_connected")
     private boolean isConnected;
     @Column(name = "transfer_interval")
@@ -131,18 +119,14 @@ public class UserPlant implements Serializable {
         this.userPlantName = userPlantName;
         this.userPlantPicturePath = userPlantPicturePath;
         this.planted = planted;
-        health = 0;
+        health = null;
         waterlevel = 0;
         version = 1;
         wateringDate = null;
         humidityNow = 0;
-        humidityAverageWeek = 0;
         lightNow = 0;
-        lightAverageWeek = 0;
         soilmoistureNow = 0;
-        soilmoistureAverageWeek = 0;
         temperatureNow = 0;
-        temperatureAverageWeek = 0;
         this.isConnected = isConnected;
         transferInterval = 1;
         transferDate = null;
@@ -174,11 +158,11 @@ public class UserPlant implements Serializable {
         this.userPlantPicturePath = userPlantPicturePath;
     }
 
-    public Integer getHealth() {
+    public String getHealth() {
         return health;
     }
 
-    public void setHealth(Integer health) {
+    public void setHealth(String health) {
         this.health = health;
     }
 
@@ -260,38 +244,6 @@ public class UserPlant implements Serializable {
 
     public void setTemperatureNow(Integer temperatureNow) {
         this.temperatureNow = temperatureNow;
-    }
-
-    public Integer getHumidityAverageWeek() {
-        return humidityAverageWeek;
-    }
-
-    public void setHumidityAverageWeek(Integer humidityAverageWeek) {
-        this.humidityAverageWeek = humidityAverageWeek;
-    }
-
-    public Integer getLightAverageWeek() {
-        return lightAverageWeek;
-    }
-
-    public void setLightAverageWeek(Integer lightAverageWeek) {
-        this.lightAverageWeek = lightAverageWeek;
-    }
-
-    public Integer getSoilmoistureAverageWeek() {
-        return soilmoistureAverageWeek;
-    }
-
-    public void setSoilmoistureAverageWeek(Integer soilmoistureAverageWeek) {
-        this.soilmoistureAverageWeek = soilmoistureAverageWeek;
-    }
-
-    public Integer getTemperatureAverageWeek() {
-        return temperatureAverageWeek;
-    }
-
-    public void setTemperatureAverageWeek(Integer temperatureAverageWeek) {
-        this.temperatureAverageWeek = temperatureAverageWeek;
     }
 
     public boolean isIsConnected() {
