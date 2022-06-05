@@ -52,15 +52,27 @@ public class Connect extends HttpServlet {
                 try {
                     upm.setErrors(false);
                     UserPlant userPlant = userPlants.get(0);
-                    upm.setUserPlant(userPlant);
+
                     // connection between raspberry pi pico and gardenly:
                     userPlantJson.setId(userPlant.getUserPlantsId());
                     userPlantJson.setName(userPlant.getUserPlantName());
                     userPlantJson.setTransferIntervall(userPlant.getTransferInterval());
+                    userPlantJson.setWaterNow(userPlant.isWaterNow());
                     userPlantJsonString = gson.toJson(userPlantJson);
                     out.print(userPlantJsonString);
+
                     // reading parameters with sensor data and saving to db
-                    transferSensorData(request, response, userPlant);
+                    userPlant = transferSensorData(request, response, userPlant);
+
+                    // automatic watering if neccesary
+                    userPlant = automaticWatering(userPlant);
+                    
+                    // calculate health
+                    userPlant = calculateHealth(userPlant);
+                    
+                    //safe changes to DB
+                    upm.setUserPlant(userPlant);
+                    upm.update(userPlant);
                 } catch (ArrayIndexOutOfBoundsException e) {
                     upm.setErrors(true);
                     upm.setStatus("Es ist derzeit keine UserPlant mit der Hardware ID 1 verbunden.");
@@ -123,16 +135,16 @@ public class Connect extends HttpServlet {
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="transferSensorData method. Click on the + sign on the left to edit the code.">
-    private void transferSensorData(HttpServletRequest request,
+    private UserPlant transferSensorData(HttpServletRequest request,
             HttpServletResponse response,
             UserPlant userPlant)
             throws ServletException, IOException {
         // current date for several use cases
-        Date date = new Date(); 
-        
+        Date date = new Date();
+
         // transferDate
         userPlant.setTransferDate(date);
-        
+
         // soilmoisture
         String soilmoisture = request.getParameter("moist");
         if (soilmoisture != null) {
@@ -212,9 +224,35 @@ public class Connect extends HttpServlet {
 //                }
 //            }
 //
-        
-        upm.setUserPlant(userPlant);
-        upm.update(userPlant);
+        return userPlant;
 
+    }// </editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc="automaticWatering method. Click on the + sign on the left to edit the code.">
+    private UserPlant automaticWatering(UserPlant userPlant) {
+        if ((userPlant.getSoilmoistureNow() <= 30)
+                && (userPlant.getWaterlevel() >= 40)
+                && (userPlant.isAutomaticWatering() == true)) {
+            userPlant.setWaterNow(true);
+        }
+        return userPlant;
+    }// </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="calculateHealth method. Click on the + sign on the left to edit the code.">
+    public UserPlant calculateHealth(UserPlant userPlant) {
+        if (userPlant.getSoilmoistureNow() < 30) {
+            userPlant.setHealth("Trockene Erde");
+        } else if (userPlant.getTemperatureNow() > 35) {
+            userPlant.setHealth("Hitze");
+        } else if (userPlant.getTemperatureNow() < 5) {
+            userPlant.setHealth("Kälte");
+        } else if (userPlant.getHumidityNow() < 40) {
+            userPlant.setHealth("Trockene Luft");
+        } else if (userPlant.getLightNow() < 20) {
+            userPlant.setHealth("Lichtmangel");
+        } else {
+            userPlant.setHealth("OK");
+        }
+        return userPlant;
     }// </editor-fold>
 }
