@@ -93,6 +93,9 @@
                 Es ist aktuell folgende Automation eingestellt:
             </p>
             <p class="text-base text-center font-bold text-gray-500 py-6">
+                <b>
+                    Performance Level:<br />
+                </b>
                 <c:choose>
                     <c:when test="${!upm.errors}">
                         <c:if test="${upm.userPlant.transferInterval == 1}">
@@ -103,6 +106,23 @@
                         </c:if>
                         <c:if test="${upm.userPlant.transferInterval == 3}">
                             <i class="fa-solid fa-battery-empty text-xl mr-1 text-main-green-500 align-middle"></i> Stromsparmodus/Urlaubsmodus
+                        </c:if>
+                    </c:when>
+                    <c:otherwise>
+                        ${upm.status}
+                    </c:otherwise>
+                </c:choose>
+                <br /><br />
+                <b>
+                    Bewässerungsmodus:<br />
+                </b>
+                <c:choose>
+                    <c:when test="${!upm.errors}">
+                        <c:if test="${upm.userPlant.automaticWatering == true}">
+                            <i class="fa-solid fa-wand-sparkles text-xl mr-1 text-main-green-500 align-middle"></i> Automatisch
+                        </c:if>
+                        <c:if test="${upm.userPlant.automaticWatering == false}">
+                            <i class="fa-solid fa-user text-xl mr-1 text-main-green-500 align-middle"></i> Manuell
                         </c:if>
                     </c:when>
                     <c:otherwise>
