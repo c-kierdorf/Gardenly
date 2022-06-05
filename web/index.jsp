@@ -178,11 +178,40 @@
                                                 </c:choose>
                                             </div>
                                             <div class="ml-auto">
-                                                <div class="text-right font-semibold font-md"><i class="far fa-face-smile text-lg mr-1 text-main-green"></i> ${up.health}%</div>
-                                                <div class="text-right font-semibold font-md"><i class="wi wi-raindrops text-8 mr-1 text-blue-500"></i> ${up.soilmoistureNow}%</div>
+                                                <c:choose>
+                                                    <c:when test="${up.transferDate == null}">
+                                                        <div class="text-right font-medium">
+                                                            Keine Daten
+                                                        </div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div class="text-right font-medium">
+                                                            <c:choose>
+                                                                <c:when test="${up.health == 'OK'}">
+                                                                    <i class="fa-solid fa-circle-check text-lg mr-1 text-main-green-500 align-middle"></i> 
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <i class="fa-solid fa-triangle-exclamation text-lg mr-1 text-orange-500 align-middle"></i> 
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            ${up.health}
+                                                        </div>
+                                                        <div class="text-right font-medium">
+                                                            <c:if test="${up.soilmoistureNow >= 30}">
+                                                                <i class="fa-solid fa-raindrops text-lg mr-1 text-blue-500"></i> 
+                                                            </c:if>
+                                                            <c:if test="${up.soilmoistureNow < 30}">
+                                                                <i class="fa-solid fa-raindrops text-lg mr-1 text-orange-500"></i> 
+                                                            </c:if>
+                                                            ${up.soilmoistureNow} %
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:choose>
                                                 <c:if test="${up.isConnected}">
-                                                    <div class="text-right font-semibold font-md"><i class="fa-solid fa-plug-circle-check text-lg mr-1 text-main-green"></i></div>
-                                                    </c:if>
+                                                    <div class="text-right font-medium">
+                                                        <i class="fa-solid fa-plug-circle-check text-lg mr-1 text-main-green"></i>
+                                                    </div>
+                                                </c:if>
                                             </div>
                                         </div>
                                         <div>
