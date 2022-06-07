@@ -196,22 +196,20 @@
                                                             </c:choose>
                                                             ${up.health}
                                                         </div>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <c:choose>
+                                                    <c:when test="${up.isConnected}">
                                                         <div class="text-right font-medium">
-                                                            <c:if test="${up.soilmoistureNow >= 30}">
-                                                                <i class="fa-solid fa-raindrops text-lg mr-1 text-blue-500"></i> 
-                                                            </c:if>
-                                                            <c:if test="${up.soilmoistureNow < 30}">
-                                                                <i class="fa-solid fa-raindrops text-lg mr-1 text-orange-500"></i> 
-                                                            </c:if>
-                                                            ${up.soilmoistureNow} %
+                                                            <i class="fa-solid fa-plug-circle-check text-lg mr-1 text-main-green"></i>
+                                                        </div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div class="text-right font-medium">
+                                                            <i class="fa-solid fa-plug-circle-xmark text-lg mr-1 text-red-500"></i>
                                                         </div>
                                                     </c:otherwise>
                                                 </c:choose>
-                                                <c:if test="${up.isConnected}">
-                                                    <div class="text-right font-medium">
-                                                        <i class="fa-solid fa-plug-circle-check text-lg mr-1 text-main-green"></i>
-                                                    </div>
-                                                </c:if>
                                             </div>
                                         </div>
                                         <div>
