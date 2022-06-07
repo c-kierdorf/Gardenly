@@ -99,17 +99,26 @@
         <section>
             <div class="container px-4 mx-auto">
                 <!-- success-->
-                <div class="status rounded-2xl p-4 bg-gradient-to-br from-main-green to-lime-400">
-                    <i class="fa text-3xl px-2 pt-0 text-white"></i>
-                    <span class="h-6 text-lg align-text-bottom font-bold text-white">Alles im grünen Bereich.</span>
-                </div>
-
-                <!-- warning
-                <div class="rounded-2xl p-4 bg-gradient-to-br from-main-orange-500 to-main-orange-300">
-                  <i class="fa fa-triangle-exclamation text-3xl px-2 pt-0 text-white"></i>
-                  <span class="h-6 text-lg align-text-bottom font-bold text-white">{{ plant_name }} hat zu wenig Wasser.</span>
-                </div>
-                -->
+                <c:set var="allPlantsHealthy" value="false" />
+                <c:forEach items="${upm.userPlants}" var="up">
+                    <c:if test="${up.health eq 'OK'}">
+                        <c:set var="allPlantsHealthy" value="true" />
+                    </c:if>
+                </c:forEach>
+                <c:choose>
+                    <c:when test="${allPlantsHealthy}">
+                        <div class="status rounded-2xl p-4 bg-gradient-to-br from-main-green to-lime-400">
+                            <i class="fa text-3xl px-2 pt-0 text-white"></i>
+                            <span class="h-6 text-lg align-text-bottom font-bold text-white">Alles im grünen Bereich.</span>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="rounded-2xl p-4 bg-gradient-to-br from-main-orange-500 to-main-orange-300">
+                            <i class="fa fa-triangle-exclamation text-3xl px-2 pt-0 text-white"></i>
+                            <span class="h-6 text-lg align-text-bottom font-bold text-white">Es gibt etwas zu prüfen.</span>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
 
                 <!-- critical 
                 <div class="rounded-2xl p-4 bg-gradient-to-br from-main-red-500 to-main-red-300">
@@ -206,7 +215,7 @@
                                                     </c:when>
                                                     <c:otherwise>
                                                         <div class="text-right font-medium">
-                                                            <i class="fa-solid fa-plug-circle-xmark text-lg mr-1 text-red-500"></i>
+                                                            <i class="fa-solid fa-plug-circle-xmark text-lg mr-1 text-gray-400"></i>
                                                         </div>
                                                     </c:otherwise>
                                                 </c:choose>
@@ -339,7 +348,7 @@
         <script type="text/javascript" src="/js/regular.min.js"></script>
         <script type="text/javascript" src="/js/solid.min.js"></script>
         <script>
-            includeHTML();
+includeHTML();
         </script>
     </body>
 </html>
