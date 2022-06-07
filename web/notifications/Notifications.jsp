@@ -109,7 +109,14 @@
                             <b>Temperatur:</b> ${up.temperatureNow}° C<br>
                             <b>Luftfeuchtigkeit:</b> ${up.humidityNow} %<br>
                             <b>Bodenfeuchtigkeit:</b> ${up.soilmoistureNow} %<br>
-                            <b>Lichteinfluss:</b> ${up.lightNow} %<br>
+                            <c:choose>
+                                <c:when test="${up.lightNow}">
+                                    <b>Lichteinfluss:</b> ausreichend Licht<br>
+                                </c:when>
+                                <c:otherwise>
+                                    <b>Lichteinfluss:</b> Lichtmangel<br>
+                                </c:otherwise>
+                            </c:choose>
                             <c:choose>
                                 <c:when test="${up.waterlevel >= 1}">
                                     <b>Wasserstand Gardenlymodul:</b> ok<br>
