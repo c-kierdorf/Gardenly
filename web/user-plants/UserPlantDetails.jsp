@@ -218,7 +218,14 @@
                         <div class="flex items-center py-6">
                             <div class="font-semibold align-middle">
                                 <i class="fa-solid fa-sun-bright text-2xl mr-1 text-main-green"></i> 
-                                ausreichend Licht
+                                <c:choose>
+                                    <c:when test="${upm.userPlant.lightNow}">
+                                        ausreichend Licht
+                                    </c:when>
+                                    <c:otherwise>
+                                        Lichtmangel
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                             <div class="flex ml-auto">
                                 <div class="font-semibold mr-6 align-middle">
