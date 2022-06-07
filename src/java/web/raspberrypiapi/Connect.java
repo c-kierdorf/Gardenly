@@ -66,10 +66,10 @@ public class Connect extends HttpServlet {
 
                     // automatic watering if neccesary
                     userPlant = automaticWatering(userPlant);
-                    
+
                     // calculate health
                     userPlant = calculateHealth(userPlant);
-                    
+
                     //safe changes to DB
                     upm.setUserPlant(userPlant);
                     upm.update(userPlant);
@@ -209,21 +209,20 @@ public class Connect extends HttpServlet {
             }
         }
 
-//
-//            // light
-//            String light = request.getParameter("light");
-//            if (light != null) {
-//                try {
-//                    Integer lightInt = Integer.parseInt(request.getParameter("light"));
-//                    userPlant.setLightNow(lightInt);
-//                } catch (NumberFormatException nfe) {
-//                    upm.setErrors(true);
-//                    upm.setStatus("Es wurde keine gültige Zahl für den Lichteinfluss eingegeben.");
-//                    System.out.println("Es wurde keine gültige Zahl für den Lichteinfluss eingegeben.");
-//                    nfe.printStackTrace();
-//                }
-//            }
-//
+        // light
+        String light = request.getParameter("light");
+        if (light != null) {
+            try {
+                boolean lightBool = Boolean.parseBoolean(light);
+                userPlant.setLightNow(lightBool);
+            } catch (NumberFormatException nfe) {
+                upm.setErrors(true);
+                upm.setStatus("Es wurde kein gültiger boolscher Wert für den Lichteinfluss angegeben.");
+                System.out.println("Es wurde kein gültiger boolscher Wert für den Lichteinfluss angegeben.");
+                nfe.printStackTrace();
+            }
+        }
+
         return userPlant;
 
     }// </editor-fold>
@@ -237,7 +236,7 @@ public class Connect extends HttpServlet {
         }
         return userPlant;
     }// </editor-fold>
-    
+
     // <editor-fold defaultstate="collapsed" desc="calculateHealth method. Click on the + sign on the left to edit the code.">
     public UserPlant calculateHealth(UserPlant userPlant) {
         if (userPlant.getSoilmoistureNow() < 30) {
@@ -248,7 +247,7 @@ public class Connect extends HttpServlet {
             userPlant.setHealth("Kälte");
         } else if (userPlant.getHumidityNow() < 40) {
             userPlant.setHealth("Trockene Luft");
-        } else if (userPlant.getLightNow() < 20) {
+        } else if (userPlant.isLightNow() == false) {
             userPlant.setHealth("Lichtmangel");
         } else {
             userPlant.setHealth("OK");
