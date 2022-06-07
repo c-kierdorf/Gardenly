@@ -78,7 +78,7 @@ public class UserPlant implements Serializable {
     @Column(name = "humidity_now")
     private Integer humidityNow;
     @Column(name = "light_now")
-    private Integer lightNow;
+    private boolean lightNow;
     @Column(name = "soilmoisture_now")
     private Integer soilmoistureNow;
     @Column(name = "temperature_now")
@@ -124,7 +124,7 @@ public class UserPlant implements Serializable {
         version = 1;
         wateringDate = null;
         humidityNow = 0;
-        lightNow = 0;
+        lightNow = false;
         soilmoistureNow = 0;
         temperatureNow = 0;
         this.isConnected = isConnected;
@@ -222,11 +222,11 @@ public class UserPlant implements Serializable {
         this.humidityNow = humidityNow;
     }
 
-    public Integer getLightNow() {
+    public boolean isLightNow() {
         return lightNow;
     }
 
-    public void setLightNow(Integer lightNow) {
+    public void setLightNow(boolean lightNow) {
         this.lightNow = lightNow;
     }
 
