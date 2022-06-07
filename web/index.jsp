@@ -140,10 +140,10 @@
                 <c:choose>
                     <c:when test="${!wm.errors}">
                         <div class="flex items-center py-6">
-                            <div class="font-semibold align-middle"><img src="https://openweathermap.org/img/wn/${wm.weatherJsonObject.weather.get(0).getIcon()}.png" width="15px" alt="Openweathermap Icon"> ${wm.weatherJsonObject.weather.get(0).getDescription()}</div>
+                            <div class="font-semibold align-middle"><img src="https://openweathermap.org/img/wn/${wm.weatherJsonObject.weather.get(0).getIcon()}.png" width="25px" alt="Openweathermap Icon"> ${wm.weatherJsonObject.weather.get(0).getDescription()}</div>
                             <div class="flex ml-auto">
-                                <div class="font-semibold mr-6 align-middle"><i class="wi wi-thermometer text-lg mr-1 text-main-green"></i> ${wm.weatherJsonObject.main.temp}° C</div>
-                                <div class="font-semibold align-middle"><i class="wi wi-strong-wind text-lg mr-1 text-main-green"></i> ${wm.weatherJsonObject.wind.speed} km/h</div>
+                                <div class="font-semibold mr-6 align-middle"><i class="fa-solid fa-droplet-percent text-2xl mr-1 text-main-green"></i> ${wm.weatherJsonObject.main.humidity} %</div>
+                                <div class="font-semibold align-middle"><i class="fa-solid fa-temperature-three-quarters text-2xl mr-1 text-main-green"></i> ${wm.weatherJsonObject.main.temp} ° C</div>
                             </div>
                         </div>
                     </c:when>
