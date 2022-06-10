@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import model.plant.PlantManager;
-import model.user.UserManager;
 import model.userplant.UserPlantManager;
 import web.plants.GetFileName;
 
@@ -36,8 +35,6 @@ public class UserPlantEditSuccess extends HttpServlet {
     private UserPlantManager upm;
     @Inject
     private PlantManager pm;
-    @Inject
-    private UserManager um;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
