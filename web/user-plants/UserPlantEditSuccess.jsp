@@ -1,7 +1,7 @@
 <%-- 
     Document   : UserPlantEditSuccess
     Created on : 04.04.2022, 19:59:37
-    Author     : crill
+    Author     : CK
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
