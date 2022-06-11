@@ -177,13 +177,12 @@
                                         <c:if test="${(upm.userPlant.isConnected == true) 
                                                       and (upm.userPlant.soilmoistureNow <= 30) 
                                                       and (upm.userPlant.waterlevel >= 40)
-                                                      and (upm.userPlant.automaticWatering == false)  }">
-                                              <button class="text-blue-500 border-blue-500 hover:text-white hover:bg-blue-500 leading-0 align-middle ml-4 px-2 rounded-lg border-solid text-sm font-bold border-2"
-                                                      onclick="window.open(
-                                                                      'https://gardenly.garden/Watering?id=${upm.userPlant.userPlantsId}',
-                                                                      '_blank');">
+                                                      and (upm.userPlant.automaticWatering == false) 
+                                                      and (upm.userPlant.waterNow == false) }">
+                                              <a href="UserPlantWaterNowSuccess?up_id=${upm.userPlant.userPlantsId}"
+                                                 class="text-blue-500 border-blue-500 hover:text-white hover:bg-blue-500 leading-0 align-middle ml-4 px-2 rounded-lg border-solid text-sm font-bold border-2">
                                                   Bewässern
-                                              </button>
+                                              </a>
                                         </c:if>
                                     </li>
                                     <li>
