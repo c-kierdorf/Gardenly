@@ -99,25 +99,35 @@
         <section>
             <div class="container px-4 mx-auto">
                 <!-- success-->
-                <c:set var="allPlantsHealthy" value="false" />
-                <c:forEach items="${upm.userPlants}" var="up">
-                    <c:if test="${up.health eq 'OK'}">
-                        <c:set var="allPlantsHealthy" value="true" />
-                    </c:if>
-                </c:forEach>
                 <c:choose>
-                    <c:when test="${allPlantsHealthy}">
-                        <div class="status rounded-2xl p-4 bg-gradient-to-br from-main-green to-lime-400">
-                            <i class="fa text-3xl px-2 pt-0 text-white"></i>
-                            <span class="h-6 text-lg align-text-bottom font-bold text-white">Alles im grünen Bereich.</span>
-                        </div>
+                    <c:when test="${!upm.errors}">
+                        <c:set var="allPlantsHealthy" value="false" />
+                        <c:forEach items="${upm.userPlants}" var="up">
+                            <c:if test="${up.health eq 'OK'}">
+                                <c:set var="allPlantsHealthy" value="true" />
+                            </c:if>
+                        </c:forEach>
+                        <c:choose>
+                            <c:when test="${allPlantsHealthy}">
+                                <div class="status rounded-2xl p-4 bg-gradient-to-br from-main-green to-lime-400">
+                                    <i class="fa text-3xl px-2 pt-0 text-white"></i>
+                                    <span class="h-6 text-lg align-text-bottom font-bold text-white">Alles im grünen Bereich</span>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="rounded-2xl p-4 bg-gradient-to-br from-main-orange-500 to-main-orange-300">
+                                    <i class="fa fa-triangle-exclamation text-3xl px-2 pt-0 text-white"></i>
+                                    <span class="h-6 text-lg align-text-bottom font-bold text-white">Es gibt etwas zu prüfen</span>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                     </c:when>
                     <c:otherwise>
-                        <div class="rounded-2xl p-4 bg-gradient-to-br from-main-orange-500 to-main-orange-300">
-                            <i class="fa fa-triangle-exclamation text-3xl px-2 pt-0 text-white"></i>
-                            <span class="h-6 text-lg align-text-bottom font-bold text-white">Es gibt etwas zu prüfen.</span>
+                        <div class="status rounded-2xl p-4 bg-gradient-to-br from-main-green to-lime-400">
+                            <i class="fa text-3xl px-2 pt-0 text-white"></i>
+                            <span class="h-6 text-lg align-text-bottom font-bold text-white">Gardenly ist bereit</span>
                         </div>
-                    </c:otherwise>
+                    </c:otherwise>    
                 </c:choose>
 
                 <!-- critical 
@@ -348,7 +358,7 @@
         <script type="text/javascript" src="/js/regular.min.js"></script>
         <script type="text/javascript" src="/js/solid.min.js"></script>
         <script>
-includeHTML();
+            includeHTML();
         </script>
     </body>
 </html>
