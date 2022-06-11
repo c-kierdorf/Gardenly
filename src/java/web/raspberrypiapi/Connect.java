@@ -23,7 +23,7 @@ public class Connect extends HttpServlet {
 
     @Inject
     private UserPlantManager upm;
-    private Gson gson = new Gson(); // für json request raspberry pi pico
+    private Gson gson = new Gson(); 
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,9 +38,8 @@ public class Connect extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");       für html request Arduino
-        response.setContentType("application/json");                //für json request raspberry pi pico
-        response.setCharacterEncoding("UTF-8");                     //für json request raspberry pi pico
+        response.setContentType("application/json");                
+        response.setCharacterEncoding("UTF-8");                     
         try (PrintWriter out = response.getWriter()) {
             UserPlantJson userPlantJson = new UserPlantJson();
             String userPlantJsonString = "";
@@ -88,10 +87,6 @@ public class Connect extends HttpServlet {
                 upm.setErrors(true);
                 upm.setStatus("Es wurden noch keine UserPlants angelegt");
             }
-
-//            RequestDispatcher rd
-//                    = request.getRequestDispatcher("/arduino/Connect.jsp");
-//            rd.forward(request, response);
         }
     }
 
@@ -139,10 +134,9 @@ public class Connect extends HttpServlet {
             HttpServletResponse response,
             UserPlant userPlant)
             throws ServletException, IOException {
-        // current date for several use cases
-        Date date = new Date();
-
+        
         // transferDate
+        Date date = new Date();
         userPlant.setTransferDate(date);
 
         // soilmoisture
@@ -201,14 +195,6 @@ public class Connect extends HttpServlet {
             }
         }
 
-        // watering
-        String watering = request.getParameter("watering");
-        if (watering != null) {
-            if (watering.equals("now")) {
-                userPlant.setWateringDate(date);
-            }
-        }
-
         // light
         String light = request.getParameter("light");
         if (light != null) {
@@ -231,7 +217,8 @@ public class Connect extends HttpServlet {
     private UserPlant automaticWatering(UserPlant userPlant) {
         if ((userPlant.getSoilmoistureNow() <= 30)
                 && (userPlant.getWaterlevel() >= 40)
-                && (userPlant.isAutomaticWatering() == true)) {
+                && (userPlant.isAutomaticWatering() == true)
+                && (userPlant.isIsConnected() == true)) {
             userPlant.setWaterNow(true);
         }
         return userPlant;
