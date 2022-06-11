@@ -216,24 +216,42 @@
                         <h3 class="text-lg mt-3 font-semibold">Innenbedingungen</h3>
                         <div class="flex items-center py-6">
                             <div class="font-semibold align-middle">
-                                <i class="fa-solid fa-sun-bright text-2xl mr-1 text-main-green"></i> 
                                 <c:choose>
                                     <c:when test="${upm.userPlant.lightNow}">
+                                        <i class="fa-solid fa-sun-bright text-2xl mr-1 text-main-green"></i> 
                                         ausreichend Licht
                                     </c:when>
                                     <c:otherwise>
+                                        <i class="fa-solid fa-triangle-exclamation text-2xl mr-1 text-orange-500"></i> 
                                         Lichtmangel
                                     </c:otherwise>
                                 </c:choose>
                             </div>
                             <div class="flex ml-auto">
                                 <div class="font-semibold mr-6 align-middle">
-                                    <i class="fa-solid fa-droplet-percent text-2xl mr-1 text-main-green"></i> 
-                                    ${upm.userPlant.humidityNow} %
+                                    <c:choose>
+                                        <c:when test="${upm.userPlant.humidityNow >= 40}">
+                                            <i class="fa-solid fa-droplet-percent text-2xl mr-1 text-main-green"></i> 
+                                            ${upm.userPlant.humidityNow} %
+                                        </c:when>
+                                        <c:otherwise>
+                                            <i class="fa-solid fa-triangle-exclamation text-2xl mr-1 text-orange-500"></i> 
+                                            ${upm.userPlant.humidityNow} %
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                                 <div class="font-semibold align-middle">
-                                    <i class="fa-solid fa-temperature-three-quarters text-2xl mr-1 text-main-green"></i> 
-                                    ${upm.userPlant.temperatureNow} °C
+                                    <c:choose>
+                                        <c:when test="${upm.userPlant.temperatureNow <= 35
+                                                and upm.userPlant.temperatureNow >= 5}">
+                                            <i class="fa-solid fa-temperature-three-quarters text-2xl mr-1 text-main-green"></i> 
+                                            ${upm.userPlant.temperatureNow} °C
+                                        </c:when>
+                                        <c:otherwise>
+                                            <i class="fa-solid fa-triangle-exclamation text-2xl mr-1 text-orange-500"></i> 
+                                            ${upm.userPlant.temperatureNow} °C
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div> 
                         </div>
