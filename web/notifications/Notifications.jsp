@@ -155,6 +155,20 @@
                                     Bisher wurde die Pflanze noch nicht bewässert.
                                 </c:otherwise>
                             </c:choose>
+                            <br>
+                            <b>Aktueller Bewässerungsauftrag:</b><br>
+                            <c:choose>
+                                <c:when test="${up.waterNow}">
+                                    Es steht ein Bewässerungsauftrag aus, der manuell angestoßen wurde.<br>
+                                    <a href="UserPlantWaterStopSuccess?up_id=${upm.userPlant.userPlantsId}"
+                                       class="text-blue-500 border-blue-500 hover:text-white hover:bg-blue-500 leading-0 align-middle ml-4 px-2 rounded-lg border-solid text-sm font-bold border-2">
+                                        Reset manuelle Bewässerung
+                                    </a>
+                                </c:when>
+                                <c:otherwise>
+                                    Derzeit steht kein manueller Bewässerungsauftrag aus.
+                                </c:otherwise>
+                            </c:choose>
                         </p>
                         <div class="py-6"></div>
                     </c:forEach>
