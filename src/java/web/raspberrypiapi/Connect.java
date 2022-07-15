@@ -34,7 +34,7 @@ public class Connect extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs API zur Verbindung mit dem
      * Gardenly Hardware Modul (Raspberry Pi Pico)
-     * http://gardenly.garden:3080/Connect?moist=80temp=21&hum=40&liqLvl=1
+     * http://gardenly.garden:3080/Connect?moist=80temp=21&hum=40&liqLvl=1&light=1
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
