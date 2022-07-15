@@ -15,8 +15,10 @@ public class WeatherFacade {
 
     public WeatherJsonObject getCurrentWeather() {
         String apiKey = WeatherCredentials.getApiKey();
-        String latitude = "50.92205061337295";
-        String longitude = "6.967979935851583";
+        String latitude = "50.92205061337295"; // Köln Rheinauhafen
+        String longitude = "6.967979935851583"; // Köln Rheinauhafen
+//        String latitude = "49.07176887700034"; // Stuttgart wegen überwiegend bewölkt
+//        String longitude = "9.584511808341885"; // Stuttgart wegen überwiegend bewölkt
         String units = "metric";
         String lang = "de";
         String urlString = "http://api.openweathermap.org/data/2.5/weather?"
@@ -30,7 +32,8 @@ public class WeatherFacade {
 
             StringBuilder result = new StringBuilder();
             URLConnection conn = url.openConnection();
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+//            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream())); // ANSI-Codierung
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8")); // UTF-8 Codierung 
             String line;
             while ((line = br.readLine()) != null) {
                 result.append(line);
