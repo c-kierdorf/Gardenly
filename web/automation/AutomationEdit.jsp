@@ -103,9 +103,9 @@
                         </label>
                         <select name="transferInterval" id="transferInterval" required>
                             <option value="" disabled selected>Bitte wählen</option>
-                            <option value="1">High Performance</option>
-                            <option value="2">Ausbalanciert</option>
-                            <option value="3">Stromspar- /Urlaubsmodus</option>
+                            <option value="1">High Performance</option> <!-- 1 second break between intervals -->
+                            <option value="14400">Ausbalanciert</option> <!-- 4 hours break between intervals -->
+                            <option value="86400">Stromspar- /Urlaubsmodus</option> <!-- 24 hours break between intervals -->
                         </select>
                     </div>
                     <div class="mb-4">
