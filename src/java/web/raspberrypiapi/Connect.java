@@ -34,7 +34,7 @@ public class Connect extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs API zur Verbindung mit dem
      * Gardenly Hardware Modul (Raspberry Pi Pico)
-     * http://gardenly.garden:3080/Connect?moist=80temp=21&hum=40&liqLvl=1&light=1
+     * http://gardenly.garden:3080/Connect?moist=80temp=21&hum=40&liqLvl=62&light=1
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,14 +52,6 @@ public class Connect extends HttpServlet {
                     upm.setErrors(false);
                     UserPlant userPlant = userPlants.get(0);
 
-                    // connection between raspberry pi pico and gardenly:
-                    userPlantJson.setId(userPlant.getUserPlantsId());
-                    userPlantJson.setName(userPlant.getUserPlantName());
-                    userPlantJson.setTransferIntervall(userPlant.getTransferInterval());
-                    userPlantJson.setWaterNow(userPlant.isWaterNow());
-                    userPlantJsonString = gson.toJson(userPlantJson);
-                    out.print(userPlantJsonString);
-
                     // reading parameters with sensor data and saving to db
                     userPlant = transferSensorData(request, response, userPlant);
 
@@ -72,6 +64,14 @@ public class Connect extends HttpServlet {
                     //safe changes to DB
                     upm.setUserPlant(userPlant);
                     upm.update(userPlant);
+                    
+                    // produce JSON-Object to send it to raspberry pi pico:
+                    userPlantJson.setId(userPlant.getUserPlantsId());
+                    userPlantJson.setName(userPlant.getUserPlantName());
+                    userPlantJson.setTransferIntervall(userPlant.getTransferInterval());
+                    userPlantJson.setWaterNow(userPlant.isWaterNow());
+                    userPlantJsonString = gson.toJson(userPlantJson);
+                    out.print(userPlantJsonString);
                 } catch (ArrayIndexOutOfBoundsException e) {
                     upm.setErrors(true);
                     upm.setStatus("Es ist derzeit keine UserPlant mit der Hardware ID 1 verbunden.");
