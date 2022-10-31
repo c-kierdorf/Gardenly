@@ -54,7 +54,7 @@
         <!-- edit personal data form start -->
         <div class="container px-4 mx-auto">
             <div class="w-full mt-6">
-                <form action="SubjectAddForward" method="POST">
+                <form action="SubjectAddLanding" method="POST">
                     <div class="mb-4">
                         <label class="block text-gray-900 text-sm font-bold mb-2" 
                                for="nickName">
