@@ -58,7 +58,7 @@
                     Dieser Fragebogen gibt Ihnen die Möglichkeit, Ihre Zufriedenheit mit der mit der Benutzerfreundlichkeit Ihres primären Computersystems auszudrücken. Ihre Antworten werden uns helfen zu verstehen, welche Aspekte des Systems Ihnen besonders wichtig sind und die Aspekte, die Sie zufrieden stellen. Denken Sie bitte so weit wie möglich an alle Aufgaben, die Sie mit dem System erledigt haben, während Sie diese Fragen beantworten. Bitte lesen Sie jede Aussage und geben Sie an, wie sehr Sie ihr zustimmen oder nicht zustimmen der Aussage zustimmen oder nicht zustimmen, indem Sie eine Zahl auf der Skala ankreuzen. Wenn eine Aussage nicht auf Sie zutrifft kreisen Sie bitte "Keine Angabe" ein. Wann immer es angebracht ist, schreiben Sie bitte Kommentare zur Erläuterung Ihre Antworten. Wir danken Ihnen!
                 </p>
                 <div style="padding: 10px"></div>
-                <form action="PostQuestionaireSuccess" method="POST">
+                <form action="PostQuestionaireLanding" method="POST">
                     <!--begin :: Nickname-->
                     <div class="mb-4">
                         <label class="block text-gray-900 text-sm font-bold mb-2" 
