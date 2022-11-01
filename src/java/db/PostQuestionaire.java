@@ -167,9 +167,9 @@ public class PostQuestionaire implements Serializable {
     @Size(max = 40)
     @Column(name = "weiterentwicklung")
     private String weiterentwicklung;
-    @JoinColumn(name = "subject_fk", referencedColumnName = "subject_id")
+    @JoinColumn(name = "participant_fk", referencedColumnName = "participant_id")
     @ManyToOne(optional = false)
-    private Subject subjectFk;
+    private Participant participantFk;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
     private Date date;
@@ -185,7 +185,7 @@ public class PostQuestionaire implements Serializable {
         this.postQuestionaireId = postQuestionaireId;
     }
 
-    public PostQuestionaire(Subject subjectFk, 
+    public PostQuestionaire(Participant participantFk, 
             String q1, 
             String q2, 
             String q3, 
@@ -231,7 +231,7 @@ public class PostQuestionaire implements Serializable {
         this.kritik = kritik;
         this.lob = lob;
         this.weiterentwicklung = weiterentwicklung;
-        this.subjectFk = subjectFk;
+        this.participantFk = participantFk;
         this.date = date;
     }
 
@@ -419,12 +419,12 @@ public class PostQuestionaire implements Serializable {
         this.weiterentwicklung = weiterentwicklung;
     }
 
-    public Subject getSubjectFk() {
-        return subjectFk;
+    public Participant getParticipantFk() {
+        return participantFk;
     }
 
-    public void setSubjectFk(Subject subjectFk) {
-        this.subjectFk = subjectFk;
+    public void setParticipantFk(Participant participantFk) {
+        this.participantFk = participantFk;
     }
 
     public Date getDate() {
