@@ -44,6 +44,11 @@ public class PreQuestionaire implements Serializable {
     private String technik;
     @Basic(optional = false)
     @NotNull
+    @Size(max = 40)
+    @Column(name = "smartHome")
+    private String smartHome;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "erwartungen")
     private String erwartungen;
     @JoinColumn(name = "participant_fk", referencedColumnName = "participant_id")
@@ -65,11 +70,13 @@ public class PreQuestionaire implements Serializable {
     }
 
     public PreQuestionaire(Participant participant, 
-                           String technik, 
+                           String technik,
+                           String smartHome,
                            String erwartungen, 
                            Date date) {
         this.participantFk = participant;
         this.technik = technik;
+        this.smartHome = smartHome;
         this.erwartungen = erwartungen;
         this.date = date;
     }
@@ -88,6 +95,14 @@ public class PreQuestionaire implements Serializable {
 
     public void setTechnik(String technik) {
         this.technik = technik;
+    }
+
+    public String getSmartHome() {
+        return smartHome;
+    }
+
+    public void setSmartHome(String smartHome) {
+        this.smartHome = smartHome;
     }
 
     public String getErwartungen() {
