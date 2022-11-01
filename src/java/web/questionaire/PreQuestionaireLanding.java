@@ -5,7 +5,6 @@ import db.Participant;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,11 +47,12 @@ public class PreQuestionaireLanding extends HttpServlet {
             pam.setParticipant(participant);
 
             String technik = request.getParameter("technik");
+            String smartHome = request.getParameter("smartHome");
             String erwartungen = request.getParameter("erwartungen");
             Date date = new Date();
 
             PreQuestionaire preQuestionaire
-                    = new PreQuestionaire(participant, technik, erwartungen, date);
+                    = new PreQuestionaire(participant, technik, smartHome, erwartungen, date);
 
             preqm.create(preQuestionaire);
 
@@ -61,6 +61,7 @@ public class PreQuestionaireLanding extends HttpServlet {
             boolean sendPreEmail = preEmail.sendEmail(participant.getNickName(),
                                                       participant.getEmail(),
                                                       technik,
+                                                      smartHome,
                                                       erwartungen);
 
             if (sendPreEmail) {
