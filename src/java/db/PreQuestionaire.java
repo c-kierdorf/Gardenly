@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "PreQuestionaire.findAll", query = "SELECT p FROM PreQuestionaire p"),
     @NamedQuery(name = "PreQuestionaire.findByPreQuestionaireId", query = "SELECT p FROM PreQuestionaire p WHERE p.preQuestionaireId = :preQuestionaireId"),
-    @NamedQuery(name = "PreQuestionaire.findByTechnik", query = "SELECT p FROM PreQuestionaire p WHERE p.technik like :technik"),
     @NamedQuery(name = "PreQuestionaire.findByErwartungen", query = "SELECT p FROM PreQuestionaire p WHERE p.erwartungen like :erwartungen"),
     @NamedQuery(name = "PreQuestionaire.findByVersion", query = "SELECT p FROM PreQuestionaire p WHERE p.version = :version")})
 public class PreQuestionaire implements Serializable {
@@ -40,12 +39,12 @@ public class PreQuestionaire implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(max = 40)
-    @Column(name = "technik")
+    @Column(name = "einstellung_zu_technik")
     private String technik;
     @Basic(optional = false)
     @NotNull
     @Size(max = 40)
-    @Column(name = "smartHome")
+    @Column(name = "einstellung_zu_smarthome")
     private String smartHome;
     @Basic(optional = false)
     @NotNull
