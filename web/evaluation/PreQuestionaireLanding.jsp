@@ -46,33 +46,33 @@
             <div class="items-center py-6">
                 <c:choose>
                     <c:when test="${!preqm.errors}">
-                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Vielen Dank!</h2>
+                        <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Vielen Dank!</h2>
 
-                <!-- show personal data -->
-                <p class="text-base font-medium text-gray-500 py-6">
-                    Fragebogen erfolgreich ausgefüllt
-                </p>
+                        <!-- show personal data -->
+                        <p class="text-base font-medium text-gray-500 py-6">
+                            Fragebogen erfolgreich ausgefüllt
+                        </p>
 
-                <section  class="text-center px-4 mx-auto w-full mt-12">
-                    <a href="/evaluation/PreQuestionaire.jsp" id="login" class="register">
-                        <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                            Weitere Befragung durchführen
-                        </div>
-                    </a>
-                </section>
-                </c:when>
+                        <section  class="text-center px-4 mx-auto w-full mt-12">
+                            <a href="/evaluation/PreQuestionaire.jsp" id="login" class="register">
+                                <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                    Weitere Befragung durchführen
+                                </div>
+                            </a>
+                        </section>
+                    </c:when>
                     <c:otherwise>
                         <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Fehler</h2>
 
                         <div class="error">
                             ${preqm.status}
                         </div>
-                        
+
                         <a href="/evaluation/PreQuestionaire.jsp" id="login" class="register">
-                        <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                            Neue Befragung durchführen
-                        </div>
-                    </a>
+                            <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                Neue Befragung durchführen
+                            </div>
+                        </a>
                     </c:otherwise>
                 </c:choose>
             </div>
