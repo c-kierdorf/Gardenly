@@ -46,9 +46,9 @@ public class PreQuestionaire implements Serializable {
     @NotNull
     @Column(name = "erwartungen")
     private String erwartungen;
-    @JoinColumn(name = "subject_fk", referencedColumnName = "subject_id")
+    @JoinColumn(name = "participant_fk", referencedColumnName = "participant_id")
     @ManyToOne(optional = false)
-    private Subject subjectFk;
+    private Participant participantFk;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
     private Date date;
@@ -64,11 +64,11 @@ public class PreQuestionaire implements Serializable {
         this.preQuestionaireId = preQuestionaireId;
     }
 
-    public PreQuestionaire(Subject subject, 
+    public PreQuestionaire(Participant participant, 
                            String technik, 
                            String erwartungen, 
                            Date date) {
-        this.subjectFk = subject;
+        this.participantFk = participant;
         this.technik = technik;
         this.erwartungen = erwartungen;
         this.date = date;
@@ -98,12 +98,12 @@ public class PreQuestionaire implements Serializable {
         this.erwartungen = erwartungen;
     }
 
-    public Subject getSubjectFk() {
-        return subjectFk;
+    public Participant getParticipantFk() {
+        return participantFk;
     }
 
-    public void setSubjectFk(Subject subjectFk) {
-        this.subjectFk = subjectFk;
+    public void setParticipantFk(Participant participantFk) {
+        this.participantFk = participantFk;
     }
 
     public Date getDate() {
