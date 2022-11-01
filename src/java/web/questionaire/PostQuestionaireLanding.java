@@ -1,7 +1,7 @@
 package web.questionaire;
 
 import db.PostQuestionaire;
-import db.Subject;
+import db.Participant;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.postquestionaire.PostQuestionaireManager;
-import model.subject.SubjectManager;
+import model.participant.ParticipantManager;
 
 /**
  *
@@ -24,7 +24,7 @@ import model.subject.SubjectManager;
 public class PostQuestionaireLanding extends HttpServlet {
 
     @Inject
-    private SubjectManager sm;
+    private ParticipantManager pam;
     @Inject
     private PostQuestionaireManager postqm;
 
@@ -43,10 +43,10 @@ public class PostQuestionaireLanding extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             String nickName = request.getParameter("nickName");
-            List<Subject> subjects = sm.findSubjectByName(nickName);
-            if (!subjects.isEmpty()) {
-                Subject subject = subjects.get(0);
-                sm.setSubject(subject);
+            List<Participant> participants = pam.findParticipantByName(nickName);
+            if (!participants.isEmpty()) {
+                Participant participant = participants.get(0);
+                pam.setParticipant(participant);
                 postqm.setErrors(false);
 
                 String q1 = request.getParameter("q1");
@@ -75,7 +75,7 @@ public class PostQuestionaireLanding extends HttpServlet {
                 Date date = new Date();
                 
                 PostQuestionaire postQuestionaire
-                        = new PostQuestionaire(subject, 
+                        = new PostQuestionaire(participant, 
                                                 q1,
                                                 q2,
                                                 q3,
@@ -105,7 +105,7 @@ public class PostQuestionaireLanding extends HttpServlet {
                 SendPostQuestionaireEmail postEmail = new SendPostQuestionaireEmail();
 
                 boolean sendPostEmail = postEmail.sendEmail(nickName,
-                                                            subject.getEmail(),
+                                                            participant.getEmail(),
                                                             q1,
                                                             q2,
                                                             q3,

@@ -1,7 +1,7 @@
 package web.questionaire;
 
 import db.PreQuestionaire;
-import db.Subject;
+import db.Participant;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.prequestionaire.PreQuestionaireManager;
-import model.subject.SubjectManager;
+import model.participant.ParticipantManager;
 
 /**
  *
@@ -24,7 +24,7 @@ import model.subject.SubjectManager;
 public class PreQuestionaireLanding extends HttpServlet {
 
     @Inject
-    private SubjectManager sm;
+    private ParticipantManager pam;
     @Inject
     private PreQuestionaireManager preqm;
 
@@ -43,10 +43,10 @@ public class PreQuestionaireLanding extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             String nickName = request.getParameter("nickName");
-            List<Subject> subjects = sm.findSubjectByName(nickName);
-            if (!subjects.isEmpty()) {
-                Subject subject = subjects.get(0);
-                sm.setSubject(subject);
+            List<Participant> participants = pam.findParticipantByName(nickName);
+            if (!participants.isEmpty()) {
+                Participant participant = participants.get(0);
+                pam.setParticipant(participant);
                 preqm.setErrors(false);
 
                 String technik = request.getParameter("technik");
@@ -54,14 +54,14 @@ public class PreQuestionaireLanding extends HttpServlet {
                 Date date = new Date();
 
                 PreQuestionaire preQuestionaire
-                        = new PreQuestionaire(subject, technik, erwartungen, date);
+                        = new PreQuestionaire(participant, technik, erwartungen, date);
 
                 preqm.create(preQuestionaire);
 
                 SendPreQuestionaireEmail preEmail = new SendPreQuestionaireEmail();
 
                 boolean sendPreEmail = preEmail.sendEmail(nickName,
-                                                            subject.getEmail(),
+                                                            participant.getEmail(),
                                                             technik,
                                                             erwartungen);
 
