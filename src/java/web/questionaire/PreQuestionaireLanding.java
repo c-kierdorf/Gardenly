@@ -42,40 +42,34 @@ public class PreQuestionaireLanding extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            String nickName = request.getParameter("nickName");
-            List<Participant> participants = pam.findParticipantByName(nickName);
-            if (!participants.isEmpty()) {
-                Participant participant = participants.get(0);
-                pam.setParticipant(participant);
+            Integer participantId = Integer.parseInt(request.getParameter("nickName"));
+            Participant participant = pam.findParticipantById(participantId);
+
+            pam.setParticipant(participant);
+
+            String technik = request.getParameter("technik");
+            String erwartungen = request.getParameter("erwartungen");
+            Date date = new Date();
+
+            PreQuestionaire preQuestionaire
+                    = new PreQuestionaire(participant, technik, erwartungen, date);
+
+            preqm.create(preQuestionaire);
+
+            SendPreQuestionaireEmail preEmail = new SendPreQuestionaireEmail();
+
+            boolean sendPreEmail = preEmail.sendEmail(participant.getNickName(),
+                                                      participant.getEmail(),
+                                                      technik,
+                                                      erwartungen);
+
+            if (sendPreEmail) {
                 preqm.setErrors(false);
-
-                String technik = request.getParameter("technik");
-                String erwartungen = request.getParameter("erwartungen");
-                Date date = new Date();
-
-                PreQuestionaire preQuestionaire
-                        = new PreQuestionaire(participant, technik, erwartungen, date);
-
-                preqm.create(preQuestionaire);
-
-                SendPreQuestionaireEmail preEmail = new SendPreQuestionaireEmail();
-
-                boolean sendPreEmail = preEmail.sendEmail(nickName,
-                                                          participant.getEmail(),
-                                                          technik,
-                                                          erwartungen);
-
-                if (sendPreEmail) {
-                    preqm.setErrors(false);
-                } else {
-                    preqm.setErrors(true);
-                    preqm.setStatus("Daten gespeichert, aber Fehler beim Senden der E-Mail");
-                }
-
             } else {
                 preqm.setErrors(true);
-                preqm.setStatus("Keine Einträge zum Namen " + nickName + " gefunden.");
+                preqm.setStatus("Daten gespeichert, aber Fehler beim Senden der E-Mail");
             }
+
             RequestDispatcher rd
                     = request.getRequestDispatcher("PreQuestionaireLanding.jsp");
             rd.forward(request, response);
