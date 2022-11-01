@@ -51,58 +51,80 @@
             </div>
 
         </div>
-        <!-- edit personal data form start -->
-        <div class="container px-4 mx-auto">
-            <div class="w-full mt-6">
-                <form action="PreQuestionaireLanding" method="POST">
-                    <div class="mb-4">
-                        <label class="block text-gray-900 text-sm font-bold mb-2" 
-                               for="nickName">
-                            Vorname oder Nickname (bitte richtig schreiben, sonst muss man alles nochmal ausfüllen)
-                        </label>
-                        <input class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
-                               type="text" 
-                               id="nickName" 
-                               name="nickName" 
-                               required>
+        <c:choose>
+            <c:when test="${!pam.errors}">
+                <!-- edit personal data form start -->
+                <div class="container px-4 mx-auto">
+                    <div class="w-full mt-6">
+                        <form action="PreQuestionaireLanding" method="POST">
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm font-bold mb-2" 
+                                       for="nickName">
+                                    Vorname oder Nickname wählen
+                                </label>
+                                <select class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
+                                        name="nickName" 
+                                        id="nickName" 
+                                        required>
+                                    <option value="" disabled selected>Bitte wähle deinen Namen</option>
+                                    <c:forEach items="${pam.participants}" var="p">
+                                        <option value="${p.participantId}">${p.nickName}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm font-bold mb-2"
+                                       for="technik">
+                                    Wie stehst du Technik bzw. Smart Home Geräten generell gegenüber?
+                                </label>
+                                <select required id="technik" name="technik" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="" disabled selected>Bitte wählen</option>
+                                    <option value="Äußerst positiv">Äußerst positiv</option>
+                                    <option value="Positiv">Positiv</option>
+                                    <option value="Eher positiv">Eher positiv</option>
+                                    <option value="Neutral">Neutral</option>
+                                    <option value="Eher negativ">Eher negativ</option>
+                                    <option value="Negativ">Negativ</option>
+                                    <option value="Äußerst positiv">Äußerst negativ</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm font-bold mb-2"
+                                       for="erwartungen">
+                                    Was sind deine Erwartungen an das vorgestellte Gerät?
+                                </label>
+                                <textarea required class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
+                                          id="erwartungen" 
+                                          name="erwartungen" 
+                                          rows="4"
+                                          ></textarea>
+                            </div>
+                            <div class="items-center justify-between my-6">
+                                <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                    <input type="submit" 
+                                           value="Speichern" >
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-900 text-sm font-bold mb-2"
-                               for="technik">
-                            Wie stehst du Technik generell gegenüber?
-                        </label>
-                        <select required id="technik" name="technik" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="" disabled selected>Bitte wählen</option>
-                            <option value="Äußerst positiv">Äußerst positiv</option>
-                            <option value="Positiv">Positiv</option>
-                            <option value="Eher positiv">Eher positiv</option>
-                            <option value="Neutral">Neutral</option>
-                            <option value="Eher negativ">Eher negativ</option>
-                            <option value="Negativ">Negativ</option>
-                            <option value="Äußerst positiv">Äußerst negativ</option>
-                        </select>
+                </div>
+                <!-- edit personal data form end -->
+            </c:when>
+            <c:otherwise>
+                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Fehler</h2>
+
+                <div class="error">
+                    ${pam.status}
+                </div>
+
+                <a href="/evaluation/ParticipantAdd.jsp" id="login" class="register">
+                    <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                        Neue(n) Teilnehmer/in anlegen
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-900 text-sm font-bold mb-2"
-                               for="erwartungen">
-                            Was sind deine Erwartungen an das vorgestellte Gerät?
-                        </label>
-                        <textarea required class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
-                                  id="erwartungen" 
-                                  name="erwartungen" 
-                                  rows="4"
-                                  ></textarea>
-                    </div>
-                    <div class="items-center justify-between my-6">
-                        <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                            <input type="submit" 
-                                   value="Speichern" >
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- edit personal data form end -->
+                </a>
+            </c:otherwise>
+        </c:choose>
+
         <!--                    
             
             Footer CK
