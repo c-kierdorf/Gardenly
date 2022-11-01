@@ -129,15 +129,15 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <c:if test="${um.user.isAdmin}">
-                        <!-- card: add new plant-->
-                        <a href="PlantAdd.jsp" class="card add-plant flex-auto p-4 rounded-2xl bg-white">
-                            <div>
-                                <i class="fas fa-plus-circle text-2xl text-main-green"></i>
-                            </div>
-                            <div class="text-md mt-3 font-semibold">Pflanze<br> hinzufügen</div>
-                        </a>
-                    </c:if>
+
+                    <!-- card: add new plant-->
+                    <a href="PlantAdd.jsp" class="card add-plant flex-auto p-4 rounded-2xl bg-white">
+                        <div>
+                            <i class="fas fa-plus-circle text-2xl text-main-green"></i>
+                        </div>
+                        <div class="text-md mt-3 font-semibold">Pflanze<br> hinzufügen</div>
+                    </a>
+
 
                 </div>
                 <c:if test="${pim.identified}">
