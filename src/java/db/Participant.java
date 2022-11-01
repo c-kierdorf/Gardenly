@@ -89,18 +89,6 @@ public class Participant implements Serializable {
         this.profession = profession;
     }
 
-    public Participant(String nickName,
-                       Integer age, 
-                       String gender,
-                       String education,
-                       String profession) {
-        this.nickName = nickName;
-        this.age = age;
-        this.gender = gender;
-        this.education = education;
-        this.profession = profession;
-    }
-
     public Integer getParticipantId() {
         return participantId;
     }
