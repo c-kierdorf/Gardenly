@@ -61,9 +61,9 @@ public class PreQuestionaireLanding extends HttpServlet {
                 SendPreQuestionaireEmail preEmail = new SendPreQuestionaireEmail();
 
                 boolean sendPreEmail = preEmail.sendEmail(nickName,
-                                                            participant.getEmail(),
-                                                            technik,
-                                                            erwartungen);
+                                                          participant.getEmail(),
+                                                          technik,
+                                                          erwartungen);
 
                 if (sendPreEmail) {
                     preqm.setErrors(false);
@@ -77,12 +77,12 @@ public class PreQuestionaireLanding extends HttpServlet {
                 preqm.setStatus("Keine Einträge zum Namen " + nickName + " gefunden.");
             }
             RequestDispatcher rd
-                = request.getRequestDispatcher("PreQuestionaireLanding.jsp");
+                    = request.getRequestDispatcher("PreQuestionaireLanding.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
