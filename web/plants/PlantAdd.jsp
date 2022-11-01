@@ -9,8 +9,8 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<c:if test="${!um.user.isAdmin}">
-    <c:redirect url="/Gardenly/index.jsp"/>
+<c:if test="${um.user == null}">
+    <c:redirect url="/Login.jsp"/>
 </c:if>
 <!DOCTYPE html>
 <html lang="de">
