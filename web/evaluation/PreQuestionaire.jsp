@@ -75,17 +75,33 @@
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="technik">
-                                    Wie stehst du Technik bzw. Smart Home Geräten generell gegenüber?
+                                    Wie stehst du Technik generell gegenüber?
                                 </label>
                                 <select required id="technik" name="technik" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="" disabled selected>Bitte wählen</option>
-                                    <option value="Äußerst positiv">Äußerst positiv</option>
-                                    <option value="Positiv">Positiv</option>
-                                    <option value="Eher positiv">Eher positiv</option>
-                                    <option value="Neutral">Neutral</option>
-                                    <option value="Eher negativ">Eher negativ</option>
-                                    <option value="Negativ">Negativ</option>
-                                    <option value="Äußerst positiv">Äußerst negativ</option>
+                                    <option value="Äußerst positiv">Äußerst interessiert</option>
+                                    <option value="Positiv">Interessiert</option>
+                                    <option value="Eher positiv">Eher interessiert</option>
+                                    <option value="Neutral">Neutral/Egal/Gelassen</option>
+                                    <option value="Eher negativ">Eher uninteressiert</option>
+                                    <option value="Negativ">Uninterssiert</option>
+                                    <option value="Äußerst positiv">Äußerst uninteressiert</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm font-bold mb-2"
+                                       for="smartHome">
+                                    Wie stehst du Smart Home Geräten speziell gegenüber?
+                                </label>
+                                <select required id="smartHome" name="smartHome" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="" disabled selected>Bitte wählen</option>
+                                    <option value="Äußerst positiv">Äußerst interessiert</option>
+                                    <option value="Positiv">Interessiert</option>
+                                    <option value="Eher positiv">Eher interessiert</option>
+                                    <option value="Neutral">Neutral/Egal/Gelassen</option>
+                                    <option value="Eher negativ">Eher uninteressiert</option>
+                                    <option value="Negativ">Uninterssiert</option>
+                                    <option value="Äußerst positiv">Äußerst uninteressiert</option>
                                 </select>
                             </div>
                             <div class="mb-4">
