@@ -46,13 +46,20 @@ public class PreQuestionaireLanding extends HttpServlet {
 
             pam.setParticipant(participant);
 
+            String haeufigkeitPflanzenpflege = request.getParameter("haeufigkeitPflanzenpflege");
+            String erfahrungAutomatisiertePflanzenpflege = request.getParameter("erfahrungAutomatisiertePflanzenpflege");
             String technik = request.getParameter("technik");
             String smartHome = request.getParameter("smartHome");
             String erwartungen = request.getParameter("erwartungen");
             Date date = new Date();
 
-            PreQuestionaire preQuestionaire
-                    = new PreQuestionaire(participant, technik, smartHome, erwartungen, date);
+            PreQuestionaire preQuestionaire = new PreQuestionaire(participant, 
+                                                                  haeufigkeitPflanzenpflege,
+                                                                  erfahrungAutomatisiertePflanzenpflege,
+                                                                  technik, 
+                                                                  smartHome, 
+                                                                  erwartungen, 
+                                                                  date);
 
             preqm.create(preQuestionaire);
 
@@ -60,6 +67,8 @@ public class PreQuestionaireLanding extends HttpServlet {
 
             boolean sendPreEmail = preEmail.sendEmail(participant.getNickName(),
                                                       participant.getEmail(),
+                                                      haeufigkeitPflanzenpflege,
+                                                      erfahrungAutomatisiertePflanzenpflege,
                                                       technik,
                                                       smartHome,
                                                       erwartungen);
