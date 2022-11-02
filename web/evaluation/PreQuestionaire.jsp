@@ -74,34 +74,66 @@
                             </div>
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
+                                       for="haeufigkeitPflanzenpflege">
+                                    Wie oft betreibst du Pflanzenpflege?
+                                </label>
+                                <select required id="haeufigkeitPflanzenpflege" name="haeufigkeitPflanzenpflege" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="" disabled selected>Bitte wählen</option>
+                                    <option value="Niemals">Niemals</option>
+                                    <option value="Einmal monatlich">Einmal monatlich</option>
+                                    <option value="Mehrmals im Monat">Mehrmals im Monat</option>
+                                    <option value="Einmal wöchentlich">Einmal wöchentlich</option>
+                                    <option value="Mehrmals die Woche">Mehrmals die Woche</option>
+                                    <option value="Einmal täglich">Einmal täglich</option>
+                                    <option value="Mehrmals täglich">Mehrmals täglich</option>
+                                    <option value="Einmal die Stunde">Einmal die Stunde</option>
+                                    <option value="Mehrmals pro Stunde">Mehrmals pro Stunde</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm font-bold mb-2"
+                                       for="erfahrungAutomatisiertePflanzenpflege">
+                                    Hast du Erfahrung mit automatisierter Pflanzenpflege?
+                                </label>
+                                <select required id="erfahrungAutomatisiertePflanzenpflege" name="erfahrungAutomatisiertePflanzenpflege" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="" disabled selected>Bitte wählen</option>
+                                    <option value="Bisher keine">Bisher keine</option>
+                                    <option value="Weniger als 1 Jahr">Weniger als 1 Jahr</option>
+                                    <option value="1-3 Jahre">1-3 Jahre</option>
+                                    <option value="Mehr als 3 Jahre">Mehr als 3 Jahre</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="technik">
                                     Wie stehst du Technik generell gegenüber?
                                 </label>
                                 <select required id="technik" name="technik" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="" disabled selected>Bitte wählen</option>
-                                    <option value="Äußerst positiv">Äußerst interessiert</option>
-                                    <option value="Positiv">Interessiert</option>
-                                    <option value="Eher positiv">Eher interessiert</option>
+                                    <option value="Äußerst interessiert">Äußerst interessiert</option>
+                                    <option value="Interessiert">Interessiert</option>
+                                    <option value="Eher interessiert">Eher interessiert</option>
                                     <option value="Neutral">Neutral/Egal/Gelassen</option>
-                                    <option value="Eher negativ">Eher uninteressiert</option>
-                                    <option value="Negativ">Uninterssiert</option>
-                                    <option value="Äußerst positiv">Äußerst uninteressiert</option>
+                                    <option value="Eher desinteressiert<">Eher desinteressiert</option>
+                                    <option value="Desinteressiert">Desinteressiert</option>
+                                    <option value="Äußerst desinteressiert">Äußerst desinteressiert</option>
                                 </select>
                             </div>
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="smartHome">
-                                    Wie stehst du Smart Home Geräten speziell gegenüber?
+                                    Wie stehst du "Smart Home" Geräten speziell gegenüber?
                                 </label>
                                 <select required id="smartHome" name="smartHome" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="" disabled selected>Bitte wählen</option>
-                                    <option value="Äußerst positiv">Äußerst interessiert</option>
-                                    <option value="Positiv">Interessiert</option>
-                                    <option value="Eher positiv">Eher interessiert</option>
+                                    <option value="Äußerst interessiert">Äußerst interessiert</option>
+                                    <option value="Interessiert">Interessiert</option>
+                                    <option value="Eher interessiert">Eher interessiert</option>
                                     <option value="Neutral">Neutral/Egal/Gelassen</option>
-                                    <option value="Eher negativ">Eher uninteressiert</option>
-                                    <option value="Negativ">Uninterssiert</option>
-                                    <option value="Äußerst positiv">Äußerst uninteressiert</option>
+                                    <option value="Eher desinteressiert<">Eher desinteressiert</option>
+                                    <option value="Desinteressiert">Desinteressiert</option>
+                                    <option value="Äußerst desinteressiert">Äußerst desinteressiert</option>
+                                    <option value="Der Begriff „Smart Home“ sagt mir nichts">Der Begriff „Smart Home“ sagt mir nichts</option>
                                 </select>
                             </div>
                             <div class="mb-4">
