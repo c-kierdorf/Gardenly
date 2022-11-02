@@ -15,6 +15,8 @@ public class SendPreQuestionaireEmail {
 
     public boolean sendEmail(String nickName,
             String email,
+            String haeufigkeitPflanzenpflege,
+            String erfahrungAutomatisiertePflanzenpflege,
             String technik,
             String smartHome,
             String erwartungen) {
@@ -49,10 +51,12 @@ public class SendPreQuestionaireEmail {
             msg.setSubject(MimeUtility.encodeText("Gardenly Vor-Befragung", "utf-8", "B"));
             msg.setContent("Neue Vor-Befragungsergebnisse:<br><br>"
                     + "<b>Nickname</b>:<br>" + nickName + "<br><br>"
+                    + "<b>Häufigkeit Pflanzenpflege</b>:<br>" + haeufigkeitPflanzenpflege + "<br><br>"
+                    + "<b>Erfahrung mit automatisierter Pflanzenpflege</b>:<br>" + erfahrungAutomatisiertePflanzenpflege + "<br><br>"
                     + "<b>Einstellung zu Technik allgemein</b>:<br>" + technik + "<br><br>"
                     + "<b>Einstellung zu Smart Home Geräten speziell</b>:<br>" + smartHome + "<br><br>"
                     + "<b>Erwartungen an das vorgestellte System</b>:<br>" + erwartungen + "<br><br>"
-                    + "<br>Danke für deine Teilnahme!"
+                    + "<br><hr>Danke für deine Teilnahme!"
                     + "<br><br>", "text/html; charset=utf-8");
 
             Transport.send(msg);
