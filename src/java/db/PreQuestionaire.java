@@ -39,6 +39,16 @@ public class PreQuestionaire implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(max = 40)
+    @Column(name = "haeufigkeit_pflanzenpflege")
+    private String haeufigkeitPflanzenpflege;
+    @Basic(optional = false)
+    @NotNull
+    @Size(max = 40)
+    @Column(name = "erfahrung_automatisierte_pflanzenpflege")
+    private String erfahrungAutomatisiertePflanzenpflege;
+    @Basic(optional = false)
+    @NotNull
+    @Size(max = 40)
     @Column(name = "einstellung_zu_technik")
     private String technik;
     @Basic(optional = false)
@@ -68,12 +78,16 @@ public class PreQuestionaire implements Serializable {
         this.preQuestionaireId = preQuestionaireId;
     }
 
-    public PreQuestionaire(Participant participant, 
+    public PreQuestionaire(Participant participant,
+                           String haeufigkeitPflanzenpflege,
+                           String erfahrungAutomatisiertePflanzenpflege,
                            String technik,
                            String smartHome,
                            String erwartungen, 
                            Date date) {
         this.participantFk = participant;
+        this.haeufigkeitPflanzenpflege = haeufigkeitPflanzenpflege;
+        this.erfahrungAutomatisiertePflanzenpflege = erfahrungAutomatisiertePflanzenpflege;
         this.technik = technik;
         this.smartHome = smartHome;
         this.erwartungen = erwartungen;
@@ -86,6 +100,22 @@ public class PreQuestionaire implements Serializable {
 
     public void setPreQuestionaireId(Integer preQuestionaireId) {
         this.preQuestionaireId = preQuestionaireId;
+    }
+
+    public String getHaeufigkeitPflanzenpflege() {
+        return haeufigkeitPflanzenpflege;
+    }
+
+    public void setHaeufigkeitPflanzenpflege(String haeufigkeitPflanzenpflege) {
+        this.haeufigkeitPflanzenpflege = haeufigkeitPflanzenpflege;
+    }
+
+    public String getErfahrungAutomatisiertePflanzenpflege() {
+        return erfahrungAutomatisiertePflanzenpflege;
+    }
+
+    public void setErfahrungAutomatisiertePflanzenpflege(String erfahrungAutomatisiertePflanzenpflege) {
+        this.erfahrungAutomatisiertePflanzenpflege = erfahrungAutomatisiertePflanzenpflege;
     }
 
     public String getTechnik() {
