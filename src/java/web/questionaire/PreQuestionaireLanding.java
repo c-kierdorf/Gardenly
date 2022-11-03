@@ -41,7 +41,7 @@ public class PreQuestionaireLanding extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            Integer participantId = Integer.parseInt(request.getParameter("nickName"));
+            Integer participantId = Integer.parseInt(request.getParameter("participantId"));
             Participant participant = pam.findParticipantById(participantId);
 
             pam.setParticipant(participant);
@@ -65,8 +65,7 @@ public class PreQuestionaireLanding extends HttpServlet {
 
             SendPreQuestionaireEmail preEmail = new SendPreQuestionaireEmail();
 
-            boolean sendPreEmail = preEmail.sendEmail(participant.getNickName(),
-                                                      participant.getEmail(),
+            boolean sendPreEmail = preEmail.sendEmail(participant,
                                                       haeufigkeitPflanzenpflege,
                                                       erfahrungAutomatisiertePflanzenpflege,
                                                       technik,
