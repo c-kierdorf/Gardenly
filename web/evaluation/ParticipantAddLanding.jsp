@@ -53,13 +53,11 @@
                             Testperson ${pam.participant.nickName} erfolgreich angelegt.
                         </p>
 
-                        <section  class="text-center px-4 mx-auto w-full mt-12">
-                            <a href="/evaluation/PreQuestionaire.jsp" id="login" class="register">
-                                <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                                    Jetzt Vor-Befragung durchführen
-                                </div>
-                            </a>
-                        </section>
+                        <a href="/evaluation/PreQuestionaire" id="login" class="register">
+                            <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                                Jetzt Vor-Befragung durchführen
+                            </div>
+                        </a>
 
                     </c:when>
                     <c:otherwise>
@@ -71,13 +69,11 @@
                     </c:otherwise>
                 </c:choose>
 
-                <section  class="text-center px-4 mx-auto w-full mt-12">
-                    <a href="/evaluation/ParticipantAdd.jsp" id="login" class="register">
-                        <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
-                            Neue(n) Teilnehmer/in anlegen
-                        </div>
-                    </a>
-                </section>
+                <a href="/evaluation/ParticipantAdd.jsp" id="login" class="register">
+                    <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
+                        Neue(n) Teilnehmer/in anlegen
+                    </div>
+                </a>
 
             </div>
         </div>
