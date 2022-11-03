@@ -1,5 +1,6 @@
 package web.questionaire;
 
+import db.Participant;
 import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -13,8 +14,7 @@ import model.user.SendEmailCredentials;
 
 public class SendPreQuestionaireEmail {
 
-    public boolean sendEmail(String nickName,
-            String email,
+    public boolean sendEmail(Participant participant,
             String haeufigkeitPflanzenpflege,
             String erfahrungAutomatisiertePflanzenpflege,
             String technik,
@@ -45,19 +45,30 @@ public class SendPreQuestionaireEmail {
             Message msg = new MimeMessage(session);
             msg.setFrom(new InternetAddress(fromEmailAlfahosting));
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-            if (!email.equals("")) {
-                msg.addRecipient(Message.RecipientType.BCC, new InternetAddress(email));
+            if (!participant.getEmail().equals("")) {
+                msg.addRecipient(Message.RecipientType.BCC, new InternetAddress(participant.getEmail()));
             }
-            msg.setSubject(MimeUtility.encodeText("Gardenly Vor-Befragung", "utf-8", "B"));
+            msg.setSubject(MimeUtility.encodeText("Neue Vor-Befragungsergebnisse von " + participant.getNickName(), "utf-8", "B"));
             msg.setContent("Neue Vor-Befragungsergebnisse:<br><br>"
-                    + "<b>Nickname</b>:<br>" + nickName + "<br><br>"
+                    
+                    + "<h3>Testperson</h3><br>"
+                    + "<b>Name</b>:<br>" + participant.getNickName() + "<br><br>"
+                    + "<b>Alter</b>:<br>" + participant.getAge() + " Jahre<br><br>"
+                    + "<b>Geschlecht</b>:<br>" + participant.getGender() + "<br><br>"
+                    + "<b>Höchster Bildungsabschluss</b>:<br>" + participant.getEducation()+ "<br><br>"
+                    + "<b>Beruf</b>:<br>" + participant.getProfession() + "<br><br>"
+                    
+                    + "<h3>Vorerfahrung</h3><br>"
                     + "<b>Häufigkeit Pflanzenpflege</b>:<br>" + haeufigkeitPflanzenpflege + "<br><br>"
                     + "<b>Erfahrung mit automatisierter Pflanzenpflege</b>:<br>" + erfahrungAutomatisiertePflanzenpflege + "<br><br>"
+                            
+                    + "<h3>Grundhaltung</h3><br>"
                     + "<b>Einstellung zu Technik allgemein</b>:<br>" + technik + "<br><br>"
                     + "<b>Einstellung zu Smart Home Geräten speziell</b>:<br>" + smartHome + "<br><br>"
+                            
+                    + "<h3>Erwartung</h3><br>"
                     + "<b>Erwartungen an das vorgestellte System</b>:<br>" + erwartungen + "<br><br>"
-                    + "<br><hr>Danke für deine Teilnahme!"
-                    + "<br><br>", "text/html; charset=utf-8");
+                    + "<br><hr>", "text/html; charset=utf-8");
 
             Transport.send(msg);
 
