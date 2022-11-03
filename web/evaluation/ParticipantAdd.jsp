@@ -44,9 +44,6 @@
 
             <!-- title + text area -->
             <div class="flex items-center py-6">
-                <a href="javascript:history.back()" class="add-plant">
-                    <i class="fa fa-chevron-left font-bold text-xl px-3 pt-3 text-main-green"></i>
-                </a>
                 <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Testperson hinzufügen</h2>
             </div>
 
@@ -55,10 +52,23 @@
         <div class="container px-4 mx-auto">
             <div class="w-full mt-6">
                 <form action="ParticipantAddLanding" method="POST">
+                    <!--begin :: notice -->
+                    <p>
+                        Mit diesem Fragebogen werden Stammdaten wie Name, Alter und Geschlecht erfasst, damit du sie nicht bei den folgenden Fragebögen immer wieder neu eingeben musst.
+                    </p>
+                    <div style="padding: 10px"></div>
+                    <!--end :: notice -->
+
+                    <!--begin :: title core data -->
+                    <div class="flex items-center py-6">
+                        <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Stammdaten</h2>
+                    </div>
+                    <!--end :: title core data -->
+
                     <div class="mb-4">
                         <label class="block text-gray-900 text-sm font-bold mb-2" 
                                for="nickName">
-                            Nickname
+                            Vorname oder Pseudonym
                         </label>
                         <input class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
                                type="text" 
@@ -89,6 +99,15 @@
                             <option value="d">d</option>
                         </select>
                     </div>
+
+
+                    <!--begin :: title Education -->
+                    <div class="flex items-center py-6">
+                        <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Ausbildung und Beruf</h2>
+                    </div>
+                    <!--end :: title Education -->
+
+
                     <div class="mb-4">
                         <label class="block text-gray-900 text-sm font-bold mb-2"
                                for="education">
@@ -114,6 +133,13 @@
                             <option value="Schüler/in">Schüler/in</option>
                         </select>
                     </div>
+
+                    <!--begin :: title Email -->
+                    <div class="flex items-center py-6">
+                        <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Benachrichtigung</h2>
+                    </div>
+                    <!--end :: title Email -->
+
                     <div class="mb-4">
                         <label class="block text-gray-900 text-sm font-bold mb-2"
                                for="email">
