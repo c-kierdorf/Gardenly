@@ -57,7 +57,18 @@ public class ParticipantAddLanding extends HttpServlet {
 
                 pam.setParticipant(participant);
                 pam.create(participant);
-                pam.setErrors(false);
+
+                // send Regsitration Email
+                SendParticipantEmail participantEmail = new SendParticipantEmail();
+
+                boolean sendParticipantEmail = participantEmail.sendEmail(participant);
+
+                if (sendParticipantEmail) {
+                    pam.setErrors(false);
+                } else {
+                    pam.setErrors(true);
+                    pam.setStatus("Daten gespeichert, aber Fehler beim Senden der E-Mail");
+                }
             } else {
                 pam.setErrors(true);
                 pam.setStatus("Der Name ist bereits vergeben.");
