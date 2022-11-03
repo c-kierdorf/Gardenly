@@ -44,9 +44,6 @@
 
             <!-- title + text area -->
             <div class="flex items-center py-6">
-                <a href="javascript:history.back()" class="add-plant">
-                    <i class="fa fa-chevron-left font-bold text-xl px-3 pt-3 text-main-green"></i>
-                </a>
                 <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Vor-Befragung</h2>
             </div>
 
@@ -56,15 +53,22 @@
                 <!-- edit personal data form start -->
                 <div class="container px-4 mx-auto">
                     <div class="w-full mt-6">
+                        <!--begin :: notice -->
+                        <p>
+                            Die Vor-Befragung dient dazu, deine Erwartungen zu erfassen, bevor du Gardenly getestet hast. Außerdem wird deine Grundeinstellung zu Technik und Smart Home Geräten erfragt, weil das für die spätere Auswertung wichtig ist. Bitte lies die Fragen gründlich und fülle die Antworten nach deiner persönlichen Einschätzung aus.
+                        </p>
+                        <div style="padding: 10px"></div>
+                        <!--end :: notice -->
+
                         <form action="PreQuestionaireLanding" method="POST">
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2" 
-                                       for="nickName">
-                                    Vorname oder Nickname wählen
+                                       for="participantId">
+                                    Testperson wählen
                                 </label>
                                 <select class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
-                                        name="nickName" 
-                                        id="nickName" 
+                                        name="participantId" 
+                                        id="participantId" 
                                         required>
                                     <option value="" disabled selected>Bitte wähle deinen Namen</option>
                                     <c:forEach items="${pam.participants}" var="p">
@@ -72,6 +76,14 @@
                                     </c:forEach>
                                 </select>
                             </div>
+
+                            <!--begin :: title experience -->
+                            <div class="flex items-center py-6">
+                                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Vorerfahrung</h2>
+                            </div>
+                            <!--end :: title experience -->
+
+
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="haeufigkeitPflanzenpflege">
@@ -103,6 +115,14 @@
                                     <option value="Mehr als 3 Jahre">Mehr als 3 Jahre</option>
                                 </select>
                             </div>
+
+                            <!--begin :: title attitude -->
+                            <div class="flex items-center py-6">
+                                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Grundhaltung</h2>
+                            </div>
+                            <!--end :: title attitude -->
+
+
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="technik">
@@ -136,6 +156,14 @@
                                     <option value="Der Begriff „Smart Home“ sagt mir nichts">Der Begriff „Smart Home“ sagt mir nichts</option>
                                 </select>
                             </div>
+
+                            <!--begin :: title expectation -->
+                            <div class="flex items-center py-6">
+                                <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Erwartung</h2>
+                            </div>
+                            <!--end :: title expectation -->
+
+
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="erwartungen">
