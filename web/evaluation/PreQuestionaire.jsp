@@ -55,7 +55,7 @@
                     <div class="w-full mt-6">
                         <!--begin :: notice -->
                         <p>
-                            Die Vor-Befragung dient dazu, deine Erwartungen zu erfassen, bevor du Gardenly getestet hast. Außerdem wird deine Grundeinstellung zu Technik und Smart Home Geräten erfragt, weil das für die spätere Auswertung wichtig ist. Bitte lies die Fragen gründlich und fülle die Antworten nach deiner persönlichen Einschätzung aus.
+                            Die Vor-Befragung dient dazu, deine Erwartungen zu erfassen, bevor du Gardenly getestet hast. Außerdem wird deine Grundeinstellung zu Technik und Smart Home Geräten erfragt, weil das für die spätere Auswertung wichtig ist. Bitte lies die Fragen gründlich und fülle die Antworten nach deiner persönlichen Einschätzung aus. Alle Felder sind Pflichtfelder.
                         </p>
                         <div style="padding: 10px"></div>
                         <!--end :: notice -->
