@@ -54,7 +54,7 @@
                 <form action="ParticipantAddLanding" method="POST">
                     <!--begin :: notice -->
                     <p>
-                        Mit diesem Fragebogen werden Stammdaten wie Name, Alter und Geschlecht erfasst, damit du sie nicht bei den folgenden Fragebögen immer wieder neu eingeben musst.
+                        Mit diesem Fragebogen werden Stammdaten wie Name, Alter und Geschlecht erfasst, damit du sie nicht bei den folgenden Fragebögen immer wieder neu eingeben musst. Alle Felder sind Pflichtfelder.
                     </p>
                     <div style="padding: 10px"></div>
                     <!--end :: notice -->
@@ -117,6 +117,7 @@
                             <option value="" disabled selected>Bitte wählen</option>
                             <option value="Hauptschule">Hauptschule</option>
                             <option value="Realschule">Realschule</option>
+                            <option value="Realschule">Fachabitur</option>
                             <option value="Abitur">Abitur</option>
                             <option value="Studium">Studium</option>
                         </select>
@@ -131,7 +132,28 @@
                             <option value="Selbstständig">Selbstständig</option>
                             <option value="Angestellt">Angestellt</option>
                             <option value="Schüler/in">Schüler/in</option>
+                            <option value="Arbeitssuchend">Arbeitssuchend</option>
+                            <option value="Rentner/in">Rentner/in</option>
                         </select>
+                    </div>
+                    
+                    <!--begin :: title consent -->
+                    <div class="flex items-center py-6">
+                        <h2 class="text-3xl pt-2 text-main-green font-Metropolis font-bold">Einverständnis</h2>
+                    </div>
+                    <!--end :: title consent -->
+
+                    <div class="mb-4">
+                        <input type="checkbox" 
+                               id="consent" 
+                               name="consent" 
+                               value="Einwilligung erteilt"
+                               required
+                               >
+                        <label class="block text-gray-900 text-sm font-bold mb-2"
+                               for="consent">
+                            Hiermit erkläre ich mich damit einverstanden, dass die hier eingegebenen Daten und zukünftigen Antworten bei den Fragebögen im Rahmen der Studie zur Akzeptanz automatisierter Pflanzenpflege anonym gespeichert werden. Über die Datenschutzbedingungen wurde ich von der Studienleitung persönlich aufgeklärt.
+                        </label>
                     </div>
 
                     <!--begin :: title Email -->
