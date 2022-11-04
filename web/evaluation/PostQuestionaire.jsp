@@ -55,7 +55,7 @@
                     <div class="w-full mt-6">
                         <!--begin :: notice -->
                         <p>
-                            Die Nach-Befragung findet nach der einwächigen Testphase von Gardenly statt. Der Fragebogen dient dazu, deine Zufriedenheit mit Gardenly auszudrücken. Deine Antworten werden mir helfen zu verstehen, welche Aspekte des Systems dir besonders wichtig sind. Denke bitte so weit wie möglich an alle Aufgaben, die du mit Gardenly erledigt hast, während du diese Fragen beantwortest. Bitte lese jede Aussage gründlich und gib an, wie sehr du ihr zustimmst oder nicht. Ich danke dir!
+                            Die Nach-Befragung findet nach der einwächigen Testphase von Gardenly statt. Der Fragebogen dient dazu, deine Zufriedenheit mit Gardenly auszudrücken. Deine Antworten werden mir helfen zu verstehen, welche Aspekte des Systems dir besonders wichtig sind. Denke bitte so weit wie möglich an alle Aufgaben, die du mit Gardenly erledigt hast, während du diese Fragen beantwortest. Bitte lese jede Aussage gründlich und gib an, wie sehr du ihr zustimmst oder nicht. Alle Felder sind Pflichtfelder. Ich danke dir!
                         </p>
                         <div style="padding: 10px"></div>
                         <!--end :: notice -->
