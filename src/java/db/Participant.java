@@ -60,6 +60,11 @@ public class Participant implements Serializable {
     @Size(max = 40)
     @Column(name = "profession")
     private String profession;
+    @Basic(optional = false)
+    @NotNull
+    @Size(max = 40)
+    @Column(name = "consent")
+    private String consent;
     @Size(max = 40)
     @Column(name = "email")
     private String email;
@@ -80,13 +85,15 @@ public class Participant implements Serializable {
                        String gender, 
                        String education,
                        String profession,
+                       String consent,
                        String email) {
         this.nickName = nickName;
         this.age = age;
         this.gender = gender;
-        this.email = email;
         this.education = education;
         this.profession = profession;
+        this.consent = consent;
+        this.email = email;
     }
 
     public Integer getParticipantId() {
@@ -135,6 +142,14 @@ public class Participant implements Serializable {
 
     public void setProfession(String profession) {
         this.profession = profession;
+    }
+
+    public String getConsent() {
+        return consent;
+    }
+
+    public void setConsent(String consent) {
+        this.consent = consent;
     }
 
     public String getEmail() {
