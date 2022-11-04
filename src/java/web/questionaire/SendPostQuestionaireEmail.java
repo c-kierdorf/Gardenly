@@ -94,6 +94,7 @@ public class SendPostQuestionaireEmail {
                     + "<b>Geschlecht</b>:<br>" + participant.getGender() + "<br><br>"
                     + "<b>Höchster Bildungsabschluss</b>:<br>" + participant.getEducation()+ "<br><br>"
                     + "<b>Beruf</b>:<br>" + participant.getProfession() + "<br><br>"
+                    + "<b>Einwilligung</b>:<br>Hiermit erkläre ich mich damit einverstanden, dass die hier eingegebenen Daten im Rahmen der Studie zur Akzeptanz automatisierter Pflanzenpflege anonym gespeichert werden. Über die Datenschutzbedingungen wurde ich von der Studienleitung persönlich aufgeklärt.<br><br>"
                             
                     + "<h3>Performance Expectancy / Leistungserwartung</h3><br>"
                     + "<b>PE1: Ich empfinde Gardenly in meinem Alltag als nützlich</b>:<br>" + pe1 + "<br><br>"
