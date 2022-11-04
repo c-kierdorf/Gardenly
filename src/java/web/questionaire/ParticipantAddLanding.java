@@ -46,6 +46,7 @@ public class ParticipantAddLanding extends HttpServlet {
                 String gender = request.getParameter("gender");
                 String education = request.getParameter("education");
                 String profession = request.getParameter("profession");
+                String consent = request.getParameter("consent");
                 String email = request.getParameter("email");
 
                 Participant participant = new Participant(nickName,
@@ -53,6 +54,7 @@ public class ParticipantAddLanding extends HttpServlet {
                         gender,
                         education,
                         profession,
+                        consent,
                         email);
 
                 pam.setParticipant(participant);
