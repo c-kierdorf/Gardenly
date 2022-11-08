@@ -125,9 +125,9 @@ public class SendPostQuestionaireEmail {
                     + "<b>HM3: Gardenly zu verwenden ist sehr unterhaltsam</b>:<br>" + hm3 + "<br><br>"
                     
                     + "<h3>Price Value / Preis-Leistungs-Verhältnis</h3><br>"
-                    + "<b>PV1: Gardenly ist preisgünstig (Kaufpreis 70,- €)</b>:<br>" + pv1 + "<br><br>"
-                    + "<b>PV2: Gardenly bietet einen guten Nutzen für das Geld (Kaufpreis 70,- €)</b>:<br>" + pv2 + "<br><br>"
-                    + "<b>PV3: Zum derzeitigen Preis bietet Gardenly einen guten Nutzen (Kaufpreis 70,- €)</b>:<br>" + pv3 + "<br><br>"
+                    + "<b>PV1: Gardenly ist preisgünstig</b>:<br>" + pv1 + "<br><br>"
+                    + "<b>PV2: Gardenly bietet einen guten Nutzen für das Geld</b>:<br>" + pv2 + "<br><br>"
+                    + "<b>PV3: Zum derzeitigen Preis bietet Gardenly einen guten Nutzen</b>:<br>" + pv3 + "<br><br>"
                     
                     + "<h3>Habit / Gewohnheit</h3><br>"        
                     + "<b>HT1: Gardenly zu verwenden ist bei mir zur Angewohnheit geworden</b>:<br>" + ht1 + "<br><br>"
