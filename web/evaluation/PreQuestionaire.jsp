@@ -163,6 +163,13 @@
                             </div>
                             <!--end :: title expectation -->
 
+                            <!--begin :: notice -->
+                            <p>
+                                Bitte versuche zumindest 3 Zeilen Text zu füllen (ca. 100 Wörter), damit es genug Inhalt zum Auswerten gibt. Bitte keine Stichwörter.
+                            </p>
+                            <div style="padding: 10px"></div>
+                            <!--end :: notice -->
+
 
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
@@ -173,6 +180,7 @@
                                           id="erwartungen" 
                                           name="erwartungen" 
                                           rows="4"
+                                          minlength="500"
                                           ></textarea>
                             </div>
                             <div class="items-center justify-between my-6">
