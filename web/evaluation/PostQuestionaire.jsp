@@ -468,15 +468,9 @@
 
                             <!--begin :: pv1-->
                             <div class="mb-4">
-                                <!--begin :: notice -->
-                                <p>
-                                    Bitte stelle dir für die folgenden Fragen vor, dass Gardenly 70,- € kosten würde.
-                                </p>
-                                <div style="padding: 10px"></div>
-                                <!--end :: notice -->
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="pv1">
-                                    PV1: Gardenly ist preisgünstig (Kaufpreis 70,- €).
+                                    PV1: Gardenly ist preisgünstig.
                                 </label>
                                 <select required id="pv1" name="pv1" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="" disabled selected>Bitte wählen</option>
@@ -495,7 +489,7 @@
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="pv2">
-                                    PV2: Gardenly bietet einen guten Nutzen für das Geld (Kaufpreis 70,- €).
+                                    PV2: Gardenly bietet einen guten Nutzen für das Geld.
                                 </label>
                                 <select required id="pv2" name="pv2" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="" disabled selected>Bitte wählen</option>
@@ -514,7 +508,7 @@
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="pv3">
-                                    PV3: Zum derzeitigen Preis bietet Gardenly einen guten Nutzen (Kaufpreis 70,- €).
+                                    PV3: Zum derzeitigen Preis bietet Gardenly einen guten Nutzen.
                                 </label>
                                 <select required id="pv3" name="pv3" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="" disabled selected>Bitte wählen</option>
@@ -921,6 +915,12 @@
                             </div>
                             <!--end :: title Offene Fragen -->
 
+                            <!--begin :: notice -->
+                            <p>
+                                Bitte versuche zumindest 3 Zeilen Text zu füllen (ca. 100 Wörter), damit es genug Inhalt zum Auswerten gibt. Bitte keine Stichwörter.
+                            </p>
+                            <div style="padding: 10px"></div>
+                            <!--end :: notice -->
 
                             <!--begin :: lob-->
                             <div class="mb-4">
@@ -932,6 +932,7 @@
                                           id="lob" 
                                           name="lob" 
                                           rows="4"
+                                          minlength="500"
                                           ></textarea>
                             </div>
                             <!--end :: lob-->
@@ -945,6 +946,7 @@
                                           id="kritik" 
                                           name="kritik" 
                                           rows="4"
+                                          minlength="500"
                                           ></textarea>
                             </div>
                             <!--end :: kritik-->
@@ -958,6 +960,7 @@
                                           id="weiterentwicklung" 
                                           name="weiterentwicklung" 
                                           rows="4"
+                                          minlength="500"
                                           ></textarea>
                             </div>
                             <!--end :: weiterentwicklung-->
