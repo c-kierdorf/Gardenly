@@ -151,7 +151,7 @@ public class SendPostQuestionaireEmail {
                     + "<b>SQ5: Der Inhalt der App ist nützlich und stets aktuell</b>:<br>" + sq5 + "<br><br>"
                     
                     + "<h3>Geräte (Hardware) Qualität</h3><br>"
-                    + "<b>HQ1: Das Gerät sieht attraktiv aus und nutzt passende Bauteile</b>:<br>" + hq1 + "<br><br>"
+                    + "<b>HQ1: Das Gerät sieht attraktiv</b>:<br>" + hq1 + "<br><br>"
                     + "<b>HQ2: Das Gerät sieht gut organisiert aus</b>:<br>" + hq2 + "<br><br>"
                     + "<b>HQ3: Das Gerät ist jederzeit betriebsbereit und zuverlässig</b>:<br>" + hq3 + "<br><br>"
                     + "<b>HQ4: Das Gerät ist vertrauenswürdig</b>:<br>" + hq4 + "<br><br>"
