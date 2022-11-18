@@ -35,6 +35,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex">
         <link rel='stylesheet' type='text/css' href='/Gardenly/css/gardenly.css'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <title>Gardenly Vor-Befragung</title>
     </head>
     <body class="antialiased h-screen body-bg font-Metropolis transition-all">
@@ -165,7 +167,7 @@
 
                             <!--begin :: notice -->
                             <p>
-                                Bitte versuche zumindest 3 Zeilen Text zu füllen (ca. 100 Wörter), damit es genug Inhalt zum Auswerten gibt. Bitte keine Stichwörter.
+                                Bitte versuche zumindest 500 Zeichen (ca. 100 Wörter) Text zu füllen, damit es genug Inhalt zum Auswerten gibt. Bitte keine Stichwörter. Falls du weitere Anregung benötigst, geben dir die Fragen und Textvorlagen unter dem Textfeld Hilfestellungen.
                             </p>
                             <div style="padding: 10px"></div>
                             <!--end :: notice -->
@@ -174,7 +176,7 @@
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2"
                                        for="erwartungen">
-                                    Was sind deine Erwartungen an das vorgestellte Gerät?
+                                    Was sind deine Erwartungen an ein automatisches Pflanzenbewässerungssystem?
                                 </label>
                                 <textarea required class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
                                           id="erwartungen" 
@@ -183,6 +185,64 @@
                                           minlength="500"
                                           ></textarea>
                             </div>
+
+                            <!--begin :: accordion-->
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            Anregung #1
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>Was bedeutet automatisierte Pflanzenbewässerung für dich?</strong><br><br>
+                                            Beginne die Antwort z. B. mit: Automatische Pflanzenbewässerung bedeutet für mich...
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Anregung #2
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>Was waren deine bisherigen Strategien zur Pflanzenbewässerung?</strong><br><br>
+                                            Beginne die Antwort z. B. mit: Bisher habe ich meine Pflanzen immer ... behandelt, daher erwarte ich von dem System ...
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Anregung #3
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>Könntest du dir vorstellen, deine Pflanzenpflege mit einem Smart Home System zu ergänzen oder zu ersetzen?</strong><br><br>
+                                            Beginne die Antwort z. B. mit: Ich könnte mir (nicht) vorstellen, meine Pflanzenpflege mit einem automatischen Bewässerungssystem zu ergänzen/ersetzen.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            Anregung #4
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>Was erwartest du von automatischer Pflanzenbewässerung allgemein?</strong><br><br>
+                                            Beginne die Antwort z. B. mit: Allgemein erwarte ich mir von automatischer Pflanzenbewässerung...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end :: accordion-->
+
                             <div class="items-center justify-between my-6">
                                 <div class="text-center bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                                     <input type="submit" 
