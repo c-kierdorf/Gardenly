@@ -68,7 +68,7 @@ public class SendPreQuestionaireEmail {
                     + "<b>Einstellung zu Smart Home Geräten speziell</b>:<br>" + smartHome + "<br><br>"
                             
                     + "<h3>Erwartung</h3><br>"
-                    + "<b>Erwartungen an das vorgestellte System</b>:<br>" + erwartungen + "<br><br>"
+                    + "<b>Erwartungen an ein automatisches Pflanzenbewässerungssystem</b>:<br>" + erwartungen + "<br><br>"
                     + "<br><hr>", "text/html; charset=utf-8");
 
             Transport.send(msg);
