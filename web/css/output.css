@@ -1867,4 +1867,9 @@ CK Code
 .pt-038 {
   padding-top: 0.38rem;
 }
+
+.accordion-button:not(.collapsed) {
+    background-color: rgb(103 197 63) !important;
+    color: #fff !important;
+}
 ;
