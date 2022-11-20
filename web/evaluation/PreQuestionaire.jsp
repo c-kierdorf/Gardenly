@@ -136,7 +136,7 @@
                                     <option value="Interessiert">Interessiert</option>
                                     <option value="Eher interessiert">Eher interessiert</option>
                                     <option value="Neutral">Neutral/Egal/Gelassen</option>
-                                    <option value="Eher desinteressiert<">Eher desinteressiert</option>
+                                    <option value="Eher desinteressiert">Eher desinteressiert</option>
                                     <option value="Desinteressiert">Desinteressiert</option>
                                     <option value="Äußerst desinteressiert">Äußerst desinteressiert</option>
                                 </select>
