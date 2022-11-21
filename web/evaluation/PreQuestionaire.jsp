@@ -183,7 +183,9 @@
                                           name="erwartungen" 
                                           rows="4"
                                           minlength="500"
+                                          placeholder="Ich erwarte mir von einem automatischen Pflanzenbewässerungssysten, dass..."
                                           ></textarea>
+                                <span id="letter-count-erwartungen">500</span> Zeichen verbleiben
                             </div>
 
                             <!--begin :: accordion-->
@@ -275,7 +277,7 @@
             
         -->
         <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
-
+        <script src="/Gardenly/js/letterCountPreQuestionaire.js"></script>
         <!-- footer embeds MK -->
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/include.js"></script>
