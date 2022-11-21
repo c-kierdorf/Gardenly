@@ -936,6 +936,7 @@
                                           rows="4"
                                           minlength="500"
                                           ></textarea>
+                                <span id="letter-count-lob">500</span> Zeichen verbleiben
                             </div>
                             <!--end :: lob-->
                             <!--begin :: kritik-->
@@ -950,6 +951,7 @@
                                           rows="4"
                                           minlength="500"
                                           ></textarea>
+                                <span id="letter-count-kritik">500</span> Zeichen verbleiben
                             </div>
                             <!--end :: kritik-->
                             <!--begin :: weiterentwicklung-->
@@ -964,6 +966,7 @@
                                           rows="4"
                                           minlength="500"
                                           ></textarea>
+                                <span id="letter-count-weiterentwicklung">500</span> Zeichen verbleiben
                             </div>
                             <!--end :: weiterentwicklung-->
 
@@ -1113,7 +1116,7 @@
             
         -->
         <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
-
+        <script src="/Gardenly/js/letterCountPostQuestionaire.js"></script>
         <!-- footer embeds MK -->
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/include.js"></script>
