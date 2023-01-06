@@ -1,6 +1,4 @@
-
-
-package web.questionaire;
+package web.Questionnaire;
 
 import db.Participant;
 import java.util.Properties;
@@ -14,9 +12,14 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 import model.user.SendEmailCredentials;
 
-public class SendParticipantEmail {
-    
-    public boolean sendEmail(Participant participant) {
+public class SendPreQuestionnaireEmail {
+
+    public boolean sendEmail(Participant participant,
+            String haeufigkeitPflanzenpflege,
+            String erfahrungAutomatisiertePflanzenpflege,
+            String technik,
+            String smartHome,
+            String erwartungen) {
         boolean test = false;
 
         String toEmail = "533236@fom-net.de";
@@ -45,8 +48,8 @@ public class SendParticipantEmail {
             if (!participant.getEmail().equals("")) {
                 msg.addRecipient(Message.RecipientType.BCC, new InternetAddress(participant.getEmail()));
             }
-            msg.setSubject(MimeUtility.encodeText("Neue Probanden-Registrierung von " + participant.getNickName(), "utf-8", "B"));
-            msg.setContent("Neue Registrierung eines Probanden:<br><br>"
+            msg.setSubject(MimeUtility.encodeText("Neue Vor-Befragungsergebnisse von " + participant.getNickName(), "utf-8", "B"));
+            msg.setContent("Neue Vor-Befragungsergebnisse:<br><br>"
                     
                     + "<h3>Testperson</h3><br>"
                     + "<b>Name</b>:<br>" + participant.getNickName() + "<br><br>"
@@ -54,8 +57,18 @@ public class SendParticipantEmail {
                     + "<b>Geschlecht</b>:<br>" + participant.getGender() + "<br><br>"
                     + "<b>Höchster Bildungsabschluss</b>:<br>" + participant.getEducation()+ "<br><br>"
                     + "<b>Beruf</b>:<br>" + participant.getProfession() + "<br><br>"
-                    + "<b>Einwilligung</b>:<br>Hiermit erkläre ich mich damit einverstanden, dass die hier eingegebenen Daten und zukünftigen Antworten bei den Fragebögen im Rahmen der Studie zur Akzeptanz automatisierter Pflanzenpflege anonym gespeichert werden. Über die Datenschutzbedingungen wurde ich von der Studienleitung persönlich aufgeklärt.<br><br>"
+                    + "<b>Einwilligung</b>:<br>Hiermit erkläre ich mich damit einverstanden, dass die hier eingegebenen Daten im Rahmen der Studie zur Akzeptanz automatisierter Pflanzenpflege anonym gespeichert werden. Über die Datenschutzbedingungen wurde ich von der Studienleitung persönlich aufgeklärt.<br><br>"
                     
+                    + "<h3>Vorerfahrung</h3><br>"
+                    + "<b>Häufigkeit Pflanzenpflege</b>:<br>" + haeufigkeitPflanzenpflege + "<br><br>"
+                    + "<b>Erfahrung mit automatisierter Pflanzenpflege</b>:<br>" + erfahrungAutomatisiertePflanzenpflege + "<br><br>"
+                            
+                    + "<h3>Grundhaltung</h3><br>"
+                    + "<b>Einstellung zu Technik allgemein</b>:<br>" + technik + "<br><br>"
+                    + "<b>Einstellung zu Smart Home Geräten speziell</b>:<br>" + smartHome + "<br><br>"
+                            
+                    + "<h3>Erwartung</h3><br>"
+                    + "<b>Erwartungen an ein automatisches Pflanzenbewässerungssystem</b>:<br>" + erwartungen + "<br><br>"
                     + "<br><hr>", "text/html; charset=utf-8");
 
             Transport.send(msg);

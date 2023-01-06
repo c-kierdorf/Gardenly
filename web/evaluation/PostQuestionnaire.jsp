@@ -1,5 +1,5 @@
 <%-- 
-    Document   : PostQuestionaire
+    Document   : PostQuestionnaire
     Created on : 22.03.2022, 17:58:27
     Author     : CK
 --%>
@@ -62,7 +62,7 @@
                         <div style="padding: 10px"></div>
                         <!--end :: notice -->
 
-                        <form action="PostQuestionaireLanding" method="POST">
+                        <form action="PostQuestionnaireLanding" method="POST">
                             <!--begin :: Nickname-->
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2" 
@@ -1116,7 +1116,7 @@
             
         -->
         <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
-        <script src="/Gardenly/js/letterCountPostQuestionaire.js"></script>
+        <script src="/Gardenly/js/letterCountPostQuestionnaire.js"></script>
         <!-- footer embeds MK -->
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/include.js"></script>

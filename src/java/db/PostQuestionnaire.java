@@ -21,20 +21,20 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "postquestionaire")
+@Table(name = "postquestionnaire")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "PostQuestionaire.findAll", query = "SELECT p FROM PostQuestionaire p"),
-    @NamedQuery(name = "PostQuestionaire.findByPostQuestionaireId", query = "SELECT p FROM PostQuestionaire p WHERE p.postQuestionaireId = :postQuestionaireId"),
-    @NamedQuery(name = "PostQuestionaire.findByVersion", query = "SELECT p FROM PostQuestionaire p WHERE p.version = :version")})
-public class PostQuestionaire implements Serializable {
+    @NamedQuery(name = "PostQuestionnaire.findAll", query = "SELECT p FROM PostQuestionnaire p"),
+    @NamedQuery(name = "PostQuestionnaire.findByPostQuestionnaireId", query = "SELECT p FROM PostQuestionnaire p WHERE p.postQuestionnaireId = :postQuestionnaireId"),
+    @NamedQuery(name = "PostQuestionnaire.findByVersion", query = "SELECT p FROM PostQuestionnaire p WHERE p.version = :version")})
+public class PostQuestionnaire implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "preQuestionaire_id")
-    private Integer postQuestionaireId;
+    @Column(name = "prequestionnaire_id")
+    private Integer postQuestionnaireId;
     @Basic(optional = false)
     @NotNull
     @Size(max = 40)
@@ -253,14 +253,14 @@ public class PostQuestionaire implements Serializable {
     @Version
     private int version;
     
-    public PostQuestionaire() {
+    public PostQuestionnaire() {
     }
     
-    public PostQuestionaire(Integer postQuestionaireId) {
-        this.postQuestionaireId = postQuestionaireId;
+    public PostQuestionnaire(Integer postQuestionnaireId) {
+        this.postQuestionnaireId = postQuestionnaireId;
     }
 
-    public PostQuestionaire(Participant participantFk, 
+    public PostQuestionnaire(Participant participantFk, 
             String pe1, 
             String pe2, 
             String pe3, 
@@ -350,12 +350,12 @@ public class PostQuestionaire implements Serializable {
         this.date = date;
     }
 
-    public Integer getPostQuestionaireId() {
-        return postQuestionaireId;
+    public Integer getPostQuestionnaireId() {
+        return postQuestionnaireId;
     }
 
-    public void setPostQuestionaireId(Integer postQuestionaireId) {
-        this.postQuestionaireId = postQuestionaireId;
+    public void setPostQuestionnaireId(Integer postQuestionnaireId) {
+        this.postQuestionnaireId = postQuestionnaireId;
     }
 
     public String getPe1() {
@@ -721,18 +721,18 @@ public class PostQuestionaire implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (postQuestionaireId != null ? postQuestionaireId.hashCode() : 0);
+        hash += (postQuestionnaireId != null ? postQuestionnaireId.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PostQuestionaire)) {
+        if (!(object instanceof PostQuestionnaire)) {
             return false;
         }
-        PostQuestionaire other = (PostQuestionaire) object;
-        if ((this.postQuestionaireId == null && other.postQuestionaireId != null) || (this.postQuestionaireId != null && !this.postQuestionaireId.equals(other.postQuestionaireId))) {
+        PostQuestionnaire other = (PostQuestionnaire) object;
+        if ((this.postQuestionnaireId == null && other.postQuestionnaireId != null) || (this.postQuestionnaireId != null && !this.postQuestionnaireId.equals(other.postQuestionnaireId))) {
             return false;
         }
         return true;
@@ -740,7 +740,7 @@ public class PostQuestionaire implements Serializable {
 
     @Override
     public String toString() {
-        return "db.PostQuestionaire[ postQuestionaireId=" + postQuestionaireId + " ]";
+        return "db.PostQuestionnaire[ postQuestionnaireId=" + postQuestionnaireId + " ]";
     }
 
 }

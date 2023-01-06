@@ -1,8 +1,8 @@
 /*
-    Document   : letterCountPostQuestionaire.js
+    Document   : letterCountPostQuestionnaire.js
     Created on : 21.11.2022, 17:58:27
     Author     : CK
-    Description: Letter Counter for open questions in pre- and post-questionnaire
+    Description: Letter Counter for open questions in pre- and post-Questionnaire
 */
 
 // letter counter for textarea "Lob"

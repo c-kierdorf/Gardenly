@@ -1,4 +1,4 @@
-package web.questionaire;
+package web.Questionnaire;
 
 import db.Participant;
 import java.util.Properties;
@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 import model.user.SendEmailCredentials;
 
-public class SendPostQuestionaireEmail {
+public class SendPostQuestionnaireEmail {
 
     public boolean sendEmail(Participant participant,
             String pe1,

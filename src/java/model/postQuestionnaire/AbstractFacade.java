@@ -1,6 +1,6 @@
 
 
-package model.prequestionaire;
+package model.postQuestionnaire;
 
 import java.util.List;
 import javax.persistence.EntityManager;

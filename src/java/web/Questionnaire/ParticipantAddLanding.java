@@ -1,4 +1,4 @@
-package web.questionaire;
+package web.Questionnaire;
 
 import db.Participant;
 import java.io.IOException;
@@ -15,10 +15,10 @@ import model.participant.ParticipantManager;
 
 /**
  *
- * @author CK
+ * @author crill
  */
-@WebServlet(name = "PreQuestionaire", urlPatterns = {"/evaluation/PreQuestionaire"})
-public class PreQuestionaire extends HttpServlet {
+@WebServlet(name = "ParticipantAddLanding", urlPatterns = {"/evaluation/ParticipantAddLanding"})
+public class ParticipantAddLanding extends HttpServlet {
 
     @Inject
     private ParticipantManager pam;
@@ -36,20 +36,55 @@ public class PreQuestionaire extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            List<Participant> participants = pam.findAll();
-            if (!participants.isEmpty()) {
-                pam.setParticipants(participants);
-                pam.setErrors(false);
+
+            String nickName = request.getParameter("nickName");
+
+            List<Participant> participants = pam.findParticipantByName(nickName);
+
+            if (participants.isEmpty()) { // check if name is already in use
+                Integer age = Integer.parseInt(request.getParameter("age"));
+                String gender = request.getParameter("gender");
+                String education = request.getParameter("education");
+                String profession = request.getParameter("profession");
+                String consent = request.getParameter("consent");
+                String email = request.getParameter("email");
+
+                Participant participant = new Participant(nickName,
+                        age,
+                        gender,
+                        education,
+                        profession,
+                        consent,
+                        email);
+
+                pam.setParticipant(participant);
+                pam.create(participant);
+
+                // send Regsitration Email
+                SendParticipantEmail participantEmail = new SendParticipantEmail();
+
+                boolean sendParticipantEmail = participantEmail.sendEmail(participant);
+
+                if (sendParticipantEmail) {
+                    pam.setErrors(false);
+                } else {
+                    pam.setErrors(true);
+                    pam.setStatus("Daten gespeichert, aber Fehler beim Senden der E-Mail");
+                }
             } else {
                 pam.setErrors(true);
-                pam.setStatus("Es wurden noch keine Teilnehmer angelegt.");
+                pam.setStatus("Der Name ist bereits vergeben.");
             }
+
             RequestDispatcher rd
-                    = request.getRequestDispatcher("PreQuestionaire.jsp");
+                    = request.getRequestDispatcher("ParticipantAddLanding.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
+            pam.setErrors(true);
+            pam.setStatus("Unbekanntes Problem aufgetreten");
             e.printStackTrace();
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,6 +1,6 @@
-package web.questionaire;
+package web.Questionnaire;
 
-import db.PostQuestionaire;
+import db.PostQuestionnaire;
 import db.Participant;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,20 +12,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.postquestionaire.PostQuestionaireManager;
+import model.postQuestionnaire.PostQuestionnaireManager;
 import model.participant.ParticipantManager;
 
 /**
  *
  * @author CK
  */
-@WebServlet(name = "PostQuestionaireLanding", urlPatterns = {"/evaluation/PostQuestionaireLanding"})
-public class PostQuestionaireLanding extends HttpServlet {
+@WebServlet(name = "PostQuestionnaireLanding", urlPatterns = {"/evaluation/PostQuestionnaireLanding"})
+public class PostQuestionnaireLanding extends HttpServlet {
 
     @Inject
     private ParticipantManager pam;
     @Inject
-    private PostQuestionaireManager postqm;
+    private PostQuestionnaireManager postqm;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -91,8 +91,8 @@ public class PostQuestionaireLanding extends HttpServlet {
 
             Date date = new Date();
 
-            PostQuestionaire postQuestionaire
-                    = new PostQuestionaire(participant,
+            PostQuestionnaire postQuestionnaire
+                    = new PostQuestionnaire(participant,
                                             pe1,
                                             pe2,
                                             pe3,
@@ -137,9 +137,9 @@ public class PostQuestionaireLanding extends HttpServlet {
                                             weiterentwicklung,
                                             date);
 
-            postqm.create(postQuestionaire);
+            postqm.create(postQuestionnaire);
 
-            SendPostQuestionaireEmail postEmail = new SendPostQuestionaireEmail();
+            SendPostQuestionnaireEmail postEmail = new SendPostQuestionnaireEmail();
 
             boolean sendPostEmail = postEmail.sendEmail(participant,
                                                         pe1,
@@ -193,7 +193,7 @@ public class PostQuestionaireLanding extends HttpServlet {
             }
 
         RequestDispatcher rd
-                = request.getRequestDispatcher("PostQuestionaireLanding.jsp");
+                = request.getRequestDispatcher("PostQuestionnaireLanding.jsp");
         rd.forward(request, response);
     }
 }

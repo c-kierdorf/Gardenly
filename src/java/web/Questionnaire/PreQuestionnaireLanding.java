@@ -1,6 +1,6 @@
-package web.questionaire;
+package web.Questionnaire;
 
-import db.PreQuestionaire;
+import db.PreQuestionnaire;
 import db.Participant;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,20 +12,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.prequestionaire.PreQuestionaireManager;
+import model.preQuestionnaire.PreQuestionnaireManager;
 import model.participant.ParticipantManager;
 
 /**
  *
  * @author CK
  */
-@WebServlet(name = "PreQuestionaireLanding", urlPatterns = {"/evaluation/PreQuestionaireLanding"})
-public class PreQuestionaireLanding extends HttpServlet {
+@WebServlet(name = "PreQuestionnaireLanding", urlPatterns = {"/evaluation/PreQuestionnaireLanding"})
+public class PreQuestionnaireLanding extends HttpServlet {
 
     @Inject
     private ParticipantManager pam;
     @Inject
-    private PreQuestionaireManager preqm;
+    private PreQuestionnaireManager preqm;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -53,7 +53,7 @@ public class PreQuestionaireLanding extends HttpServlet {
             String erwartungen = request.getParameter("erwartungen");
             Date date = new Date();
 
-            PreQuestionaire preQuestionaire = new PreQuestionaire(participant, 
+            PreQuestionnaire preQuestionnaire = new PreQuestionnaire(participant, 
                                                                   haeufigkeitPflanzenpflege,
                                                                   erfahrungAutomatisiertePflanzenpflege,
                                                                   technik, 
@@ -61,9 +61,9 @@ public class PreQuestionaireLanding extends HttpServlet {
                                                                   erwartungen, 
                                                                   date);
 
-            preqm.create(preQuestionaire);
+            preqm.create(preQuestionnaire);
 
-            SendPreQuestionaireEmail preEmail = new SendPreQuestionaireEmail();
+            SendPreQuestionnaireEmail preEmail = new SendPreQuestionnaireEmail();
 
             boolean sendPreEmail = preEmail.sendEmail(participant,
                                                       haeufigkeitPflanzenpflege,
@@ -80,7 +80,7 @@ public class PreQuestionaireLanding extends HttpServlet {
             }
 
             RequestDispatcher rd
-                    = request.getRequestDispatcher("PreQuestionaireLanding.jsp");
+                    = request.getRequestDispatcher("PreQuestionnaireLanding.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

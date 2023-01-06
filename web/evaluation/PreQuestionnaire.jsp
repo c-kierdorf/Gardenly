@@ -1,5 +1,5 @@
 <%-- 
-    Document   : PreQuestionaire
+    Document   : PreQuestionnaire
     Created on : 22.03.2022, 17:58:27
     Author     : CK
 --%>
@@ -62,7 +62,7 @@
                         <div style="padding: 10px"></div>
                         <!--end :: notice -->
 
-                        <form action="PreQuestionaireLanding" method="POST">
+                        <form action="PreQuestionnaireLanding" method="POST">
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm font-bold mb-2" 
                                        for="participantId">
@@ -277,7 +277,7 @@
             
         -->
         <footer class="text-center">&copy; Gardenly Inc. 2022 | <a href="/legal/Impressum.jsp" title="Zum Impressum" class="footer">Impressum</a></footer>
-        <script src="/Gardenly/js/letterCountPreQuestionaire.js"></script>
+        <script src="/Gardenly/js/letterCountPreQuestionnaire.js"></script>
         <!-- footer embeds MK -->
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/include.js"></script>

@@ -53,7 +53,7 @@
                             Testperson ${pam.participant.nickName} erfolgreich angelegt.
                         </p>
 
-                        <a href="/evaluation/PreQuestionaire" id="login" class="register">
+                        <a href="/evaluation/PreQuestionnaire" id="login" class="register">
                             <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                                 Jetzt Vor-Befragung durchführen
                             </div>

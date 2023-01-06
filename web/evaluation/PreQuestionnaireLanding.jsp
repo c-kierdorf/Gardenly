@@ -1,5 +1,5 @@
 <%-- 
-    Document   : PreQuestionaireLanding.jsps
+    Document   : PreQuestionnaireLanding.jsps
     Created on : 22.03.2022, 18:16:52
     Author     : CK
 --%>
@@ -35,7 +35,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex">
         <link rel='stylesheet' type='text/css' href='/Gardenly/css/gardenly.css'>
-        <title>Gardenly Questionaire Success</title>
+        <title>Gardenly Questionnaire Success</title>
     </head>
     <body class="antialiased h-screen body-bg font-Metropolis transition-all">
 
@@ -64,13 +64,13 @@
                 </c:choose>
 
                 <section  class="text-center px-4 mx-auto w-full mt-12">
-                    <a href="/evaluation/PreQuestionaire" id="login" class="register">
+                    <a href="/evaluation/PreQuestionnaire" id="login" class="register">
                         <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                             Weitere Vor-Befragung durchführen
                         </div>
                     </a>
 
-                    <a href="/evaluation/PostQuestionaire" id="login" class="register">
+                    <a href="/evaluation/PostQuestionnaire" id="login" class="register">
                         <div class="bg-main-green-500 hover:bg-main-green-600 active:transform active:scale-90 transition-all text-white font-semibold w-full py-4 px-4 rounded-xl mb-3">
                             Jetzt Nach-Befragung durchführen
                         </div>

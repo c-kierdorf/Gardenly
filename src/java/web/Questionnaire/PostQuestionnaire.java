@@ -1,4 +1,4 @@
-package web.questionaire;
+package web.Questionnaire;
 
 import db.Participant;
 import java.io.IOException;
@@ -17,8 +17,8 @@ import model.participant.ParticipantManager;
  *
  * @author CK
  */
-@WebServlet(name = "PostQuestionaire", urlPatterns = {"/evaluation/PostQuestionaire"})
-public class PostQuestionaire extends HttpServlet {
+@WebServlet(name = "PostQuestionnaire", urlPatterns = {"/evaluation/PostQuestionnaire"})
+public class PostQuestionnaire extends HttpServlet {
 
     @Inject
     private ParticipantManager pam;
@@ -45,7 +45,7 @@ public class PostQuestionaire extends HttpServlet {
                 pam.setStatus("Es wurden noch keine Teilnehmer angelegt.");
             }
             RequestDispatcher rd
-                    = request.getRequestDispatcher("PostQuestionaire.jsp");
+                    = request.getRequestDispatcher("PostQuestionnaire.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

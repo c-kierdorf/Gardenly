@@ -21,21 +21,21 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "prequestionaire")
+@Table(name = "prequestionnaire")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "PreQuestionaire.findAll", query = "SELECT p FROM PreQuestionaire p"),
-    @NamedQuery(name = "PreQuestionaire.findByPreQuestionaireId", query = "SELECT p FROM PreQuestionaire p WHERE p.preQuestionaireId = :preQuestionaireId"),
-    @NamedQuery(name = "PreQuestionaire.findByErwartungen", query = "SELECT p FROM PreQuestionaire p WHERE p.erwartungen like :erwartungen"),
-    @NamedQuery(name = "PreQuestionaire.findByVersion", query = "SELECT p FROM PreQuestionaire p WHERE p.version = :version")})
-public class PreQuestionaire implements Serializable {
+    @NamedQuery(name = "PreQuestionnaire.findAll", query = "SELECT p FROM PreQuestionnaire p"),
+    @NamedQuery(name = "PreQuestionnaire.findByPreQuestionnaireId", query = "SELECT p FROM PreQuestionnaire p WHERE p.preQuestionnaireId = :preQuestionnaireId"),
+    @NamedQuery(name = "PreQuestionnaire.findByErwartungen", query = "SELECT p FROM PreQuestionnaire p WHERE p.erwartungen like :erwartungen"),
+    @NamedQuery(name = "PreQuestionnaire.findByVersion", query = "SELECT p FROM PreQuestionnaire p WHERE p.version = :version")})
+public class PreQuestionnaire implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "preQuestionaire_id")
-    private Integer preQuestionaireId;
+    @Column(name = "prequestionnaire_id")
+    private Integer preQuestionnaireId;
     @Basic(optional = false)
     @NotNull
     @Size(max = 40)
@@ -71,14 +71,14 @@ public class PreQuestionaire implements Serializable {
     @Version
     private int version;
     
-    public PreQuestionaire() {
+    public PreQuestionnaire() {
     }
     
-    public PreQuestionaire(Integer preQuestionaireId) {
-        this.preQuestionaireId = preQuestionaireId;
+    public PreQuestionnaire(Integer preQuestionnaireId) {
+        this.preQuestionnaireId = preQuestionnaireId;
     }
 
-    public PreQuestionaire(Participant participant,
+    public PreQuestionnaire(Participant participant,
                            String haeufigkeitPflanzenpflege,
                            String erfahrungAutomatisiertePflanzenpflege,
                            String technik,
@@ -94,12 +94,12 @@ public class PreQuestionaire implements Serializable {
         this.date = date;
     }
 
-    public Integer getPreQuestionaireId() {
-        return preQuestionaireId;
+    public Integer getPreQuestionnaireId() {
+        return preQuestionnaireId;
     }
 
-    public void setPreQuestionaireId(Integer preQuestionaireId) {
-        this.preQuestionaireId = preQuestionaireId;
+    public void setPreQuestionnaireId(Integer preQuestionnaireId) {
+        this.preQuestionnaireId = preQuestionnaireId;
     }
 
     public String getHaeufigkeitPflanzenpflege() {
@@ -170,18 +170,18 @@ public class PreQuestionaire implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (preQuestionaireId != null ? preQuestionaireId.hashCode() : 0);
+        hash += (preQuestionnaireId != null ? preQuestionnaireId.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PreQuestionaire)) {
+        if (!(object instanceof PreQuestionnaire)) {
             return false;
         }
-        PreQuestionaire other = (PreQuestionaire) object;
-        if ((this.preQuestionaireId == null && other.preQuestionaireId != null) || (this.preQuestionaireId != null && !this.preQuestionaireId.equals(other.preQuestionaireId))) {
+        PreQuestionnaire other = (PreQuestionnaire) object;
+        if ((this.preQuestionnaireId == null && other.preQuestionnaireId != null) || (this.preQuestionnaireId != null && !this.preQuestionnaireId.equals(other.preQuestionnaireId))) {
             return false;
         }
         return true;
@@ -189,7 +189,7 @@ public class PreQuestionaire implements Serializable {
 
     @Override
     public String toString() {
-        return "db.PreQuestionaire[ preQuestionaireId=" + preQuestionaireId + " ]";
+        return "db.PreQuestionnaire[ preQuestionnaireId=" + preQuestionnaireId + " ]";
     }
 
 }

@@ -1,6 +1,6 @@
-package model.prequestionaire;
+package model.preQuestionnaire;
 
-import db.PreQuestionaire;
+import db.PreQuestionnaire;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 @LocalBean
-public class PreQuestionaireFacade extends AbstractFacade<PreQuestionaire> {
+public class PreQuestionnaireFacade extends AbstractFacade<PreQuestionnaire> {
 
     @PersistenceContext(unitName = "GardenlyPU")
     private EntityManager em;
@@ -18,11 +18,11 @@ public class PreQuestionaireFacade extends AbstractFacade<PreQuestionaire> {
         return em;
     }
 
-    public PreQuestionaireFacade() {
-        super(PreQuestionaire.class);
+    public PreQuestionnaireFacade() {
+        super(PreQuestionnaire.class);
     }
     
-    public PreQuestionaire findPreQuestionaireById(Integer id) {
-        return em.find(PreQuestionaire.class, id);
+    public PreQuestionnaire findPreQuestionnaireById(Integer id) {
+        return em.find(PreQuestionnaire.class, id);
     }
 }
