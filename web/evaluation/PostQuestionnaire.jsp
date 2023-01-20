@@ -691,13 +691,11 @@
                                 <select required id="use" name="use" class="shadow appearance-none border transition-all focus:border-main-green-500 rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="" disabled selected>Bitte wählen</option>
                                     <option value="Niemals">Niemals</option>
-                                    <option value="Einmal monatlich">Einmal monatlich</option>
-                                    <option value="Mehrmals im Monat">Mehrmals im Monat</option>
-                                    <option value="Einmal wöchentlich">Einmal wöchentlich</option>
-                                    <option value="Mehrmals die Woche">Mehrmals die Woche</option>
-                                    <option value="Einmal täglich">Einmal täglich</option>
-                                    <option value="Mehrmals täglich">Mehrmals täglich</option>
-                                    <option value="Einmal die Stunde">Einmal die Stunde</option>
+                                    <option value="Einmal in der Woche">Einmal in der Woche</option>
+                                    <option value="Mehrmals in der Woche">Mehrmals in der Woche</option>
+                                    <option value="Einmal am Tag">Einmal am Tag</option>
+                                    <option value="Mehrmals am Tag">Mehrmals am Tag</option>
+                                    <option value="Einmal pro Stunde">Einmal pro Stunde</option>
                                     <option value="Mehrmals pro Stunde">Mehrmals pro Stunde</option>
 
                                 </select>
