@@ -180,53 +180,33 @@ public class PostQuestionnaire implements Serializable {
     @Size(max = 40)
     @Column(name = "use")
     private String use;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "sq1")
     private String sq1;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "sq2")
     private String sq2;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "sq3")
     private String sq3;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "sq4")
     private String sq4;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "sq5")
     private String sq5;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "hq1")
     private String hq1;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "hq2")
     private String hq2;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "hq3")
     private String hq3;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "hq4")
     private String hq4;
-    @Basic(optional = false)
-    @NotNull
     @Size(max = 40)
     @Column(name = "hq5")
     private String hq5;
