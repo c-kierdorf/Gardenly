@@ -134,7 +134,7 @@
                             <option value="Selbstständig">Selbstständig</option>
                             <option value="Angestellt">Angestellt</option>
                             <option value="Schüler/in">Schüler/in</option>
-                            <option value="Student">Student</option>
+                            <option value="Student">Student/in</option>
                             <option value="Arbeitssuchend">Arbeitssuchend</option>
                             <option value="Rentner/in">Rentner/in</option>
                         </select>
