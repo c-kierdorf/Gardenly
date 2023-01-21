@@ -95,12 +95,12 @@
                                     <option value="" disabled selected>Bitte wählen</option>
                                     <option value="Niemals">Niemals</option>
                                     <option value="Einmal monatlich">Einmal monatlich</option>
-                                    <option value="Mehrmals im Monat">Mehrmals im Monat</option>
+                                    <option value="Mehrmals im Monat">Mehrmals monatlich</option>
                                     <option value="Einmal wöchentlich">Einmal wöchentlich</option>
-                                    <option value="Mehrmals die Woche">Mehrmals die Woche</option>
+                                    <option value="Mehrmals die Woche">Mehrmals wöchentlich</option>
                                     <option value="Einmal täglich">Einmal täglich</option>
                                     <option value="Mehrmals täglich">Mehrmals täglich</option>
-                                    <option value="Einmal die Stunde">Einmal die Stunde</option>
+                                    <option value="Einmal die Stunde">Einmal pro Stunde</option>
                                     <option value="Mehrmals pro Stunde">Mehrmals pro Stunde</option>
                                 </select>
                             </div>
@@ -113,8 +113,7 @@
                                     <option value="" disabled selected>Bitte wählen</option>
                                     <option value="Bisher keine">Bisher keine</option>
                                     <option value="Weniger als 1 Jahr">Weniger als 1 Jahr</option>
-                                    <option value="1-3 Jahre">1-3 Jahre</option>
-                                    <option value="Mehr als 3 Jahre">Mehr als 3 Jahre</option>
+                                    <option value="Mehr als 1 Jahr">Mehr als 1 Jahr</option>
                                 </select>
                             </div>
 
